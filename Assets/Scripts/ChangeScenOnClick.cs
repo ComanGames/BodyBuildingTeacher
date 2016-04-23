@@ -10,6 +10,8 @@ namespace Assets.Scripts
         public void Click()
         {
             SceneManager.LoadScene(SceneNumber);
+            Debug.Log("some text");
+
         }
     }
 }

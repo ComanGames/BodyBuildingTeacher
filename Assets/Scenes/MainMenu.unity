@@ -145,7 +145,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 26.6
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 62701786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.14, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1523421316}
   m_HandleRect: {fileID: 1523421315}
   m_Direction: 2
-  m_Value: 0.4999999
-  m_Size: 0.5535809
+  m_Value: 1
+  m_Size: 0.71995765
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -564,9 +564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 347072796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 32cd64b459ffca846ba0c2d860868993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneNumber: 1
 --- !u!1 &463765627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,9 +1025,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 716194404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 32cd64b459ffca846ba0c2d860868993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneNumber: 2
 --- !u!1 &727562154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1130,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &733414573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1206,7 @@ RectTransform:
   m_AnchorMax: {x: 0.8644752, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1093242366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,9 +1279,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1093242364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7515b6446e50af419a6945ed1b461fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 579c8ec16f143b54cafc07adf44c4a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartPosition: 1
 --- !u!1 &1221995132
 GameObject:
   m_ObjectHideFlags: 0

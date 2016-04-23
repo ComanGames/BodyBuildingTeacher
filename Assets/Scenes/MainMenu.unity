@@ -1181,7 +1181,6 @@ GameObject:
   - 222: {fileID: 1093242368}
   - 114: {fileID: 1093242367}
   - 114: {fileID: 1093242366}
-  - 114: {fileID: 1093242369}
   m_Layer: 5
   m_Name: Scroller
   m_TagString: Untagged
@@ -1271,18 +1270,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093242364}
---- !u!114 &1093242369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093242364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 579c8ec16f143b54cafc07adf44c4a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPosition: 1
 --- !u!1 &1221995132
 GameObject:
   m_ObjectHideFlags: 0

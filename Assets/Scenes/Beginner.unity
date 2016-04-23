@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 347072796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cd64b459ffca846ba0c2d860868993, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 996264703}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22123659
+  m_Size: 0.30077103
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

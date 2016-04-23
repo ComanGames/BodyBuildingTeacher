@@ -375,7 +375,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1523421315}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.71995765
+  m_Size: 0.7517205
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 347072796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cd64b459ffca846ba0c2d860868993, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 1
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 716194404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cd64b459ffca846ba0c2d860868993, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 2

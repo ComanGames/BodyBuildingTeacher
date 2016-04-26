@@ -13,6 +13,7 @@ namespace Assets.Scripts.Modules.ActionFrom
     public class ActionSequence :Worker
     {
         public WorkForTime[] ForTime;
+        //add some line
         public bool WorkAfterEnd;
         public void Start()
         {

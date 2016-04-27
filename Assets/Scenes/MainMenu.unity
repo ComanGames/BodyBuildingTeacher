@@ -1181,7 +1181,6 @@ GameObject:
   - 222: {fileID: 1093242368}
   - 114: {fileID: 1093242367}
   - 114: {fileID: 1093242366}
-  - 114: {fileID: 1093242369}
   m_Layer: 5
   m_Name: Scroller
   m_TagString: Untagged
@@ -1271,18 +1270,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093242364}
---- !u!114 &1093242369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093242364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 579c8ec16f143b54cafc07adf44c4a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPosition: 1
 --- !u!1 &1221995132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1282,7 @@ GameObject:
   - 114: {fileID: 1221995136}
   - 114: {fileID: 1221995135}
   - 114: {fileID: 1221995134}
+  - 114: {fileID: 1221995138}
   m_Layer: 5
   m_Name: After Middle
   m_TagString: Untagged
@@ -1376,7 +1364,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1221995136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1221995138}
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1221995136
@@ -1412,6 +1411,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1221995132}
+--- !u!114 &1221995138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221995132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 3
 --- !u!1 &1256848422
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,40 +92,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 427562, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+    - target: {fileID: 400000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7fc4dbc63a0157e4c8773353e59443fb, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
   m_IsPrefabParent: 0
 --- !u!224 &910637049
 RectTransform:
@@ -146,6 +146,128 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: 0}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &961061614
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22476216, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488884, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.73568606
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488884, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488884, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473352, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405076, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+      propertyPath: m_Text
+      value: "Although verbal clitics such as -'ll in English are attached to nouns
+        and indicate TAM information, they are not really examples of nominal TAM
+        because they are clitics rather than inflections and therefore not part of
+        the noun at all.[3] This is easily seen in sentences where the clitic is attached
+        to another part of speech, such as \"The one you want'll be in the shed\".\r\n\r\nAnother
+        way to tell the difference is to consider the following hypothetical dialogue:\r\n\r\n\"I
+        thought you said that she read the book.\"\r\n\"No, I said she will read the
+        book.\" [as opposed to] \"No, I said she'll read the book.\" [wrong in this
+        context]\r\nThe speaker cannot emphasise the future time by placing voice
+        stress on she'll, and so instead uses the expanded phrase she will. This is
+        characteristic of clitics as opposed to inflections (i.e. clitics cannot be
+        emphasised by placing voice stress on the word to which they are attached).\r\n\r\nThe
+        significance of this can be seen by comparison with a second hypothetical
+        dialogue, using the English negative suffix -n't (which is best understood
+        as an inflection rather than a clitic):\r\n\r\n\"I thought you said that it
+        is a good book.\"\r\n\"No, I said it is not a good book.\" [or] \"No, I said
+        it isn't a good book.\" [equally correct]\r\nIn this case the speaker could
+        choose to say isn't rather than is not. Even though the stress then falls
+        on the syllable IS, the meaning of the sentence is understood as emphasising
+        the NOT. This indicates that isn't is one inflected word rather than a word
+        with a clitic attached."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 32e3917ca9bb7ef48838e2737a739297, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1017184370
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +468,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &1485815551 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+  m_PrefabInternal: {fileID: 2142722419}
+--- !u!114 &1485815552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485815551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3f282b3cdb3714ca23af463d2fc762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AxisToRotateAround: {x: 1, y: 1, z: 0}
+  Speed: 2.5
 --- !u!1 &1573758272
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +543,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 27
+  field of view: 29
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -644,3 +783,62 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901488575}
+--- !u!1 &2049529938 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a7fdc4623df6565438b8a9013bf8bd75, type: 3}
+  m_PrefabInternal: {fileID: 168629164}
+--- !u!114 &2049529939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049529938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3f282b3cdb3714ca23af463d2fc762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AxisToRotateAround: {x: 0, y: 0, z: 1}
+  Speed: 1
+--- !u!1001 &2142722419
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9e562d535baa5f94eab22255f8107ebd, type: 3}
+  m_IsPrefabParent: 0

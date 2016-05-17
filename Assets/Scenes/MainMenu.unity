@@ -429,7 +429,7 @@ GameObject:
   - 114: {fileID: 347072798}
   - 114: {fileID: 347072802}
   m_Layer: 5
-  m_Name: Beginner
+  m_Name: Addition & Substraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1928,7 +1928,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beginner
+  m_Text: Addition & Substraction
 --- !u!222 &1842588435
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Mathematic
@@ -9,7 +10,6 @@ namespace Assets.Scripts.Mathematic
         private MathManager _managerMath;
         public Text QuestionText;
         public Text AnswerText;
-        
 
         public void SetMathManager(MathManager mathManager)
         {
@@ -34,6 +34,11 @@ namespace Assets.Scripts.Mathematic
         public void ClickNextQuestion()
         {
             _managerMath.AskQuestion();
+        }
+
+        public void ClickNumberButton(int number)
+        {
+            AnswerText.text += number;
         }
 
         public void ShowQuestion(MathQuestion mathQuestion)

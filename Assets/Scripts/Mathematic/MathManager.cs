@@ -70,7 +70,6 @@ namespace Assets.Scripts.Mathematic
             return AvaliableOperations[indexOfOperation];
         }
 
-
         // Update is called once per frame
         public void Update () {
 	

@@ -67,7 +67,7 @@
                     result = "/";
                     break;
                     case MathOperation.Multiply:
-                    result = "*";
+                    result = "x";
                     break;
             }
             return result;

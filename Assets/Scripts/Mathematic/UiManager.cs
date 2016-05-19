@@ -6,9 +6,15 @@ namespace Assets.Scripts.Mathematic
     public class UiManager : MonoBehaviour
     {
 
+        private MathManager _managerMath;
         public Text QuestionText;
         public Text AnswerText;
+        
 
+        public void SetMathManager(MathManager mathManager)
+        {
+            _managerMath = mathManager;
+        }
         // Use this for initialization
         public void Start () {
 	
@@ -23,6 +29,16 @@ namespace Assets.Scripts.Mathematic
         {
             QuestionText.text = "";
             AnswerText.text = "";
+        }
+
+        public void ClickNextQuestion()
+        {
+            _managerMath.AskQuestion();
+        }
+
+        public void ShowQuestion(MathQuestion mathQuestion)
+        {
+            QuestionText.text = mathQuestion.ToString();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace Assets.Scripts.Mathematic
         public void ClickNextQuestion()
         {
             _managerMath.AskQuestion();
+            AnswerText.text = "";
         }
 
         public void ClickNumberButton(int number)

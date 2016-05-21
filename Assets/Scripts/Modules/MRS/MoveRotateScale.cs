@@ -15,7 +15,7 @@ namespace Assets.Scripts.Modules.MRS
         public MRSActions ActionsToDo;
         public Vector3 Axis;
         public float Speed;
-
+        //Create some new class based on worker but with work do while 
 
         public void Update()
         {

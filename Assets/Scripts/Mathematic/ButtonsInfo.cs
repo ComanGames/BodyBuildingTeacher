@@ -15,5 +15,6 @@ namespace Assets.Scripts.Mathematic
         public void Click7() { ManagerUi.ClickNumberButton(7); }
         public void Click8() { ManagerUi.ClickNumberButton(8); }
         public void Click9() { ManagerUi.ClickNumberButton(9); }
+
     }
 }

@@ -187,9 +187,9 @@ MonoBehaviour:
   QuestionCount: 10
   AvaliableOperations: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
   FirstNumberMin: 0
-  FirstNumberMax: 1
-  SecondNumberMin: 100
-  SecondNumberMax: 110
+  FirstNumberMax: 21
+  SecondNumberMin: 0
+  SecondNumberMax: 21
 --- !u!1 &137504366
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ GameObject:
   - 114: {fileID: 455100171}
   - 114: {fileID: 455100170}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 455100171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click6
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &455100171
@@ -680,7 +691,7 @@ GameObject:
   - 222: {fileID: 642084997}
   - 114: {fileID: 642084996}
   m_Layer: 5
-  m_Name: group 1
+  m_Name: Group 1 (numbers 1 2 3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +961,7 @@ GameObject:
   - 222: {fileID: 762563096}
   - 114: {fileID: 762563095}
   m_Layer: 5
-  m_Name: group 2
+  m_Name: Group 2 (numbers 4 5 6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1093,7 @@ GameObject:
   - 114: {fileID: 844661587}
   - 114: {fileID: 844661586}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1146,7 +1157,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 243230927}
-        m_MethodName: Click0
+        m_MethodName: Click9
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1203,7 +1214,7 @@ GameObject:
   - 114: {fileID: 850407581}
   - 114: {fileID: 850407580}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1265,7 +1276,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 850407581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &850407581
@@ -1313,7 +1335,7 @@ GameObject:
   - 114: {fileID: 1000498722}
   - 114: {fileID: 1000498721}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1397,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1000498722}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1000498722
@@ -1423,7 +1456,7 @@ GameObject:
   - 114: {fileID: 1001776485}
   - 114: {fileID: 1001776484}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,7 +1518,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1001776485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1001776485
@@ -1608,7 +1652,7 @@ GameObject:
   - 114: {fileID: 1071456324}
   - 114: {fileID: 1071456323}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,7 +1993,7 @@ GameObject:
   - 114: {fileID: 1224705975}
   - 114: {fileID: 1224705974}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2150,7 +2194,7 @@ GameObject:
   - 114: {fileID: 1262617692}
   - 114: {fileID: 1262617691}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2212,7 +2256,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1262617692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click7
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1262617692
@@ -2260,7 +2315,7 @@ GameObject:
   - 114: {fileID: 1485790371}
   - 114: {fileID: 1485790370}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2381,7 +2436,7 @@ GameObject:
   - 114: {fileID: 1504551808}
   - 114: {fileID: 1504551807}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2443,7 +2498,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1504551808}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1504551808
@@ -2677,7 +2743,7 @@ GameObject:
   - 222: {fileID: 1691030776}
   - 114: {fileID: 1691030775}
   m_Layer: 5
-  m_Name: group 4
+  m_Name: Group 4 (numbers Back 0 Next)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2814,7 +2880,7 @@ GameObject:
   - 114: {fileID: 1880299389}
   - 114: {fileID: 1880299388}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2876,7 +2942,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1880299389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243230927}
+        m_MethodName: Click8
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1880299389
@@ -2924,7 +3001,7 @@ GameObject:
   - 114: {fileID: 1920722767}
   - 114: {fileID: 1920722766}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3190,7 +3267,7 @@ GameObject:
   - 222: {fileID: 2089591918}
   - 114: {fileID: 2089591917}
   m_Layer: 5
-  m_Name: group 3
+  m_Name: Group 3 (numbers 7 8 9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

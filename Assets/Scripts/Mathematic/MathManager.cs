@@ -3,7 +3,7 @@ using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
 {
-    public class MathManager : MonoBehaviour
+    public class MathManager : MonoBehaviour, IMathManager
     {
 
         public UiManager ManagerUi;
@@ -28,10 +28,11 @@ namespace Assets.Scripts.Mathematic
 
         }
 
+
         public void AskQuestion()
         {
             MathQuestion mathQuestion = GetRandomQuestion();
-            ManagerUi.ShowQuestion(mathQuestion);
+            ManagerUi.ShowQuestion(mathQuestion.ToString());
         }
 
         private MathQuestion GetRandomQuestion()

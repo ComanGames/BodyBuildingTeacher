@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Mathematic
@@ -7,11 +6,11 @@ namespace Assets.Scripts.Mathematic
     public class UiManager : MonoBehaviour
     {
 
-        private MathManager _managerMath;
+        private IMathManager _managerMath;
         public Text QuestionText;
         public Text AnswerText;
 
-        public void SetMathManager(MathManager mathManager)
+        public void SetMathManager(IMathManager mathManager)
         {
             _managerMath = mathManager;
         }
@@ -41,9 +40,16 @@ namespace Assets.Scripts.Mathematic
             AnswerText.text += number;
         }
 
-        public void ShowQuestion(MathQuestion mathQuestion)
+        public int GetAnswerNumber()
         {
-            QuestionText.text = mathQuestion.ToString();
+            if (AnswerText.text == "")
+                return 0;
+            return int.Parse(AnswerText.text);
+        }
+
+        public void ShowQuestion(string questoin)
+        {
+            QuestionText.text = questoin;
         }
     }
 }

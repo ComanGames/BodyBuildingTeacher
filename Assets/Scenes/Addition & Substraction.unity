@@ -186,10 +186,11 @@ MonoBehaviour:
   ManagerUi: {fileID: 1571473787}
   QuestionCount: 10
   AvaliableOperations: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  IsWrongAnswers: 1
   FirstNumberMin: 0
-  FirstNumberMax: 21
+  FirstNumberMax: 10
   SecondNumberMin: 0
-  SecondNumberMax: 21
+  SecondNumberMax: 10
 --- !u!1 &137504366
 GameObject:
   m_ObjectHideFlags: 0

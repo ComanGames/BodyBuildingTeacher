@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
@@ -8,31 +10,83 @@ namespace Assets.Scripts.Mathematic
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
-        public MathOperation[] AvaliableOperations; 
+        public MathOperation[] AvaliableOperations;
+        public bool IsWrongAnswers;
         //First number
         public int FirstNumberMin = 1;
         public int FirstNumberMax = 10;
         //Second number
         public int SecondNumberMin = 1;
         public int SecondNumberMax = 10;
+        private string _answerText;
         private Random _random;
+        private List<MathQuestion> _mathQuestions;
 
         // Use this for initialization
         public void Start ()
         {
-
+            _mathQuestions = new List<MathQuestion>();
              _random = new Random();
             ManagerUi.Clear();
             ManagerUi.SetMathManager(this);
             AskQuestion();
-
         }
 
 
         public void AskQuestion()
         {
+            if(_mathQuestions.Count>=QuestionCount)
+            {
+                ManagerUi.EndGame();
+                return;
+            }
+            _answerText = "";
+            ManagerUi.UpdateAnswerView(_answerText);
             MathQuestion mathQuestion = GetRandomQuestion();
+            _mathQuestions.Add(mathQuestion);
             ManagerUi.ShowQuestion(mathQuestion.ToString());
+        }
+
+        public void NumberInput(int number)
+        {
+            _answerText += number;
+            ManagerUi.UpdateAnswerView(_answerText);
+            CheckAnswer();
+        }
+
+        private void CheckAnswer()
+        {
+            if (IsWrongAnswers)
+                CheckWithWrongAnswers();
+            else
+                CheckWithoutWrongAnswer();
+                
+        }
+
+        private void CheckWithWrongAnswers()
+        {
+            int realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
+
+            if (realAnswer.ToString().Length > _answerText.Length)
+                return;
+            if (realAnswer.ToString().Length == _answerText.Length)
+            {
+                 if(realAnswer==Int32.Parse(_answerText))
+                 {
+                     ManagerUi.RightAnswer();
+                    AskQuestion();
+                 }
+                 else
+                 {
+                     ManagerUi.WrongAnswar();
+                    AskQuestion();
+                 }
+            }
+        }
+
+        private void CheckWithoutWrongAnswer()
+        {
+            throw new System.NotImplementedException();
         }
 
         private MathQuestion GetRandomQuestion()

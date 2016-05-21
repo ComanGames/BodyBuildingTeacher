@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Mathematic
@@ -33,12 +34,16 @@ namespace Assets.Scripts.Mathematic
         public void ClickNextQuestion()
         {
             _managerMath.AskQuestion();
-            AnswerText.text = "";
         }
 
         public void ClickNumberButton(int number)
         {
-            AnswerText.text += number;
+            _managerMath.NumberInput(number);
+        }
+
+        public void UpdateAnswerView(string text)
+        {
+            AnswerText.text = text;
         }
 
         public int GetAnswerNumber()
@@ -51,6 +56,21 @@ namespace Assets.Scripts.Mathematic
         public void ShowQuestion(string questoin)
         {
             QuestionText.text = questoin;
+        }
+        public void WrongAnswar()
+        {
+            Debug.Log("Wrong Answer");
+        }
+
+        public void RightAnswer()
+        {
+           Debug.Log("Right Answer"); 
+        }
+
+        public void EndGame()
+        {
+            Debug.Log("We done game");
+            SceneManager.LoadScene(0);
         }
     }
 }

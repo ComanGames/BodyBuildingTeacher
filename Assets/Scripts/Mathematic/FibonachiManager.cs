@@ -18,10 +18,13 @@ namespace Assets.Scripts.Mathematic
         
         public  void AskQuestion()
         {
-           
             int inputNumber = ManagerUi.GetAnswerNumber();
             var isOn = IsAsync.isOn;
              AskQuestionAsyncOrNot(isOn, inputNumber);
+        }
+
+        public void NumberInput(int number)
+        {
         }
 
         private async void AskQuestionAsyncOrNot(bool isOn, int inputNumber)
@@ -30,14 +33,11 @@ namespace Assets.Scripts.Mathematic
             if (isOn)
             {
                 answer = await FibonachiAsyncUtilities.FibonachiAsync(inputNumber);
-
             }
             else
             {
                 answer = FibonachiAsyncUtilities.Fibonachi(inputNumber);
-
             }
-
                 ManagerUi.Clear();
                 ManagerUi.ShowQuestion(answer.ToString());
 

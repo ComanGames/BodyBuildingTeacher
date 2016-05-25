@@ -5,7 +5,7 @@ using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
 {
-    public class MathManager : MonoBehaviour, IMathManager
+    public class MathManager : MonoBehaviour 
     {
 
         public UiManager ManagerUi;
@@ -25,10 +25,13 @@ namespace Assets.Scripts.Mathematic
         // Use this for initialization
         public void Start ()
         {
+
             _mathQuestions = new List<MathQuestion>();
              _random = new Random();
             ManagerUi.Clear();
-            ManagerUi.SetMathManager(this);
+            ManagerUi.ClickNextButton += AskQuestion;
+            ManagerUi.ClickButtonNumber += NumberInput;
+//            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
             AskQuestion();
         }
 

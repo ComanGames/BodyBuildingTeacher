@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -7,14 +8,24 @@ namespace Assets.Scripts.Mathematic
     public class UiManager : MonoBehaviour
     {
 
-        private IMathManager _managerMath;
         public Text QuestionText;
         public Text AnswerText;
 
-        public void SetMathManager(IMathManager mathManager)
-        {
-            _managerMath = mathManager;
-        }
+        public event Action ClickNextButton;
+        public event Action<int> ClickButtonNumber;
+
+        //        public delegate int GiveNumber(string input);
+        //        public event GiveNumber NumberInput;
+
+        // What is really going around with delegates.
+        //        public delegate void ActionOn();
+        //        public delegate void ButtonOn(int n);
+        //        public event ActionOn ClickNextButton;
+        //        public event ButtonOn ClickButtonNumber;
+
+
+
+
         // Use this for initialization
         public void Start () {
 	
@@ -33,12 +44,13 @@ namespace Assets.Scripts.Mathematic
 
         public void ClickNextQuestion()
         {
-            _managerMath.AskQuestion();
+            ClickNextButton?.Invoke();
         }
 
         public void ClickNumberButton(int number)
         {
-            _managerMath.NumberInput(number);
+//            _managerMath.NumberInput(number);
+                ClickButtonNumber?.Invoke(number);
         }
 
         public void UpdateAnswerView(string text)

@@ -21,6 +21,7 @@
                     answer = FirstNumber+SecondNumber;
                     break;
                 case MathOperation.Minus:
+
                     answer = FirstNumber-SecondNumber;
                     break;
                 case MathOperation.Devide:

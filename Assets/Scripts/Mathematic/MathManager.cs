@@ -7,7 +7,6 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
-
         public UiManager ManagerUi;
         public int QuestionCount = 3;
         public MathOperation[] AvaliableOperations;
@@ -96,18 +95,38 @@ namespace Assets.Scripts.Mathematic
         {
             MathOperation operation = GetRendomOperation();
             int firstNumber = GetFirstNumber();
-            int secondNumber = GetSecondNumber(operation);
-            MathQuestion mathQuestion = new MathQuestion(firstNumber,secondNumber,operation);
+            int secondNumber = GetSecondNumber();
+            MathQuestion mathQuestion = CreateMathQuestion( firstNumber,secondNumber,operation);
             return mathQuestion;
         }
 
-        private int GetSecondNumber(MathOperation operation)
+        private MathQuestion CreateMathQuestion(int firstNumber, int secondNumber, MathOperation operation)
         {
-            int result = GetRandomNumber(SecondNumberMin,SecondNumberMax);
-            if (operation == MathOperation.Devide && result == 0)
-                result = 1;
-            return result;
+            if (operation == MathOperation.Devide)
+            {
+                if(SecondNumberMin==0&&SecondNumberMax==0)
+                    throw new InvalidOperationException("Second number always 0");
+                while (secondNumber==0)
+                {
+                    secondNumber = GetSecondNumber();
+                }
+            }
+            if (operation ==MathOperation.Minus)
+            {
+                if (firstNumber < secondNumber)
+                {
+                    firstNumber += secondNumber;
+                    secondNumber = firstNumber - secondNumber;
+                    firstNumber -= secondNumber;
+                }
+            }
 
+           return  new MathQuestion(firstNumber,secondNumber,operation);
+        }
+
+        private int GetSecondNumber()
+        {
+            return GetRandomNumber(SecondNumberMin,SecondNumberMax);
         }
 
         private int GetFirstNumber()
@@ -117,6 +136,8 @@ namespace Assets.Scripts.Mathematic
 
         private int GetRandomNumber(int from, int to)
         {
+            if(_random==null)
+                _random = new Random();
             int result = _random.Next(from, to+1);
             return result;
         }

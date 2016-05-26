@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ManagerUi: {fileID: 1571473787}
   QuestionCount: 10
-  AvaliableOperations: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  AvaliableOperations: 01000000
   IsWrongAnswers: 1
   FirstNumberMin: 0
   FirstNumberMax: 10

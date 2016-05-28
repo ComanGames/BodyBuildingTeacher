@@ -184,13 +184,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ManagerUi: {fileID: 1571473787}
-  QuestionCount: 10
-  AvaliableOperations: 01000000
+  QuestionCount: 5
+  AvaliableOperations: 0100000000000000
   IsWrongAnswers: 1
-  FirstNumberMin: 0
-  FirstNumberMax: 10
-  SecondNumberMin: 0
-  SecondNumberMax: 10
+  FirstNumberMin: 10
+  FirstNumberMax: 20
+  SecondNumberMin: 10
+  SecondNumberMax: 20
 --- !u!1 &137504366
 GameObject:
   m_ObjectHideFlags: 0

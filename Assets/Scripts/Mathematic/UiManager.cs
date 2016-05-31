@@ -1,4 +1,6 @@
 ﻿using System;
+using Assets.Scripts.Animations.Scripts;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +12,11 @@ namespace Assets.Scripts.Mathematic
 
         public Text QuestionText;
         public Text AnswerText;
+        public float FadeOutTime = 1.0f;
+        public CounterAnimation CounterAnimationScript;
+        public Image CounterBgImage;
+        public GameObject CounterCanvas;
+        private Text _counterText;
 
         public event Action ClickNextButton;
         public event Action<int> ClickButtonNumber;
@@ -27,8 +34,10 @@ namespace Assets.Scripts.Mathematic
 
 
         // Use this for initialization
-        public void Start () {
-	
+        public void Start ()
+        {
+
+            _counterText = CounterAnimationScript.GetComponent<Text>();
         }
 	
         // Update is called once per frame
@@ -83,6 +92,23 @@ namespace Assets.Scripts.Mathematic
         {
             Debug.Log("We done game");
             SceneManager.LoadScene(0);
+        }
+
+        public void StartCounterAnimation(Action callbackAction)
+        {
+            CounterAnimationScript.StartAnimation();
+            CounterAnimationScript.AnimationEnd += callbackAction;
+        }
+
+        public void FadeOutCounterAnimation(Action askQuestion)
+        {
+            DOVirtual.Float(1.0f, 0.0f, FadeOutTime, FadeUpdate).OnComplete(()=> {CounterCanvas.SetActive(false); askQuestion();});
+        }
+
+        private void FadeUpdate(float value)
+        {
+            CounterBgImage.color = new Color(1, 1, 1, value);
+            _counterText.color = new Color(_counterText.color.r,_counterText.color.g,_counterText.color.b,value);
         }
     }
 }

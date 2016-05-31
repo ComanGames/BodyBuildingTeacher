@@ -30,7 +30,7 @@ namespace Assets.Scripts.Animations.Scripts
         private RectTransform _uiTransform;
         private Text _uiText;
 
-        public void Start()
+        public void Awake()
         {
 
             _uiTransform = GetComponent<RectTransform>();
@@ -44,15 +44,27 @@ namespace Assets.Scripts.Animations.Scripts
                     animationData.Time = timeForEach;
                 }
             }
-            StartAnimation();
         }
 
         public void StartAnimation()
         {
             DOTween.Init();
+            GoNext();
+        }
+
+        private void GoNext()
+        {
+            if(_currentIndex>=AnimationTextAndTime.Length)
+            {
+                AnimationEnd?.Invoke();
+                return;
+            }
             CountAnimationData currentData = AnimationTextAndTime[_currentIndex++];
             _uiText.text = currentData.Text;
-            (_uiTransform as RectTransform).DOScale(transform.localScale*3,currentData.Time);
+            Vector3 tragetScale = transform.localScale;
+            transform.localScale = Vector3.zero;
+            (_uiTransform as RectTransform).DOScale(tragetScale, currentData.Time).OnComplete(GoNext);
+
         }
     }
 

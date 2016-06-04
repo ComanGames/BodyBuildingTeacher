@@ -1,6 +1,5 @@
 ﻿using System;
 using Assets.Scripts.Animations.Scripts;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,33 +12,14 @@ namespace Assets.Scripts.Mathematic
         public Text QuestionText;
         public Text AnswerText;
         public float FadeOutTime = 1.0f;
-        public CounterAnimation CounterAnimationScript;
-        public Image CounterBgImage;
+        public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
-        private Text _counterText;
-
+        public SlideConvasOut CounterRemoveAnimation;
+        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+        private IUiAnimation CounterAnimationInterface => AnimationCounter;
         public event Action ClickNextButton;
         public event Action<int> ClickButtonNumber;
 
-        //        public delegate int GiveNumber(string input);
-        //        public event GiveNumber NumberInput;
-
-        // What is really going around with delegates.
-        //        public delegate void ActionOn();
-        //        public delegate void ButtonOn(int n);
-        //        public event ActionOn ClickNextButton;
-        //        public event ButtonOn ClickButtonNumber;
-
-
-
-
-        // Use this for initialization
-        public void Start ()
-        {
-
-            _counterText = CounterAnimationScript.GetComponent<Text>();
-        }
-	
         // Update is called once per frame
         public void Update () {
 	
@@ -96,19 +76,14 @@ namespace Assets.Scripts.Mathematic
 
         public void StartCounterAnimation(Action callbackAction)
         {
-            CounterAnimationScript.StartAnimation();
-            CounterAnimationScript.AnimationEnd += callbackAction;
+            CounterAnimationInterface.StartAnimation();
+            CounterAnimationInterface.AniamtionDone += callbackAction;
         }
 
-        public void FadeOutCounterAnimation(Action askQuestion)
+        public void FadeOutCounterAnimation(Action startTime)
         {
-            DOVirtual.Float(1.0f, 0.0f, FadeOutTime, FadeUpdate).OnComplete(()=> {CounterCanvas.SetActive(false); askQuestion();});
-        }
-
-        private void FadeUpdate(float value)
-        {
-            CounterBgImage.color = new Color(1, 1, 1, value);
-            _counterText.color = new Color(_counterText.color.r,_counterText.color.g,_counterText.color.b,value);
+            RemoveCounterAnimationInterface.AniamtionDone += startTime;
+            RemoveCounterAnimationInterface.StartAnimation();
         }
     }
 }

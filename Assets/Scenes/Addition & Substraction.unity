@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460098, guid: 28ee142f98fe0c04b9d71ea841b16b85, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 11
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 22460098, guid: 28ee142f98fe0c04b9d71ea841b16b85, type: 2}
       propertyPath: m_SizeDelta.x
@@ -204,7 +204,8 @@ Prefab:
       propertyPath: TimeTypes
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11442402, guid: 28ee142f98fe0c04b9d71ea841b16b85, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28ee142f98fe0c04b9d71ea841b16b85, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &62701786
@@ -473,6 +474,8 @@ GameObject:
   - 224: {fileID: 268519306}
   - 222: {fileID: 268519308}
   - 114: {fileID: 268519307}
+  - 114: {fileID: 268519309}
+  - 114: {fileID: 268519310}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -531,6 +534,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268519305}
+--- !u!114 &268519309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268519305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &268519310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268519305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5739c244e16c44ab3d8b2f4354cc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TexTransform: {fileID: 1074292341}
+  OurCanvas: {fileID: 1656622591}
+  Direction: {x: -1, y: 0}
+  Time: 1
 --- !u!1 &348968007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1098,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &731269774 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 186610, guid: 28ee142f98fe0c04b9d71ea841b16b85, type: 2}
+  m_PrefabInternal: {fileID: 23253175}
+--- !u!114 &731269778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731269774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a758da95857214aa4577683fb3a461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeTypes: 1
+  TotalTime: 3
+  AnimationTextAndTime:
+  - Text: 3
+    Time: 0
+  - Text: 2
+    Time: 0
+  - Text: 1
+    Time: 0
+  - Text: Go
+    Time: 0
 --- !u!1 &733031139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,12 +2013,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22460098, guid: 28ee142f98fe0c04b9d71ea841b16b85,
     type: 2}
   m_PrefabInternal: {fileID: 23253175}
---- !u!114 &1074292342 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11442402, guid: 28ee142f98fe0c04b9d71ea841b16b85,
-    type: 2}
-  m_PrefabInternal: {fileID: 23253175}
-  m_Script: {fileID: 11500000, guid: 60a758da95857214aa4577683fb3a461, type: 3}
 --- !u!1 &1083959545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,9 +2985,9 @@ MonoBehaviour:
   QuestionText: {fileID: 1149872478}
   AnswerText: {fileID: 533521688}
   FadeOutTime: 1
-  CounterAnimationScript: {fileID: 1074292342}
-  CounterBgImage: {fileID: 268519307}
+  AnimationCounter: {fileID: 731269778}
   CounterCanvas: {fileID: 1656622591}
+  CounterRemoveAnimation: {fileID: 268519310}
 --- !u!1 &1656622591
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,9 @@ namespace Assets.Scripts.Animations.Scripts
         public float Procent;
         public Color ColorLine;
     }
-    public class TimeLineAnimation:MonoBehaviour
+
+
+    public class TimeLineAnimation:MonoBehaviour,IUiAnimation
     {
         public float Time;
         public TimeColor[] TimeColors;

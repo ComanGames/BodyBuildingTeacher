@@ -19,20 +19,19 @@ namespace Assets.Scripts.Animations.Scripts
     }
 
     [RequireComponent (typeof (Text))]
-   public class CounterAnimation:MonoBehaviour
+   public class CounterAnimation:MonoBehaviour,IUiAnimation
     {
 
-        public event Action AnimationEnd;
         public TypesOfTime TimeTypes;
+        public event Action AniamtionDone;
         public float TotalTime;
         public CountAnimationData[] AnimationTextAndTime;
         private int _currentIndex;
         private RectTransform _uiTransform;
         private Text _uiText;
 
-        public void Awake()
+        private void SetAnimation()
         {
-
             _uiTransform = GetComponent<RectTransform>();
             _uiText = GetComponent<Text>();
 
@@ -46,8 +45,10 @@ namespace Assets.Scripts.Animations.Scripts
             }
         }
 
+
         public void StartAnimation()
         {
+            SetAnimation();
             DOTween.Init();
             GoNext();
         }
@@ -56,14 +57,14 @@ namespace Assets.Scripts.Animations.Scripts
         {
             if(_currentIndex>=AnimationTextAndTime.Length)
             {
-                AnimationEnd?.Invoke();
+                AniamtionDone?.Invoke();
                 return;
             }
             CountAnimationData currentData = AnimationTextAndTime[_currentIndex++];
             _uiText.text = currentData.Text;
             Vector3 tragetScale = transform.localScale;
             transform.localScale = Vector3.zero;
-            (_uiTransform as RectTransform).DOScale(tragetScale, currentData.Time).OnComplete(GoNext);
+            _uiTransform.DOScale(tragetScale, currentData.Time).OnComplete(GoNext);
 
         }
     }

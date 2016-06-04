@@ -31,7 +31,13 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.ClickNextButton += AskQuestion;
             ManagerUi.ClickButtonNumber += NumberInput;
 //            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
-            AskQuestion();
+            ManagerUi.StartCounterAnimation(new Action(CounterAnimaitonDone));
+
+        }
+
+        private void CounterAnimaitonDone()
+        {
+            ManagerUi.FadeOutCounterAnimation(AskQuestion);
         }
 
 

@@ -10,6 +10,7 @@ namespace Assets.Scripts.Mathematic
 
         public Text QuestionText;
         public Text AnswerText;
+        public Text CorrectnessText;
 
         public event Action ClickNextButton;
         public event Action<int> ClickButtonNumber;
@@ -71,12 +72,14 @@ namespace Assets.Scripts.Mathematic
         }
         public void WrongAnswar()
         {
-            Debug.Log("Wrong Answer");
+            CorrectnessText.text = "Incorrect";
+            CorrectnessText.color = Color.red;
         }
 
         public void RightAnswer()
         {
-           Debug.Log("Right Answer"); 
+            CorrectnessText.text = "Correct";
+            CorrectnessText.color = Color.green;
         }
 
         public void EndGame()

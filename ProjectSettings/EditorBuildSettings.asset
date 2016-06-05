@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/After Middle.unity
   - enabled: 1
     path: Assets/Scenes/NewScene.unity
+  - enabled: 1
+    path: Assets/Scenes/MainMenuWorkVersion.unity

@@ -18,7 +18,9 @@ namespace Assets.Scripts.Mathematic
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
         public event Action ClickNextButton;
+        public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
+        
 
         // Update is called once per frame
         public void Update () {
@@ -40,6 +42,11 @@ namespace Assets.Scripts.Mathematic
         {
 //            _managerMath.NumberInput(number);
                 ClickButtonNumber?.Invoke(number);
+        }
+
+        public void ClearAnwerView()
+        {
+            ClickResetButton?.Invoke();
         }
 
         public void UpdateAnswerView(string text)

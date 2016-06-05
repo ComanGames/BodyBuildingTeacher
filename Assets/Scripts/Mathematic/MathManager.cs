@@ -30,9 +30,16 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.Clear();
             ManagerUi.ClickNextButton += AskQuestion;
             ManagerUi.ClickButtonNumber += NumberInput;
+            ManagerUi.ClickResetButton += ResetCount;
 //            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
             ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
 
+        }
+
+        private void ResetCount()
+        {
+            _answerText = "";
+            ManagerUi.UpdateAnswerView(_answerText);
         }
 
         private void CounterAnimaitonDone()

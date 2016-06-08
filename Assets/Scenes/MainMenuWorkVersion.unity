@@ -142,9 +142,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 17
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 255
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -512,6 +512,7 @@ GameObject:
   - 114: {fileID: 659994872}
   - 114: {fileID: 659994871}
   - 114: {fileID: 659994874}
+  - 114: {fileID: 659994875}
   m_Layer: 5
   m_Name: Easy Training
   m_TagString: Untagged
@@ -532,10 +533,10 @@ RectTransform:
   - {fileID: 33863662}
   m_Father: {fileID: 1537849327}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.28718066, y: 0.7084959}
-  m_AnchorMax: {x: 0.28718066, y: 0.7084959}
-  m_AnchoredPosition: {x: 3, y: 1}
-  m_SizeDelta: {x: 91, y: 72}
+  m_AnchorMin: {x: 0.2226415, y: 0.7084959}
+  m_AnchorMax: {x: 0.35856608, y: 0.7084959}
+  m_AnchoredPosition: {x: 1, y: 1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659994871
 MonoBehaviour:
@@ -634,6 +635,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 1
+--- !u!114 &659994875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659994869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 1
+  m_AspectRatio: 1
 --- !u!1 &727562154
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,6 @@ namespace Assets.Scripts.Mathematic
         public event Action ClickNextButton;
         public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
-        
-
         // Update is called once per frame
         public void Update () {
 	

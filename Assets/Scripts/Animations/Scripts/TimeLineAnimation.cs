@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Mathematic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,19 +25,16 @@ namespace Assets.Scripts.Animations.Scripts
         private float _currentLerpDelta = 1;
         private float _realWidth;
 
-        public void Awake()
-        {
-            StartAnimation();
-        }
-
         public void StartAnimation()
         {
-           _incideImage = transform.GetChild(0).GetComponent<Image>();
+            _incideImage = transform.GetChild(0).GetComponent<Image>();
             _ourConavas = GetComponent<RectTransform>();
             _realWidth = _incideImage.rectTransform.sizeDelta.x;
             _currentIndex = 0;
             DOTween.Init();
+       
             GoNextAnim();
+          
         }
 
         private void GoNextAnim()

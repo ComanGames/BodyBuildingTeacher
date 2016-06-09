@@ -16,9 +16,10 @@ namespace Assets.Scripts.Mathematic
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
         public TimeLineAnimation AnimationTimeLine;
-        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+
+        private IUiAnimation RemoveCounterAnimationInterface =>CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
-        private IUiAnimation LineAnimationInterface => AnimationTimeLine;
+        private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
 
         public event Action ClickNextButton;
         public event Action ClickResetButton;
@@ -99,6 +100,7 @@ namespace Assets.Scripts.Mathematic
         }
         public void StartTimeLineAnimation()
         {
+            LineAnimationInterface.ResetAnimation();
             LineAnimationInterface.StartAnimation();
         }
     }

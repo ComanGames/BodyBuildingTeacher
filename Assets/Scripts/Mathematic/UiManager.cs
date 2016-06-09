@@ -15,15 +15,16 @@ namespace Assets.Scripts.Mathematic
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
-        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+        public TimeLineAnimation AnimationTimeLine;
+
+        private IUiAnimation RemoveCounterAnimationInterface =>CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
+        private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
+
         public event Action ClickNextButton;
         public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
-        // Update is called once per frame
-        public void Update () {
-	
-        }
+        
 
         public void Clear()
         {
@@ -81,6 +82,7 @@ namespace Assets.Scripts.Mathematic
 
         public void StartCounterAnimation(Action callbackAction)
         {
+            CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
             CounterAnimationInterface.StartAnimation();
             CounterAnimationInterface.AniamtionDone += callbackAction;
         }
@@ -89,6 +91,17 @@ namespace Assets.Scripts.Mathematic
         {
             RemoveCounterAnimationInterface.AniamtionDone += startTime;
             RemoveCounterAnimationInterface.StartAnimation();
+        }
+
+        public void StartTimeLineAnimation(Action callbackaction)
+        {
+            LineAnimationInterface.AniamtionDone += callbackaction;
+            LineAnimationInterface.StartAnimation();
+        }
+        public void StartTimeLineAnimation()
+        {
+            LineAnimationInterface.ResetAnimation();
+            LineAnimationInterface.StartAnimation();
         }
     }
 }

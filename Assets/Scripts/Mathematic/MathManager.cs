@@ -50,7 +50,7 @@ namespace Assets.Scripts.Mathematic
 
         private void StartTime()
         {
-            Debug.Log($"Started animation time"); 
+            ManagerUi.StartTimeLineAnimation(()=> { AskQuestion();ManagerUi.StartTimeLineAnimation(); });
         }
 
         public void AskQuestion()

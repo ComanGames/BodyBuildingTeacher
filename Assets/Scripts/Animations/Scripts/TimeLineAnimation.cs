@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Mathematic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Animations.Scripts
     }
 
 
-    public class TimeLineAnimation:MonoBehaviour,IUiAnimation
+    public class TimeLineAnimation:MonoBehaviour,IUiAnimationExtanded
     {
         public float Time;
         public TimeColor[] TimeColors;
@@ -24,24 +25,23 @@ namespace Assets.Scripts.Animations.Scripts
         private float _currentLerpDelta = 1;
         private float _realWidth;
 
-        public void Awake()
-        {
-            StartAnimation();
-        }
-
         public void StartAnimation()
         {
-           _incideImage = transform.GetChild(0).GetComponent<Image>();
+            _currentIndex = 0;
+            GoNextAnim();
+        }
+
+        public void Start()
+        {
+            DOTween.Init();
+            _incideImage = transform.GetChild(0).GetComponent<Image>();
             _ourConavas = GetComponent<RectTransform>();
             _realWidth = _incideImage.rectTransform.sizeDelta.x;
-            _currentIndex = 0;
-            DOTween.Init();
-            GoNextAnim();
         }
 
         private void GoNextAnim()
         {
-            DOVirtual.Float(1f, 0f,Time,ImageToVAriable).OnComplete((()=> {AniamtionDone?.Invoke(); }));
+            DOVirtual.Float(1f, 0f,Time,ImageToVAriable).OnComplete(()=> {AniamtionDone?.Invoke(); });
         }
 
         private void ImageToVAriable(float f)
@@ -71,5 +71,21 @@ namespace Assets.Scripts.Animations.Scripts
             }
             return TimeColors[_currentIndex+1];
         }
+
+        public void ResetAnimation()
+        {
+            _incideImage.rectTransform.sizeDelta = new Vector2(_realWidth, _incideImage.rectTransform.sizeDelta.y);
+        }
+
+        public void PauswAnimatio()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopAnimation()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

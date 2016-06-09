@@ -33,6 +33,7 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.ClickResetButton += ResetCount;
 //            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
             ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
+            ManagerUi.SetTimeLineEndAction(AskQuestion);
 
         }
 
@@ -44,14 +45,10 @@ namespace Assets.Scripts.Mathematic
 
         private void CounterAnimaitonDone()
         {
-            AskQuestion();
-            ManagerUi.FadeOutCounterAnimation(StartTime);
+            ManagerUi.FadeOutCounterAnimation(AskQuestion);
         }
 
-        private void StartTime()
-        {
-            ManagerUi.StartTimeLineAnimation(()=> { AskQuestion();ManagerUi.StartTimeLineAnimation(); });
-        }
+
 
         public void AskQuestion()
         {
@@ -60,11 +57,13 @@ namespace Assets.Scripts.Mathematic
                 ManagerUi.EndGame();
                 return;
             }
+           
             _answerText = "";
             ManagerUi.UpdateAnswerView(_answerText);
             MathQuestion mathQuestion = GetRandomQuestion();
             _mathQuestions.Add(mathQuestion);
             ManagerUi.ShowQuestion(mathQuestion.ToString());
+            ManagerUi.StartTimeLineAnimation();
         }
 
         public void NumberInput(int number)

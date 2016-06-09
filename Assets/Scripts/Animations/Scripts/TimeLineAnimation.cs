@@ -36,7 +36,7 @@ namespace Assets.Scripts.Animations.Scripts
             DOTween.Init();
             _incideImage = transform.GetChild(0).GetComponent<Image>();
             _ourConavas = GetComponent<RectTransform>();
-            _realWidth = _incideImage.rectTransform.sizeDelta.x;
+            _realWidth = _incideImage.rectTransform.rect.width;
         }
 
         private void GoNextAnim()
@@ -54,7 +54,7 @@ namespace Assets.Scripts.Animations.Scripts
             }
             else
             {
-                _incideImage.rectTransform.sizeDelta = new Vector2(f*_realWidth,_incideImage.rectTransform.sizeDelta.y);
+                _incideImage.rectTransform.SetWidth( _realWidth-(f * _realWidth));
 
                 float lerp = 1-((f - GetNextElement().Procent)*_currentLerpDelta);
                 _incideImage.color = Color.Lerp(TimeColors[_currentIndex].ColorLine, GetNextElement().ColorLine,lerp);
@@ -74,8 +74,10 @@ namespace Assets.Scripts.Animations.Scripts
 
         public void ResetAnimation()
         {
-            _incideImage.rectTransform.sizeDelta = new Vector2(_realWidth, _incideImage.rectTransform.sizeDelta.y);
+           
+            _incideImage.rectTransform.SetWidth(_realWidth);
         }
+        
 
         public void PauswAnimatio()
         {

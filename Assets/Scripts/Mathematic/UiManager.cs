@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -76,10 +77,18 @@ namespace Assets.Scripts.Mathematic
 
         public void EndGame()
         {
-            Debug.Log("We done game");
-            SceneManager.LoadScene(0);
+            //Debug.Log("We done game");
+            QuestionText.text = "Level Complete";
+            StartCoroutine(LoadNewScen());
+
         }
 
+        public IEnumerator LoadNewScen()
+        {
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene(6);
+
+        }
         public void StartCounterAnimation(Action callbackAction)
         {
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
@@ -93,10 +102,9 @@ namespace Assets.Scripts.Mathematic
             RemoveCounterAnimationInterface.StartAnimation();
         }
 
-        public void StartTimeLineAnimation(Action callbackaction)
+        public void SetTimeLineEndAction(Action callbackaction)
         {
             LineAnimationInterface.AniamtionDone += callbackaction;
-            LineAnimationInterface.StartAnimation();
         }
         public void StartTimeLineAnimation()
         {

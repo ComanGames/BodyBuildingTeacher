@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Mathematic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
@@ -9,9 +10,7 @@ namespace Assets.Scripts
 
         public void Click()
         {
-            SceneManager.LoadScene(SceneNumber);
-            Debug.Log("some text");
-
+            SceneSwitcher.LoadNewScene(SceneNumber);
         }
     }
 }

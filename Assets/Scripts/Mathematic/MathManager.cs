@@ -7,6 +7,9 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
+        private int wa = 0;
+        private int ra = 0;
+
         public UiManager ManagerUi;
         public int QuestionCount = 3;
         public MathOperation[] AvaliableOperations;
@@ -20,6 +23,8 @@ namespace Assets.Scripts.Mathematic
         private string _answerText;
         private Random _random;
         private List<MathQuestion> _mathQuestions;
+
+        private bool _isReady;
 
         // Use this for initialization
         public void Start ()
@@ -52,9 +57,11 @@ namespace Assets.Scripts.Mathematic
 
         public void AskQuestion()
         {
-            if(_mathQuestions.Count>=QuestionCount)
+            _isReady = true;
+            if (_mathQuestions.Count>=QuestionCount)
             {
                 ManagerUi.EndGame();
+                _isReady = false;
                 return;
             }
            
@@ -63,14 +70,18 @@ namespace Assets.Scripts.Mathematic
             MathQuestion mathQuestion = GetRandomQuestion();
             _mathQuestions.Add(mathQuestion);
             ManagerUi.ShowQuestion(mathQuestion.ToString());
+            
             ManagerUi.StartTimeLineAnimation();
         }
 
         public void NumberInput(int number)
         {
-            _answerText += number;
-            ManagerUi.UpdateAnswerView(_answerText);
-            CheckAnswer();
+            if (_isReady)
+            {
+                _answerText += number;
+                ManagerUi.UpdateAnswerView(_answerText);
+                CheckAnswer();
+            }
         }
 
         private void CheckAnswer()
@@ -92,14 +103,17 @@ namespace Assets.Scripts.Mathematic
             {
                  if(realAnswer==Int32.Parse(_answerText))
                  {
-                     ManagerUi.RightAnswer();
+                     ra++;
+                    ManagerUi.RightAnswer();
                     AskQuestion();
                  }
                  else
                  {
-                     ManagerUi.WrongAnswar();
+                     wa++;
+                    ManagerUi.WrongAnswar();
                     AskQuestion();
                  }
+                 ManagerUi.SetWrongWrite(ra,wa);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Animations.Scripts
 {
@@ -8,5 +9,12 @@ namespace Assets.Scripts.Animations.Scripts
         {
            rect.offsetMax = new Vector2(-width,rect.anchorMax.y);
         }
+        
+        public static string GetSceneName()
+        {
+            return SceneManager.GetActiveScene().name;
+        }
+
+
     }
 }

@@ -19,8 +19,10 @@ namespace Assets.Scripts.Mathematic
             Instance = this;
         }
 
-        public static  void LoadNewScene(int number)
+
+        public static void LoadNewScene(int number)
         {
+            
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(number, LoadSceneMode.Additive);
             Scene newScene = SceneManager.GetSceneAt(1);

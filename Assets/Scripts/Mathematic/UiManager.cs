@@ -13,8 +13,6 @@ namespace Assets.Scripts.Mathematic
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
-        private int RealInteger;
-        public GameObject FakeGameObject;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;

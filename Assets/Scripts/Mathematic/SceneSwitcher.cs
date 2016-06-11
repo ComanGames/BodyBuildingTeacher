@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using DG.Tweening;
+﻿using System;
+using System.Collections;
+using System.Threading;
+using System.Threading.Tasks;
+using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,58 +11,44 @@ namespace Assets.Scripts.Mathematic
 {
     public class SceneSwitcher : MonoBehaviour
     {
+        public SlideConvasOut SceneLider;
         public static Transform GlobalParent;
         public static SceneSwitcher Instance;
-        public float Time = 0.5f;
-        private Image _ourImage;
-        private bool _isFrist = true;
-
-        public void Awake()
+        public void Start()
         {
-            DontDestroyOnLoad(this);
-            if (Instance == null)
-                Instance = this;
-            else
-            {
-               Destroy(gameObject); 
-            }
-
-            _ourImage = GetComponent<Image>();
-            _ourImage.enabled = false;
+            Instance = this;
         }
+
 
         public static void LoadNewScene(int number)
         {
-            if (Instance != null)
-            {
-                Instance._ourImage.enabled = true;
-                DOTween.Init();
-                DOVirtual.Float(0, 1, Instance.Time, UpdateColor).OnComplete(() =>
-                {
-                    StartLoadingNewScne(number);
-                });
-            }
-            else
-            {
-                SceneManager.LoadScene(number);
-            }
-        }
-        public static void UpdateColor(float newT)
-        {
-            Color color = Instance._ourImage.color;
-            color.a = newT;
-            Instance._ourImage.color = color;
+            
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(number, LoadSceneMode.Additive);
+            Scene newScene = SceneManager.GetSceneAt(1);
+            Instance.StartCoroutine("WaitForSceneLoaded",newScene);
         }
 
-        private static void StartLoadingNewScne(int number)
+        private void SceneIsLoaded(Scene newScene)
         {
-            SceneManager.LoadScene(number);
-            DOVirtual.Float(1, 0, Instance.Time, UpdateColor).OnComplete(() =>
+            GameObject[] rootGameObjects = newScene.GetRootGameObjects();
+            GlobalParent = new GameObject("parent for all").AddComponent<RectTransform>();
+            GlobalParent.transform.position = Vector3.zero;
+            GlobalParent.parent = rootGameObjects[0].transform.parent;
+            foreach (GameObject rootGameObject in rootGameObjects)
             {
-                Instance._ourImage.enabled = false;
-            });
+                rootGameObject.transform.parent = GlobalParent;
+            }
+            GlobalParent.gameObject.AddComponent<Image>();
         }
-
+        private  IEnumerator WaitForSceneLoaded(Scene scene)
+        {
+            if (!scene.isLoaded)
+            {
+                yield return null;
+            }
+            SceneIsLoaded(scene);
+        }
     }
-
+   
 }

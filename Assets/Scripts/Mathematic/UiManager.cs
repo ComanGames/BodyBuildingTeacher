@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using Assets.Scripts.Animations.Scripts;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Mathematic
@@ -12,17 +15,15 @@ namespace Assets.Scripts.Mathematic
         public Text CurrentLevelText;
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
-        public float EndTimeOut = 0.5f;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
         public TimeLineAnimation AnimationTimeLine;
         public SimpleAnimation AnimationSimple;
-        public GameObject GameOverPanel;
 
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
-//        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
+        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
         private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
 
 
@@ -100,11 +101,18 @@ namespace Assets.Scripts.Mathematic
             //Debug.Log("We done game");
             AnswerText.text = "Level Complete";
             LineAnimationInterface.ResetAnimation();
-            GameOverPanel.SetActive(true);
-//            SimpleAnimationInterface.StartAnimation();
+            SimpleAnimationInterface.StartAnimation();
+            StartCoroutine(LoadNewScen());
+
         }
 
+        public IEnumerator LoadNewScen()
+        {
+            //CurrentLevelText.text = Utilities.GetSceneName();
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(6);
 
+        }
         public void StartCounterAnimation(Action callbackAction)
         {
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);

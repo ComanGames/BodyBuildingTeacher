@@ -13,8 +13,10 @@ namespace Assets.Scripts.Mathematic
         public SlideConvasOut SceneLider;
         public static Transform GlobalParent;
 
-        public static  void LoadNewScene(int number)
+
+        public static void LoadNewScene(int number)
         {
+            
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(number, LoadSceneMode.Additive);
             GameObject[] rootGameObjects = currentScene.GetRootGameObjects();

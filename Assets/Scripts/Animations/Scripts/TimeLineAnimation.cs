@@ -16,7 +16,7 @@ namespace Assets.Scripts.Animations.Scripts
 
     public class TimeLineAnimation:MonoBehaviour,IUiAnimationExtanded
     {
-        public float Time;
+        public float StartTime;
         public TimeColor[] TimeColors;
         public event Action AniamtionDone;
         private Image _incideImage;
@@ -24,6 +24,9 @@ namespace Assets.Scripts.Animations.Scripts
         private int _currentIndex;
         private float _currentLerpDelta = 1;
         private float _realWidth;
+        private Tweener _ourTweener;
+        
+
 
         public void StartAnimation()
         {
@@ -41,7 +44,8 @@ namespace Assets.Scripts.Animations.Scripts
 
         private void GoNextAnim()
         {
-            DOVirtual.Float(1f, 0f,Time,ImageToVAriable).OnComplete(()=> {AniamtionDone?.Invoke(); });
+           _ourTweener =  DOVirtual.Float(1f, 0f,StartTime,ImageToVAriable);
+            _ourTweener.OnComplete(()=> {AniamtionDone?.Invoke(); });
         }
 
         private void ImageToVAriable(float f)
@@ -74,7 +78,10 @@ namespace Assets.Scripts.Animations.Scripts
 
         public void ResetAnimation()
         {
-           
+            if (_ourTweener != null)
+            {
+                _ourTweener.Kill();
+            }
             _incideImage.rectTransform.SetWidth(_realWidth);
         }
         

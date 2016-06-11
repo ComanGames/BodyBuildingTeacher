@@ -60,8 +60,8 @@ namespace Assets.Scripts.Mathematic
             _isReady = true;
             if (_mathQuestions.Count>=QuestionCount)
             {
-                ManagerUi.EndGame();
                 _isReady = false;
+                ManagerUi.EndGame();
                 return;
             }
            

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 using Assets.Scripts.Animations.Scripts;
@@ -12,12 +13,23 @@ namespace Assets.Scripts.Mathematic
     {
         public SlideConvasOut SceneLider;
         public static Transform GlobalParent;
+        public static SceneSwitcher Instance;
+        public void Start()
+        {
+            Instance = this;
+        }
 
         public static  void LoadNewScene(int number)
         {
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(number, LoadSceneMode.Additive);
-            GameObject[] rootGameObjects = currentScene.GetRootGameObjects();
+            Scene newScene = SceneManager.GetSceneAt(1);
+            Instance.StartCoroutine("WaitForSceneLoaded",newScene);
+        }
+
+        private void SceneIsLoaded(Scene newScene)
+        {
+            GameObject[] rootGameObjects = newScene.GetRootGameObjects();
             GlobalParent = new GameObject("parent for all").AddComponent<RectTransform>();
             GlobalParent.transform.position = Vector3.zero;
             GlobalParent.parent = rootGameObjects[0].transform.parent;
@@ -26,8 +38,15 @@ namespace Assets.Scripts.Mathematic
                 rootGameObject.transform.parent = GlobalParent;
             }
             GlobalParent.gameObject.AddComponent<Image>();
-//            GlobalParent.gameObject.AddComponent<RectMask2D>();
         }
-
+        private  IEnumerator WaitForSceneLoaded(Scene scene)
+        {
+            if (!scene.isLoaded)
+            {
+                yield return null;
+            }
+            SceneIsLoaded(scene);
+        }
     }
+   
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Assets.Scripts.Animations.Scripts;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +7,6 @@ namespace Assets.Scripts.Mathematic
 {
     public class UiManager : MonoBehaviour
     {
-        public int totalright = 0;
-        public int totalwrong = 0;
         public Text GameOverText;
         public Text QuestionText;
         public Text AnswerText;
@@ -17,17 +14,20 @@ namespace Assets.Scripts.Mathematic
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
+        public bool IsIntroduction;
+        public bool IntrodcutionEnableAndNotNull => IsIntroduction && IntruductionAnimation != null;
         public GameObject FakeObject;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
         public TimeLineAnimation AnimationTimeLine;
-        public SimpleAnimation AnimationSimple;
-        public GameObject GameOverPanel;
+        public SimpleAnimation GameOverAnimation;
+        public SimpleAnimation IntruductionAnimation;
 
-        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
-        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
+        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+        private IUiAnimation GameOverAnimationInterface => GameOverAnimation;
+        private IUiAnimation IntroductionAnimationInterface => IntruductionAnimation; 
         private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
         private bool _isOver;
 
@@ -96,14 +96,11 @@ namespace Assets.Scripts.Mathematic
         public void SetWrongWrite(int right, int wrong)
         {
             AnswersInfoText.text = $"Correct = {right}. Incorrect = {wrong}";
-            totalright = right;
-            totalwrong = wrong;
-            Debug.Log($"TRA = {totalright}. TWA = {totalwrong}");
-            if (_isOver==true) { AnswersInfoText.text = "Completed"; }
+            if (_isOver) { AnswersInfoText.text = "Completed"; }
 
         }
 
-        public void EndGame()
+        public void EndGame(int right,int wrong)
         {
             _isOver = true;
             //Debug.Log("We done game");
@@ -112,11 +109,11 @@ namespace Assets.Scripts.Mathematic
             //GameOverPanel.SetActive(true);
             GameOverText.text = "Congratulations!\n " +
                                 "Your result:\n" +
-                                $"Correct answers = {totalright}\n"+
-                                $"Incorrect answers = {totalwrong}\n"+
+                                $"Correct answers = {right}\n"+
+                                $"Incorrect answers = {wrong}\n"+
                                 "You have done it\n and now\n just get\n FUN\n with\n " +
                                 "Campaign \n Adventure \n and \n Non-Stop Playing \n\n Good Luck!\n";
-            SimpleAnimationInterface.StartAnimation();
+            GameOverAnimationInterface.StartAnimation();
         }
 
 
@@ -127,9 +124,14 @@ namespace Assets.Scripts.Mathematic
             CounterAnimationInterface.AniamtionDone += callbackAction;
         }
 
+        public void WaitForIntroduction(Action startTime)
+        {
+            CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
+            IntroductionAnimationInterface.AniamtionDone += startTime;
+        }
+
         public void FadeOutCounterAnimation(Action startTime)
         {
-
             RemoveCounterAnimationInterface.AniamtionDone += startTime;
             RemoveCounterAnimationInterface.StartAnimation();
         }
@@ -143,5 +145,12 @@ namespace Assets.Scripts.Mathematic
             LineAnimationInterface.ResetAnimation();
             LineAnimationInterface.StartAnimation();
         }
+
+        public void DisableIntroduction()
+        {
+            if(IntruductionAnimation!=null)
+                IntruductionAnimation.gameObject.SetActive(false);
+        }
+
     }
 }

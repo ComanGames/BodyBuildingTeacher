@@ -1908,7 +1908,7 @@ GameObject:
   - 114: {fileID: 1796973973}
   - 114: {fileID: 1796973976}
   m_Layer: 5
-  m_Name: Get fun with non-stop
+  m_Name: Non-stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 0
+  SceneNumber: 2
 --- !u!1 &1809067179
 GameObject:
   m_ObjectHideFlags: 0

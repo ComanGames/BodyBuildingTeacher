@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Animations.Scripts;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +8,15 @@ namespace Assets.Scripts.Mathematic
 {
     public class UiManager : MonoBehaviour
     {
+        public int totalright = 0;
+        public int totalwrong = 0;
+        public Text GameOverText;
         public Text QuestionText;
         public Text AnswerText;
         public Text CurrentLevelText;
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
-        public int RealInteger;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
@@ -23,8 +26,9 @@ namespace Assets.Scripts.Mathematic
 
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
-//        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
+        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
         private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
+        private bool _isOver;
 
 
         public event Action ClickNextButton;
@@ -36,10 +40,8 @@ namespace Assets.Scripts.Mathematic
         public void Awake()
         {
             CurrentLevelText.text = Utilities.GetSceneName();
-           
         }
-
-
+        
         public void Clear()
         {
             QuestionText.text = "";
@@ -53,7 +55,6 @@ namespace Assets.Scripts.Mathematic
 
         public void ClickNumberButton(int number)
         {
-            //            _managerMath.NumberInput(number);
             ClickButtonNumber?.Invoke(number);
         }
 
@@ -93,16 +94,28 @@ namespace Assets.Scripts.Mathematic
 
         public void SetWrongWrite(int right, int wrong)
         {
-            AnswersInfoText.text = $"RA = {right}. WA = {wrong}";
+            AnswersInfoText.text = $"Correct = {right}. Incorrect = {wrong}";
+            totalright = right;
+            totalwrong = wrong;
+            Debug.Log($"TRA = {totalright}. TWA = {totalwrong}");
+            if (_isOver==true) { AnswersInfoText.text = "Completed"; }
+
         }
 
         public void EndGame()
         {
+            _isOver = true;
             //Debug.Log("We done game");
             AnswerText.text = "Level Complete";
             LineAnimationInterface.ResetAnimation();
-            GameOverPanel.SetActive(true);
-//            SimpleAnimationInterface.StartAnimation();
+            //GameOverPanel.SetActive(true);
+            GameOverText.text = "Congratulations!\n " +
+                                "Your result:\n" +
+                                $"Correct answers = {totalright}\n"+
+                                $"Incorrect answers = {totalwrong}\n"+
+                                "You have done it\n and now\n just get\n FUN\n with\n " +
+                                "Campaign \n Adventure \n and \n Non-Stop Playing \n\n Good Luck!\n";
+            SimpleAnimationInterface.StartAnimation();
         }
 
 

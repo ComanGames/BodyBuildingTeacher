@@ -116,8 +116,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -21.599998}
-  m_SizeDelta: {x: 0, y: 44.1}
+  m_AnchoredPosition: {x: -0.4, y: -16.9}
+  m_SizeDelta: {x: -19.3, y: 34.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33863663
 MonoBehaviour:
@@ -275,8 +275,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -21.6}
-  m_SizeDelta: {x: 0, y: 44.1}
+  m_AnchoredPosition: {x: -0.4, y: -17.3}
+  m_SizeDelta: {x: -20.3, y: 35.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380433502
 MonoBehaviour:
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get fun with non-stop
+  m_Text: Non stop playing
 --- !u!222 &380433503
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -348,8 +348,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -21.6}
-  m_SizeDelta: {x: 0, y: 44.1}
+  m_AnchoredPosition: {x: 0.4, y: -17.2}
+  m_SizeDelta: {x: -20.5, y: 35.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599345654
 MonoBehaviour:
@@ -383,7 +383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Campaign
+  m_Text: Campaign game
 --- !u!222 &599345655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1329,8 +1329,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -21.6}
-  m_SizeDelta: {x: 0, y: 44.1}
+  m_AnchoredPosition: {x: -1.8, y: -18.5}
+  m_SizeDelta: {x: -23.1, y: 37.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444860960
 MonoBehaviour:
@@ -1400,10 +1400,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 659994870}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: -0.6}
-  m_SizeDelta: {x: 40, y: 44}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -0.6000004}
+  m_SizeDelta: {x: -52, y: -28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464529146
 MonoBehaviour:
@@ -1906,6 +1906,7 @@ GameObject:
   - 222: {fileID: 1796973975}
   - 114: {fileID: 1796973974}
   - 114: {fileID: 1796973973}
+  - 114: {fileID: 1796973976}
   m_Layer: 5
   m_Name: Get fun with non-stop
   m_TagString: Untagged
@@ -1970,7 +1971,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1796973974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1796973976}
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1796973974
@@ -2006,6 +2018,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796973971}
+--- !u!114 &1796973976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796973971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
 --- !u!1 &1809067179
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,8 +7,8 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
-        private int wa = 0;
-        private int ra = 0;
+        private int _wa = 0;
+        private int _ra = 0;
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -103,17 +103,17 @@ namespace Assets.Scripts.Mathematic
             {
                  if(realAnswer==Int32.Parse(_answerText))
                  {
-                     ra++;
+                     _ra++;
                     ManagerUi.RightAnswer();
                     AskQuestion();
                  }
                  else
                  {
-                     wa++;
+                     _wa++;
                     ManagerUi.WrongAnswar();
                     AskQuestion();
                  }
-                 ManagerUi.SetWrongWrite(ra,wa);
+                 ManagerUi.SetWrongWrite(_ra,_wa);
             }
         }
 
@@ -182,7 +182,6 @@ namespace Assets.Scripts.Mathematic
 
         // Update is called once per frame
         public void Update () {
-	
-        }
+	    }
     }
 }

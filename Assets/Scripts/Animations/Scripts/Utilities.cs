@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Animations.Scripts
@@ -14,7 +15,5 @@ namespace Assets.Scripts.Animations.Scripts
         {
             return SceneManager.GetActiveScene().name;
         }
-
-
     }
 }

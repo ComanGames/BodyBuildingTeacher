@@ -59,7 +59,5 @@ namespace Assets.Scripts.Mathematic
                 Instance._ourImage.enabled = false;
             });
         }
-
     }
-
 }

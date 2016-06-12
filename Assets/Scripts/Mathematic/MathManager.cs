@@ -7,8 +7,8 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
-        private int _wa = 0;
-        private int _ra = 0;
+        private int _wa ;
+        private int _ra ;
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -37,7 +37,17 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.ClickButtonNumber += NumberInput;
             ManagerUi.ClickResetButton += ResetCount;
 //            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
-            ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
+            Action counterAnimation =()=>  ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
+            if(ManagerUi.IntrodcutionEnableAndNotNull)
+            {
+
+                ManagerUi.WaitForIntroduction(counterAnimation);
+            }
+            else
+            {
+                ManagerUi.DisableIntroduction();
+                counterAnimation();
+            }
             ManagerUi.SetTimeLineEndAction(AskQuestion);
 
         }
@@ -50,7 +60,7 @@ namespace Assets.Scripts.Mathematic
 
         private void CounterAnimaitonDone()
         {
-            ManagerUi.FadeOutCounterAnimation(AskQuestion);
+                ManagerUi.FadeOutCounterAnimation(AskQuestion);
         }
 
 
@@ -61,7 +71,7 @@ namespace Assets.Scripts.Mathematic
             if (_mathQuestions.Count>=QuestionCount)
             {
                 _isReady = false;
-                ManagerUi.EndGame();
+                ManagerUi.EndGame(_ra,_wa);
                 return;
             }
            

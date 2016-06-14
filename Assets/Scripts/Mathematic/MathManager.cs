@@ -71,7 +71,8 @@ namespace Assets.Scripts.Mathematic
             if (_mathQuestions.Count>=QuestionCount)
             {
                 _isReady = false;
-                ManagerUi.EndGame(_ra,_wa);
+
+                ManagerUi.EndGame(ManagerUi.GetGameOverText( _ra,_wa));
                 return;
             }
            

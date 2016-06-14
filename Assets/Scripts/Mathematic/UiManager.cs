@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Mathematic
         public TimeLineAnimation AnimationTimeLine;
         public SimpleAnimation GameOverAnimation;
         public SimpleAnimation IntruductionAnimation;
+        public Toggle IntroductionToggle;
 
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
@@ -40,9 +42,24 @@ namespace Assets.Scripts.Mathematic
 
         public void Awake()
         {
+            LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
+           
         }
-        
+
+        private void SaveSetting()
+        {
+            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
+            levelSettings.IsIntroduction = IntroductionToggle.isOn;
+            GameSettings.SaveLevelSetings(Utilities.GetSceneName(),levelSettings);
+        }
+        private void LoadSettings()
+        {
+            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
+            IsIntroduction = levelSettings.IsIntroduction;
+            IntroductionToggle.isOn = IsIntroduction;
+        }
+
         public void Clear()
         {
             QuestionText.text = "";
@@ -100,23 +117,25 @@ namespace Assets.Scripts.Mathematic
 
         }
 
-        public void EndGame(int right,int wrong)
+        public void EndGame(string gameOverText)
         {
+            SaveSetting();
             _isOver = true;
             //Debug.Log("We done game");
             AnswerText.text = "Level Complete";
             LineAnimationInterface.ResetAnimation();
             //GameOverPanel.SetActive(true);
-            GameOverText.text = "Congratulations!\n " +
-                                "Your result:\n" +
-                                $"Correct answers = {right}\n"+
-                                $"Incorrect answers = {wrong}\n"+
-                                "You have done it\n and now\n just get\n FUN\n with\n " +
-                                "Campaign \n Adventure \n and \n Non-Stop Playing \n\n Good Luck!\n";
+            GameOverText.text = gameOverText;
             GameOverAnimationInterface.StartAnimation();
         }
 
-
+        public string GetGameOverText(int right, int wrong)
+        {
+            return "Congratulations!\n " +
+                                "Your result:\n" +
+                                $"Correct answers = {right}\n" +
+                                $"Incorrect answers = {wrong}\n";
+        }
         public void StartCounterAnimation(Action callbackAction)
         {
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);

@@ -10,23 +10,30 @@ namespace Assets.Scripts.Animations.Scripts
 
         public Text MyTimer;
 
+        public bool TimerOn = true;
+
         void Update()
         {
-            _time += Time.deltaTime;
+            if (TimerOn)
+            {
+                _time += Time.deltaTime;
 
-            float minutes = _time / 60f;
+                float minutes = _time/60f;
+                float seconds = _time%60f;
+                float fraction = (_time*100)%100;
 
-            float seconds = _time % 60f;
-
-            float fraction = (_time * 100) % 100;
-
-            //update the label value
-            MyTimer.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
+                //update the label value
+                MyTimer.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
+            }
+            else
+            {
+                _time = 0;
+            }
         }
 
         public void Stop()
         {
-            _time = 0;
+            TimerOn = false;
         }
     }
 }

@@ -171,5 +171,9 @@ namespace Assets.Scripts.Mathematic
                 IntruductionAnimation.gameObject.SetActive(false);
         }
 
+        public void WrongAnswarsLimit()
+        {
+            EndGame("To much of wrong Answers");
+        }
     }
 }

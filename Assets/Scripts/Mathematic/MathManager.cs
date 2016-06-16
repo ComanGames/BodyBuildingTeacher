@@ -20,6 +20,10 @@ namespace Assets.Scripts.Mathematic
         //Second number
         public int SecondNumberMin = 1;
         public int SecondNumberMax = 10;
+        //Check max wrong
+        public bool IsWrongLimit;
+        public int WrongLimit = 5;
+
         private string _answerText;
         private Random _random;
         private List<MathQuestion> _mathQuestions;
@@ -33,10 +37,9 @@ namespace Assets.Scripts.Mathematic
             _mathQuestions = new List<MathQuestion>();
              _random = new Random();
             ManagerUi.Clear();
-            ManagerUi.ClickNextButton += AskQuestion;
+            ManagerUi.ClickNextButton += NextButtoClicked;
             ManagerUi.ClickButtonNumber += NumberInput;
             ManagerUi.ClickResetButton += ResetCount;
-//            ManagerUi.ClickNextButton += new UiManager.ActionOn(AskQuestion); 
             Action counterAnimation =()=>  ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
             if(ManagerUi.IntrodcutionEnableAndNotNull)
             {
@@ -50,6 +53,17 @@ namespace Assets.Scripts.Mathematic
             }
             ManagerUi.SetTimeLineEndAction(AskQuestion);
 
+        }
+
+        private void NextButtoClicked()
+        {
+            if (_isReady)
+            {
+                _wa++;
+                ManagerUi.WrongAnswar();
+                AskQuestion();
+                ManagerUi.SetWrongWrite(_ra, _wa);
+            }
         }
 
         private void ResetCount()
@@ -122,6 +136,11 @@ namespace Assets.Scripts.Mathematic
                  {
                      _wa++;
                     ManagerUi.WrongAnswar();
+                     if (IsWrongLimit&&_wa>=WrongLimit)
+                     {
+                         ManagerUi.WrongAnswarsLimit();
+                         return;
+                     }
                     AskQuestion();
                  }
                  ManagerUi.SetWrongWrite(_ra,_wa);
@@ -152,8 +171,12 @@ namespace Assets.Scripts.Mathematic
                 {
                     secondNumber = GetSecondNumber();
                 }
+                while (firstNumber%secondNumber != 0)
+                {
+                    secondNumber = GetSecondNumber();
+                }
             }
-            if (operation ==MathOperation.Minus)
+            if (operation == MathOperation.Minus)
             {
                 if (firstNumber < secondNumber)
                 {

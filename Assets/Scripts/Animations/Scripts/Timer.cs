@@ -1,39 +1,72 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using System.Threading;
+using System.Timers;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Animations.Scripts
 {
     public class Timer : MonoBehaviour
     {
-        private float _time;
-
         public Text MyTimer;
+        
+        public bool TimerOn;
+        private System.Timers.Timer _timer;
+        private SynchronizationContext sc;
+        private TimeSpan _timerTime;
 
-        public bool TimerOn = true;
-
-        void Update()
+        public void Start()
         {
-            if (TimerOn)
-            {
-                _time += Time.deltaTime;
-
-                float minutes = _time/60f;
-                float seconds = _time%60f;
-                float fraction = (_time*100)%100;
-
-                //update the label value
-                MyTimer.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
-            }
-            else
-            {
-                _time = 0;
-            }
+            _timer = new System.Timers.Timer(1);
+            _timer.Elapsed += UpdateTimeText;
+            _timer.Start();
+            sc = SynchronizationContext.Current;
+            _timerTime = new TimeSpan();
         }
+
+        private void UpdateTimeText(object sender, ElapsedEventArgs e)
+        {
+                _timerTime = _timerTime.Add(TimeSpan.FromMilliseconds(1));
+
+            if (_timerTime.Milliseconds%64 != 0)
+            {
+                return;
+            }
+                //update the label value
+                sc.Post((s) =>
+                {
+                    UpdateTimerText();
+                },null);
+        }
+
+        private void UpdateTimerText()
+        {
+            float minutes = _timerTime.Minutes;
+            float seconds = _timerTime.Seconds;
+            // ReSharper disable once PossibleLossOfFraction
+            float fraction = _timerTime.Milliseconds;
+            MyTimer.text = $"{minutes:00} : {seconds:00} : {fraction:000}";
+        }
+
+        public void OnApplicationQuit()
+        {
+            Stop();
+        }
+
+
+
 
         public void Stop()
         {
-            TimerOn = false;
+            if (_timer != null)
+            { 
+                _timer.Stop();
+                _timer.Close();
+                _timer = null;
+                UpdateTimerText();
+            }
+            //MyTimer.text = "0";
         }
     }
 }

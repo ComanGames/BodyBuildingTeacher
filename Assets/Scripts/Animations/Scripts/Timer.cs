@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Reflection.Emit;
 using System.Threading;
 using System.Timers;
 using UnityEngine.UI;
@@ -10,13 +11,12 @@ namespace Assets.Scripts.Animations.Scripts
     public class Timer : MonoBehaviour
     {
         public Text MyTimer;
-        
         public bool TimerOn;
         private System.Timers.Timer _timer;
         private SynchronizationContext sc;
         private TimeSpan _timerTime;
 
-        public void Start()
+        public void StartTimer()
         {
             _timer = new System.Timers.Timer(1);
             _timer.Elapsed += UpdateTimeText;

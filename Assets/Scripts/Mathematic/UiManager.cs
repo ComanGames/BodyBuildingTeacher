@@ -25,6 +25,7 @@ namespace Assets.Scripts.Mathematic
         public SimpleAnimation GameOverAnimation;
         public SimpleAnimation IntruductionAnimation;
         public Toggle IntroductionToggle;
+        public Timer TimerText;
 
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
@@ -44,7 +45,8 @@ namespace Assets.Scripts.Mathematic
         {
             LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
-           
+            AnswersInfoText.text = "True = 0\n"+
+                                    "False = 0\n";
         }
 
         private void SaveSetting()
@@ -97,8 +99,9 @@ namespace Assets.Scripts.Mathematic
         {
             LineAnimationInterface.ResetAnimation();
             QuestionText.text = questoin;
-        }
 
+
+        }
 
         public void WrongAnswar()
         {
@@ -112,9 +115,14 @@ namespace Assets.Scripts.Mathematic
 
         public void SetWrongWrite(int right, int wrong)
         {
-            AnswersInfoText.text = $"Correct = {right}. Incorrect = {wrong}";
-            if (_isOver) { AnswersInfoText.text = "Completed"; }
-
+            AnswersInfoText.text = $"True = {right}\n" +
+                                   $"False = {wrong}\n";
+            if (_isOver)
+            {
+                AnswersInfoText.alignment = TextAnchor.MiddleCenter;
+                AnswersInfoText.text = "Completed\n";
+                TimerText.gameObject.SetActive(false);
+            }
         }
 
         public void EndGame(string gameOverText)
@@ -173,6 +181,7 @@ namespace Assets.Scripts.Mathematic
 
         public void WrongAnswarsLimit()
         {
+            TimerText.gameObject.SetActive(false);
             EndGame("To much of wrong Answers");
         }
     }

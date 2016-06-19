@@ -74,10 +74,9 @@ namespace Assets.Scripts.Mathematic
 
         private void CounterAnimaitonDone()
         {
-                ManagerUi.FadeOutCounterAnimation(AskQuestion);
+            ManagerUi.FadeOutCounterAnimation(() => {ManagerUi.TimerText.StartTimer();AskQuestion();});
+           
         }
-
-
 
         public void AskQuestion()
         {
@@ -87,6 +86,7 @@ namespace Assets.Scripts.Mathematic
                 _isReady = false;
 
                 ManagerUi.EndGame(ManagerUi.GetGameOverText( _ra,_wa));
+                ManagerUi.TimerText.Stop();
                 return;
             }
            
@@ -186,7 +186,7 @@ namespace Assets.Scripts.Mathematic
                 }
             }
 
-           return  new MathQuestion(firstNumber,secondNumber,operation);
+           return new MathQuestion(firstNumber,secondNumber,operation);
         }
 
         private int GetSecondNumber()

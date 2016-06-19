@@ -2763,7 +2763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &999413996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4703,8 +4703,7 @@ MonoBehaviour:
   AnswersInfoText: {fileID: 607189745}
   FadeOutTime: 1
   EndTimeOut: 0.5
-  IsIntroduction: 1
-  FakeObject: {fileID: 0}
+  IsIntroduction: 0
   AnimationCounter: {fileID: 731269778}
   CounterCanvas: {fileID: 1656622591}
   CounterRemoveAnimation: {fileID: 268519310}

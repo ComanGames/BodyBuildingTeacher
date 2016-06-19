@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,16 +7,16 @@ namespace Assets.Scripts.Mathematic
 {
     public class UiManager : MonoBehaviour
     {
+        public UiPlugin PlaginUi;
         public Text GameOverText;
         public Text QuestionText;
-        public Text AnswerText;
+        public Text AnswerText;  
         public Text CurrentLevelText;
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
         public bool IsIntroduction;
         public bool IntrodcutionEnableAndNotNull => IsIntroduction && IntruductionAnimation != null;
-        public GameObject FakeObject;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
@@ -30,7 +29,7 @@ namespace Assets.Scripts.Mathematic
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation GameOverAnimationInterface => GameOverAnimation;
-        private IUiAnimation IntroductionAnimationInterface => IntruductionAnimation; 
+        private IUiAnimation IntroductionAnimationInterface => IntruductionAnimation;
         private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
         private bool _isOver;
 
@@ -45,16 +44,19 @@ namespace Assets.Scripts.Mathematic
         {
             LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
-            AnswersInfoText.text = "True = 0\n"+
-                                    "False = 0\n";
+            AnswersInfoText.text = "True = 0\n" +
+                                   "False = 0\n";
         }
+
+       
 
         private void SaveSetting()
         {
             LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
             levelSettings.IsIntroduction = IntroductionToggle.isOn;
-            GameSettings.SaveLevelSetings(Utilities.GetSceneName(),levelSettings);
+            GameSettings.SaveLevelSetings(Utilities.GetSceneName(), levelSettings);
         }
+
         private void LoadSettings()
         {
             LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
@@ -95,12 +97,19 @@ namespace Assets.Scripts.Mathematic
             return int.Parse(AnswerText.text);
         }
 
+
+
         public void ShowQuestion(string questoin)
         {
             LineAnimationInterface.ResetAnimation();
             QuestionText.text = questoin;
+            //ShowCorrectAnswer(string questoin);
+        }
 
-
+        public void ShowCorrectAnswer(string text)
+        {
+            if(PlaginUi!=null)
+                PlaginUi.ShowCorrectAnswer(text);
         }
 
         public void WrongAnswar()

@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f97f440ad6f64f9689076afd81e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManagerUi: {fileID: 1571473787}
+  ManagerUi: {fileID: 1571473790}
   QuestionCount: 20
   AvaliableOperations: 01000000000000000200000003000000
   IsWrongAnswers: 1
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dca6d5624a98ab4f9ed20327fcb3499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManagerUi: {fileID: 1571473787}
+  ManagerUi: {fileID: 0}
 --- !u!1 &268519305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,7 +4143,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1571473787}
+      - m_Target: {fileID: 0}
         m_MethodName: ClearAnwerView
         m_Mode: 1
         m_Arguments:
@@ -4533,7 +4533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1571473787}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickNextQuestion
         m_Mode: 1
         m_Arguments:
@@ -4590,9 +4590,10 @@ GameObject:
   - 223: {fileID: 1571473785}
   - 114: {fileID: 1571473784}
   - 114: {fileID: 1571473783}
-  - 114: {fileID: 1571473787}
   - 222: {fileID: 1571473789}
   - 114: {fileID: 1571473788}
+  - 114: {fileID: 1571473790}
+  - 114: {fileID: 1571473787}
   m_Layer: 5
   m_Name: UiManager
   m_TagString: Untagged
@@ -4693,26 +4694,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571473782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c045f28d00371b48ad1aa38301891bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a195ce84b833a47b1710abd8029aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverText: {fileID: 1838382103}
-  QuestionText: {fileID: 1149872478}
-  AnswerText: {fileID: 533521688}
-  CurrentLevelText: {fileID: 343653596}
-  AnswersInfoText: {fileID: 607189745}
-  FadeOutTime: 1
-  EndTimeOut: 0.5
-  IsIntroduction: 1
-  FakeObject: {fileID: 0}
-  AnimationCounter: {fileID: 731269778}
-  CounterCanvas: {fileID: 1656622591}
-  CounterRemoveAnimation: {fileID: 268519310}
-  AnimationTimeLine: {fileID: 353075391}
-  GameOverAnimation: {fileID: 746850716}
-  IntruductionAnimation: {fileID: 511639607}
-  IntroductionToggle: {fileID: 1585895856}
-  TimerText: {fileID: 2076865682}
+  CorrectAnswer: {fileID: 1149872478}
 --- !u!114 &1571473788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4746,6 +4731,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1571473782}
+--- !u!114 &1571473790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1571473782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c045f28d00371b48ad1aa38301891bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaginUi: {fileID: 1571473787}
+  GameOverText: {fileID: 1838382103}
+  QuestionText: {fileID: 1149872478}
+  AnswerText: {fileID: 533521688}
+  CurrentLevelText: {fileID: 343653596}
+  AnswersInfoText: {fileID: 607189745}
+  FadeOutTime: 1
+  EndTimeOut: 0.5
+  IsIntroduction: 1
+  AnimationCounter: {fileID: 731269778}
+  CounterCanvas: {fileID: 1656622591}
+  CounterRemoveAnimation: {fileID: 268519310}
+  AnimationTimeLine: {fileID: 353075391}
+  GameOverAnimation: {fileID: 746850716}
+  IntruductionAnimation: {fileID: 511639607}
+  IntroductionToggle: {fileID: 1585895856}
+  TimerText: {fileID: 2076865682}
 --- !u!1 &1585895854
 GameObject:
   m_ObjectHideFlags: 0

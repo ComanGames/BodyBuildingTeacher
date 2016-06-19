@@ -26,7 +26,8 @@ namespace Assets.Scripts.Mathematic
 
         private string _answerText;
         private Random _random;
-        private List<MathQuestion> _mathQuestions;
+        public List<MathQuestion> _mathQuestions;
+        private int realAnswer;
 
         private bool _isReady;
 
@@ -94,9 +95,11 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.UpdateAnswerView(_answerText);
             MathQuestion mathQuestion = GetRandomQuestion();
             _mathQuestions.Add(mathQuestion);
+
             ManagerUi.ShowQuestion(mathQuestion.ToString());
-            
             ManagerUi.StartTimeLineAnimation();
+            realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
+            ManagerUi.ShowCorrectAnswer($"{mathQuestion.ToString()} = {realAnswer.ToString()}");
         }
 
         public void NumberInput(int number)
@@ -120,8 +123,7 @@ namespace Assets.Scripts.Mathematic
 
         private void CheckWithWrongAnswers()
         {
-            int realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
-
+//            realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
             if (realAnswer.ToString().Length > _answerText.Length)
                 return;
             if (realAnswer.ToString().Length == _answerText.Length)

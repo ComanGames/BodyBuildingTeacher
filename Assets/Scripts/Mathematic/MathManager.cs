@@ -7,8 +7,12 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
+        //answers information & counter
         private int _wa ;
         private int _ra ;
+
+        //TrueFalse switcher
+        private bool _truefalse;
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -26,6 +30,10 @@ namespace Assets.Scripts.Mathematic
 
         private string _answerText;
         private Random _random;
+        //my var random answer
+        private Random _randomanswer;
+        public int randomanswer;
+         
         public List<MathQuestion> _mathQuestions;
         private int realAnswer;
 
@@ -41,6 +49,12 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.ClickNextButton += NextButtoClicked;
             ManagerUi.ClickButtonNumber += NumberInput;
             ManagerUi.ClickResetButton += ResetCount;
+
+//True False Buttons Clicked
+            ManagerUi.ClickTrueButton += TrueButtonClicked;
+            ManagerUi.ClickFalseButton += FalseButtonClicked;
+
+
             Action counterAnimation =()=>  ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
             if(ManagerUi.IntrodcutionEnableAndNotNull)
             {
@@ -54,6 +68,37 @@ namespace Assets.Scripts.Mathematic
             }
             ManagerUi.SetTimeLineEndAction(AskQuestion);
 
+        }
+
+        //True False Buttons Clicked
+        private void TrueButtonClicked()
+        {
+            if (realAnswer == randomanswer)
+            {
+                _ra++;
+                ManagerUi.RightAnswer();
+            }
+            else
+            {
+                _wa++;
+            }
+            AskQuestion();
+            ManagerUi.SetWrongWrite(_ra, _wa);
+        }
+
+        private void FalseButtonClicked()
+        {
+            if (realAnswer != randomanswer)
+            {
+                _ra++;
+                ManagerUi.WrongAnswar();
+            }
+            else
+            {
+                _wa++;
+            }
+            AskQuestion();
+            ManagerUi.SetWrongWrite(_ra, _wa);
         }
 
         private void NextButtoClicked()
@@ -99,8 +144,19 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.ShowQuestion(mathQuestion.ToString());
             ManagerUi.StartTimeLineAnimation();
             realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
-            ManagerUi.ShowCorrectAnswer($"{mathQuestion.ToString()} = {realAnswer.ToString()}");
+
+            randomanswer = MadeRandomAnswer();
+            ManagerUi.ShowQuestionWithAnswer($"{mathQuestion} = {randomanswer}");
         }
+
+        public int MadeRandomAnswer()
+        {
+            if (_randomanswer == null)
+                _randomanswer = new Random();
+            int result = _randomanswer.Next(realAnswer-2, realAnswer+2);
+            return result;
+        }
+
 
         public void NumberInput(int number)
         {
@@ -118,12 +174,10 @@ namespace Assets.Scripts.Mathematic
                 CheckWithWrongAnswers();
             else
                 CheckWithoutWrongAnswer();
-                
         }
 
         private void CheckWithWrongAnswers()
         {
-//            realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
             if (realAnswer.ToString().Length > _answerText.Length)
                 return;
             if (realAnswer.ToString().Length == _answerText.Length)
@@ -159,10 +213,10 @@ namespace Assets.Scripts.Mathematic
             MathOperation operation = GetRendomOperation();
             int firstNumber = GetFirstNumber();
             int secondNumber = GetSecondNumber();
-            MathQuestion mathQuestion = CreateMathQuestion( firstNumber,secondNumber,operation);
+            MathQuestion mathQuestion = CreateMathQuestion(firstNumber,secondNumber,operation);
             return mathQuestion;
         }
-
+        
         private MathQuestion CreateMathQuestion(int firstNumber, int secondNumber, MathOperation operation)
         {
             if (operation == MathOperation.Devide)

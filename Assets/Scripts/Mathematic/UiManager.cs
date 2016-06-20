@@ -34,10 +34,13 @@ namespace Assets.Scripts.Mathematic
         private bool _isOver;
 
 
+
         public event Action ClickNextButton;
         public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
 
+        public event Action ClickTrueButton;
+        public event Action ClickFalseButton;
 
 
         public void Awake()
@@ -63,6 +66,17 @@ namespace Assets.Scripts.Mathematic
             IsIntroduction = levelSettings.IsIntroduction;
             IntroductionToggle.isOn = IsIntroduction;
         }
+
+
+        public void ClickButtonTrue()
+        {
+            ClickTrueButton?.Invoke();
+        }
+        public void ClickButtonFalse()
+        {
+            ClickFalseButton?.Invoke();
+        }
+
 
         public void Clear()
         {
@@ -103,13 +117,12 @@ namespace Assets.Scripts.Mathematic
         {
             LineAnimationInterface.ResetAnimation();
             QuestionText.text = questoin;
-            //ShowCorrectAnswer(string questoin);
         }
 
-        public void ShowCorrectAnswer(string text)
+        public void ShowQuestionWithAnswer(string text)
         {
             if(PlaginUi!=null)
-                PlaginUi.ShowCorrectAnswer(text);
+                PlaginUi.ShowQuestionWithAnswer(text);
         }
 
         public void WrongAnswar()

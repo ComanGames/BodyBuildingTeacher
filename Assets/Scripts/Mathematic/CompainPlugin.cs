@@ -8,9 +8,11 @@ namespace Assets.Scripts.Mathematic
     public class CompainPlugin : UiPlugin
     {
         public Text CorrectAnswer;
-        public override void ShowCorrectAnswer(string text)
+        public override void ShowQuestionWithAnswer(string text)
         {
             CorrectAnswer.text = text;
         }
+
+
     }
 }

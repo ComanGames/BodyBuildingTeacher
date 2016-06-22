@@ -48,6 +48,7 @@ namespace Assets.Scripts.Mathematic
 
         public void Awake()
         {
+            IntruductionAnimation?.transform.parent.gameObject.SetActive(true);
             LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
             AnswersInfoText.text = "True = 0\n" +
@@ -155,12 +156,11 @@ namespace Assets.Scripts.Mathematic
             SaveSetting();
             _isOver = true;
             //Debug.Log("We done game");
-            AnswerText.text = "Level Complete";
             LineAnimationInterface.ResetAnimation();
             //GameOverPanel.SetActive(true);
             GameOverText.text = gameOverText;
             LevelOverAnimationInterface.StartAnimation();
-            //            GameOverAnimationInterface.StartAnimation();
+            //GameOverAnimationInterface.StartAnimation();
         }
 
         public string GetGameOverText(int right, int wrong)

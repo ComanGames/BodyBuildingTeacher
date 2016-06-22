@@ -35,5 +35,6 @@ namespace Assets.Scripts.Mathematic
                 }
 
             }); }
-    }
+
+        }
 }

@@ -66,6 +66,8 @@ namespace Assets.Scripts.Animations.Scripts
             transform.localScale = Vector3.zero;
             _uiTransform.DOScale(tragetScale, currentData.Time).OnComplete(GoNext);
         }
+
+       
     }
 
 }

@@ -26,6 +26,9 @@ namespace Assets.Scripts.Mathematic
         public Toggle IntroductionToggle;
         public Timer TimerText;
 
+        public SimpleAnimation LevelOverAnimation;
+        private IUiAnimation LevelOverAnimationInterface => LevelOverAnimation;
+
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
         private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
         private IUiAnimation GameOverAnimationInterface => GameOverAnimation;
@@ -156,7 +159,8 @@ namespace Assets.Scripts.Mathematic
             LineAnimationInterface.ResetAnimation();
             //GameOverPanel.SetActive(true);
             GameOverText.text = gameOverText;
-            GameOverAnimationInterface.StartAnimation();
+            LevelOverAnimationInterface.StartAnimation();
+            //            GameOverAnimationInterface.StartAnimation();
         }
 
         public string GetGameOverText(int right, int wrong)

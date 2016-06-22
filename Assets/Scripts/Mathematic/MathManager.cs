@@ -7,52 +7,56 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
-        //answers information & counter
+//answers information & counter
         private int _wa ;
         private int _ra ;
 
-        //TrueFalse switcher
-        private bool _truefalse;
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
         public MathOperation[] AvaliableOperations;
         public bool IsWrongAnswers;
-        //First number
+//First number
         public int FirstNumberMin = 1;
         public int FirstNumberMax = 10;
-        //Second number
+//Second number
         public int SecondNumberMin = 1;
         public int SecondNumberMax = 10;
-        //Check max wrong
+//Check max wrong
         public bool IsWrongLimit;
         public int WrongLimit = 5;
 
         private string _answerText;
         private Random _random;
-        //my var random answer
+//my var random answer
         private Random _randomanswer;
         public int randomanswer;
-         
-        public List<MathQuestion> _mathQuestions;
-        private int realAnswer;
-
+        
         private bool _isReady;
+        private int realAnswer = new Random().Next(1, 20);
+
+        public List<MathQuestion> _mathQuestions;
+
+//List of Math Questions for Adventure
+        public List<AdventureQuestion> _adventureQuestionses; 
+
+        
 
         // Use this for initialization
         public void Start ()
         {
+            _adventureQuestionses = new List<AdventureQuestion>();
 
             _mathQuestions = new List<MathQuestion>();
-             _random = new Random();
+            _random = new Random();
             ManagerUi.Clear();
-            ManagerUi.ClickNextButton += NextButtoClicked;
+//            ManagerUi.ClickNextButton += NextButtoClicked;
             ManagerUi.ClickButtonNumber += NumberInput;
-            ManagerUi.ClickResetButton += ResetCount;
+//            ManagerUi.ClickResetButton += ResetCount;
 
 //True False Buttons Clicked
-            ManagerUi.ClickTrueButton += TrueButtonClicked;
-            ManagerUi.ClickFalseButton += FalseButtonClicked;
+            /*ManagerUi.ClickTrueButton += TrueButtonClicked;
+            ManagerUi.ClickFalseButton += FalseButtonClicked;*/
 
 
             Action counterAnimation =()=>  ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
@@ -66,12 +70,88 @@ namespace Assets.Scripts.Mathematic
                 ManagerUi.DisableIntroduction();
                 counterAnimation();
             }
-            ManagerUi.SetTimeLineEndAction(AskQuestion);
+//            ManagerUi.SetTimeLineEndAction(AskQuestion);
+            ManagerUi.SetTimeLineEndAction(AskAdventureQuestion);
 
         }
 
+//Adventure code
+        private AdventureQuestion GetNextAdventureQuestion()
+        {
+            MathOperation operation = GetRendomOperation();
+            int firstNumber = realAnswer;
+            int secondNumber = GetSecondNumber();
+            AdventureQuestion adventureQuestion = CreateAdventureQuestion(firstNumber, secondNumber, operation);
+            return adventureQuestion;
+        }
+
+        private AdventureQuestion CreateAdventureQuestion(int firstNumber, int secondNumber, MathOperation operation)
+        {
+            if (operation == MathOperation.Devide)
+            {
+                if (SecondNumberMin == 0 && SecondNumberMax == 0)
+                    throw new InvalidOperationException("Second number always 0");
+                while (secondNumber == 0)
+                {
+                    secondNumber = GetSecondNumber();
+                }
+                while (firstNumber % secondNumber != 0)
+                {
+                    secondNumber = GetSecondNumber();
+                }
+            }
+            if (operation == MathOperation.Minus)
+            {
+                if (firstNumber < secondNumber)
+                {
+                    firstNumber += secondNumber;
+                    secondNumber = firstNumber - secondNumber;
+                    firstNumber -= secondNumber;
+                }
+            }
+            return new AdventureQuestion(firstNumber, secondNumber, operation);
+        }
+
+        public void AskAdventureQuestion()
+        {
+            _isReady = true;
+            if (_adventureQuestionses.Count >= QuestionCount)
+            {
+                _isReady = false;
+
+
+                ManagerUi.EndGame(ManagerUi.GetGameOverText(_ra, _wa));
+                ManagerUi.TimerText.Stop();
+                return;
+            }
+            _answerText = "";
+            ManagerUi.UpdateAnswerView(_answerText);
+            AdventureQuestion adventureQuestion = GetNextAdventureQuestion();
+            _adventureQuestionses.Add(adventureQuestion);
+
+            ManagerUi.ShowQuestion(adventureQuestion.ToString());
+            ManagerUi.StartTimeLineAnimation();
+            realAnswer = _adventureQuestionses[_adventureQuestionses.Count - 1].Answer;
+
+            randomanswer = MadeRandomAnswer();
+            ManagerUi.ShowQuestionWithAnswer($"{adventureQuestion} = {realAnswer}");
+        }
+
+        private void CounterAnimaitonDone()
+        {
+            //ManagerUi.FadeOutCounterAnimation(() => {ManagerUi.TimerText.StartTimer();AskQuestion();});
+            ManagerUi.FadeOutCounterAnimation(() => { ManagerUi.TimerText.StartTimer(); AskAdventureQuestion(); });
+        }
+
+        public void WaitingUserAnswer()
+        {
+            
+        }
+
+        //Adventure code end
+
         //True False Buttons Clicked
-        private void TrueButtonClicked()
+        /*private void TrueButtonClicked()
         {
             if (realAnswer == randomanswer)
             {
@@ -117,14 +197,10 @@ namespace Assets.Scripts.Mathematic
             _answerText = "";
             ManagerUi.UpdateAnswerView(_answerText);
         }
+        */
 
-        private void CounterAnimaitonDone()
-        {
-            ManagerUi.FadeOutCounterAnimation(() => {ManagerUi.TimerText.StartTimer();AskQuestion();});
-           
-        }
 
-        public void AskQuestion()
+        /*public void AskQuestion()
         {
             _isReady = true;
             if (_mathQuestions.Count>=QuestionCount)
@@ -148,7 +224,7 @@ namespace Assets.Scripts.Mathematic
             randomanswer = MadeRandomAnswer();
             ManagerUi.ShowQuestionWithAnswer($"{mathQuestion} = {randomanswer}");
         }
-
+        */
         public int MadeRandomAnswer()
         {
             if (_randomanswer == null)
@@ -186,8 +262,9 @@ namespace Assets.Scripts.Mathematic
                  {
                      _ra++;
                     ManagerUi.RightAnswer();
-                    AskQuestion();
-                 }
+                    //AskQuestion();
+                    AskAdventureQuestion();
+                }
                  else
                  {
                      _wa++;
@@ -197,8 +274,9 @@ namespace Assets.Scripts.Mathematic
                          ManagerUi.WrongAnswarsLimit();
                          return;
                      }
-                    AskQuestion();
-                 }
+                    //AskQuestion();
+                    AskAdventureQuestion();
+                }
                  ManagerUi.SetWrongWrite(_ra,_wa);
             }
         }
@@ -216,6 +294,9 @@ namespace Assets.Scripts.Mathematic
             MathQuestion mathQuestion = CreateMathQuestion(firstNumber,secondNumber,operation);
             return mathQuestion;
         }
+
+
+
         
         private MathQuestion CreateMathQuestion(int firstNumber, int secondNumber, MathOperation operation)
         {
@@ -274,4 +355,5 @@ namespace Assets.Scripts.Mathematic
         public void Update () {
 	    }
     }
+
 }

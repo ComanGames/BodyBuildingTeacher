@@ -1,8 +1,6 @@
 ﻿using System;
-using Assets.Scripts.Mathematic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Animations.Scripts
 {
@@ -18,10 +16,10 @@ namespace Assets.Scripts.Animations.Scripts
         }
         public void StartAnimation()
         {
-            
             Vector2 ourSize = GetComponent<RectTransform>().rect.size;
             Vector3 moveTo = new Vector3(ourSize.x * Direction.x, ourSize.y * Direction.y, 0);
-            transform.DOMove(moveTo, 2);
+            transform.DOMove(moveTo, 2).OnComplete(()=>AniamtionDone?.Invoke());
+            //mine
         }
-    }
+     }
 }

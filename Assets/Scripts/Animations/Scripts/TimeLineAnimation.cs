@@ -96,5 +96,6 @@ namespace Assets.Scripts.Animations.Scripts
             throw new NotImplementedException();
         }
 
+        
     }
 }

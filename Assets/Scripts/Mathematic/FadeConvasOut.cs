@@ -22,6 +22,7 @@ namespace Assets.Scripts.Mathematic
             DOVirtual.Float(1.0f, 0.0f, FadeOutTime, FadeUpdate).OnComplete(()=> {CounterCanvas.SetActive(false); AniamtionDone?.Invoke();});
         }
 
+       
         private void FadeUpdate(float value)
         {
             BgImage.color = new Color(1, 1, 1, value);

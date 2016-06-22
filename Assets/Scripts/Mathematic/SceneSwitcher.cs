@@ -12,7 +12,7 @@ namespace Assets.Scripts.Mathematic
         public static SceneSwitcher Instance;
         public float Time = 0.5f;
         private Image _ourImage;
-        private bool _isFrist = true;
+       // private bool _isFrist = true;
 
         public void Awake()
         {
@@ -59,7 +59,5 @@ namespace Assets.Scripts.Mathematic
                 Instance._ourImage.enabled = false;
             });
         }
-
     }
-
 }

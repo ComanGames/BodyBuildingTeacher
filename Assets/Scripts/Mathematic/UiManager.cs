@@ -7,35 +7,77 @@ namespace Assets.Scripts.Mathematic
 {
     public class UiManager : MonoBehaviour
     {
+        public UiPlugin PlaginUi;
+        public Text GameOverText;
         public Text QuestionText;
-        public Text AnswerText;
+        public Text AnswerText;  
         public Text CurrentLevelText;
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
+        public bool IsIntroduction;
+        public bool IntrodcutionEnableAndNotNull => IsIntroduction && IntruductionAnimation != null;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
         public SlideConvasOut CounterRemoveAnimation;
         public TimeLineAnimation AnimationTimeLine;
-        public SimpleAnimation AnimationSimple;
-        public GameObject GameOverPanel;
+        public SimpleAnimation GameOverAnimation;
+        public SimpleAnimation IntruductionAnimation;
+        public Toggle IntroductionToggle;
+        public Timer TimerText;
 
-        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+        public SimpleAnimation LevelOverAnimation;
+        private IUiAnimation LevelOverAnimationInterface => LevelOverAnimation;
+
         private IUiAnimation CounterAnimationInterface => AnimationCounter;
-//        private IUiAnimation SimpleAnimationInterface => AnimationSimple;
+        private IUiAnimation RemoveCounterAnimationInterface => CounterRemoveAnimation;
+        private IUiAnimation GameOverAnimationInterface => GameOverAnimation;
+        private IUiAnimation IntroductionAnimationInterface => IntruductionAnimation;
         private IUiAnimationExtanded LineAnimationInterface => AnimationTimeLine;
+        private bool _isOver;
+
 
 
         public event Action ClickNextButton;
         public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
 
+        public event Action ClickTrueButton;
+        public event Action ClickFalseButton;
 
 
         public void Awake()
         {
+            LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
-           
+            AnswersInfoText.text = "True = 0\n" +
+                                   "False = 0\n";
+        }
+
+       
+
+        private void SaveSetting()
+        {
+            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
+            levelSettings.IsIntroduction = IntroductionToggle.isOn;
+            GameSettings.SaveLevelSetings(Utilities.GetSceneName(), levelSettings);
+        }
+
+        private void LoadSettings()
+        {
+            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
+            IsIntroduction = levelSettings.IsIntroduction;
+            IntroductionToggle.isOn = IsIntroduction;
+        }
+
+
+        public void ClickButtonTrue()
+        {
+            ClickTrueButton?.Invoke();
+        }
+        public void ClickButtonFalse()
+        {
+            ClickFalseButton?.Invoke();
         }
 
 
@@ -52,7 +94,6 @@ namespace Assets.Scripts.Mathematic
 
         public void ClickNumberButton(int number)
         {
-            //            _managerMath.NumberInput(number);
             ClickButtonNumber?.Invoke(number);
         }
 
@@ -73,12 +114,19 @@ namespace Assets.Scripts.Mathematic
             return int.Parse(AnswerText.text);
         }
 
+
+
         public void ShowQuestion(string questoin)
         {
             LineAnimationInterface.ResetAnimation();
             QuestionText.text = questoin;
         }
 
+        public void ShowQuestionWithAnswer(string text)
+        {
+            if(PlaginUi!=null)
+                PlaginUi.ShowQuestionWithAnswer(text);
+        }
 
         public void WrongAnswar()
         {
@@ -92,19 +140,36 @@ namespace Assets.Scripts.Mathematic
 
         public void SetWrongWrite(int right, int wrong)
         {
-            AnswersInfoText.text = $"RA = {right}. WA = {wrong}";
+            AnswersInfoText.text = $"True = {right}\n" +
+                                   $"False = {wrong}\n";
+            if (_isOver)
+            {
+                AnswersInfoText.alignment = TextAnchor.MiddleCenter;
+                AnswersInfoText.text = "Completed\n";
+                TimerText.gameObject.SetActive(false);
+            }
         }
 
-        public void EndGame()
+        public void EndGame(string gameOverText)
         {
+            SaveSetting();
+            _isOver = true;
             //Debug.Log("We done game");
             AnswerText.text = "Level Complete";
             LineAnimationInterface.ResetAnimation();
-            GameOverPanel.SetActive(true);
-//            SimpleAnimationInterface.StartAnimation();
+            //GameOverPanel.SetActive(true);
+            GameOverText.text = gameOverText;
+            LevelOverAnimationInterface.StartAnimation();
+            //            GameOverAnimationInterface.StartAnimation();
         }
 
-
+        public string GetGameOverText(int right, int wrong)
+        {
+            return "Congratulations!\n " +
+                                "Your result:\n" +
+                                $"Correct answers = {right}\n" +
+                                $"Incorrect answers = {wrong}\n";
+        }
         public void StartCounterAnimation(Action callbackAction)
         {
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
@@ -112,9 +177,14 @@ namespace Assets.Scripts.Mathematic
             CounterAnimationInterface.AniamtionDone += callbackAction;
         }
 
+        public void WaitForIntroduction(Action startTime)
+        {
+            CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
+            IntroductionAnimationInterface.AniamtionDone += startTime;
+        }
+
         public void FadeOutCounterAnimation(Action startTime)
         {
-
             RemoveCounterAnimationInterface.AniamtionDone += startTime;
             RemoveCounterAnimationInterface.StartAnimation();
         }
@@ -127,6 +197,18 @@ namespace Assets.Scripts.Mathematic
         {
             LineAnimationInterface.ResetAnimation();
             LineAnimationInterface.StartAnimation();
+        }
+
+        public void DisableIntroduction()
+        {
+            if(IntruductionAnimation!=null)
+                IntruductionAnimation.gameObject.SetActive(false);
+        }
+
+        public void WrongAnswarsLimit()
+        {
+            TimerText.gameObject.SetActive(false);
+            EndGame("To much of wrong Answers");
         }
     }
 }

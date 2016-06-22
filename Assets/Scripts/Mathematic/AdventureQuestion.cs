@@ -57,10 +57,10 @@
             switch (operation)
             {
                 case MathOperation.Add:
-                    result = "+";
+                    result = "add";
                     break;
                 case MathOperation.Minus:
-                    result = "-";
+                    result = "minus";
                     break;
                 case MathOperation.Devide:
                     result = "/";

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
+//Dom reset changes
 namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour 
     {
-        private int wa = 0;
-        private int ra = 0;
+        private int _wa ;
+        private int _ra ;
 
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -103,23 +104,23 @@ namespace Assets.Scripts.Mathematic
             {
                  if(realAnswer==Int32.Parse(_answerText))
                  {
-                     ra++;
+                     _ra++;
                     ManagerUi.RightAnswer();
                     AskQuestion();
                  }
                  else
                  {
-                     wa++;
+                     _wa++;
                     ManagerUi.WrongAnswar();
                     AskQuestion();
                  }
-                 ManagerUi.SetWrongWrite(ra,wa);
+                 ManagerUi.SetWrongWrite(_ra,_wa);
             }
         }
 
         private void CheckWithoutWrongAnswer()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private MathQuestion GetRandomQuestion()

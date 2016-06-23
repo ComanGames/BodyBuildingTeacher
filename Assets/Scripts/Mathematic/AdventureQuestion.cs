@@ -1,43 +1,10 @@
 ﻿namespace Assets.Scripts.Mathematic
 {
 
-    public class AdventureQuestion
+    public class AdventureQuestion :MathQuestion
     {
-        public int FirstNumberAdv;
-        public int SecondNumberAdv;
-        public MathOperation Operation;
-
-        public int Answer
+        public AdventureQuestion(int firstNumber, int secondNumber, MathOperation operation) : base(firstNumber, secondNumber, operation)
         {
-            get { return GetAnswear(); }
-        }
-
-        private int GetAnswear()
-        {
-            int answer = 0;
-            switch (Operation)
-            {
-                case MathOperation.Add:
-                    answer = FirstNumberAdv + SecondNumberAdv;
-                    break;
-                case MathOperation.Minus:
-                    answer = FirstNumberAdv - SecondNumberAdv;
-                    break;
-                case MathOperation.Devide:
-                    answer = FirstNumberAdv / SecondNumberAdv;
-                    break;
-                case MathOperation.Multiply:
-                    answer = FirstNumberAdv * SecondNumberAdv;
-                    break;
-            }
-            return answer;
-        }
-
-        public AdventureQuestion(int firstNumber, int secondNumber, MathOperation operation)
-        {
-            FirstNumberAdv = firstNumber;
-            SecondNumberAdv = secondNumber;
-            Operation = operation;
         }
 
         public AdventureQuestion()
@@ -47,26 +14,26 @@
         public override string ToString()
         {
             string operation = OperationToString(Operation);
-            return string.Format($"{operation} {SecondNumberAdv}");
+            return $"{operation} {SecondNumber}";
 
         }
 
-        public static string OperationToString(MathOperation operation)
+        public new static string OperationToString(MathOperation operation)
         {
             string result = "";
             switch (operation)
             {
                 case MathOperation.Add:
-                    result = "add ";
+                    result = "add";
                     break;
                 case MathOperation.Minus:
-                    result = "minus ";
+                    result = "minus";
                     break;
                 case MathOperation.Devide:
-                    result = "divide by ";
+                    result = "/";
                     break;
                 case MathOperation.Multiply:
-                    result = "multiply by ";
+                    result = "x";
                     break;
             }
             return result;

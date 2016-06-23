@@ -342,6 +342,7 @@ GameObject:
   - 124: {fileID: 62701788}
   - 81: {fileID: 62701787}
   - 114: {fileID: 62701792}
+  - 114: {fileID: 62701793}
   m_Layer: 0
   m_Name: Manager
   m_TagString: MainCamera
@@ -427,8 +428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f97f440ad6f64f9689076afd81e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PluginMath: {fileID: 0}
   ManagerUi: {fileID: 1571473790}
-  QuestionCount: 5
+  QuestionCount: 2
   AvaliableOperations: 01000000000000000200000003000000
   IsWrongAnswers: 1
   FirstNumberMin: 1
@@ -438,6 +440,23 @@ MonoBehaviour:
   IsWrongLimit: 0
   WrongLimit: 5
   randomanswer: 0
+  RealAnswer: 0
+  _isReady: 0
+  WrongAnswer: 0
+  RightAnswer: 0
+--- !u!114 &62701793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62701786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87784cdd346ab6b4993acb7571b44863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirstQuestionMin: 0
+  FirstQuestionMax: 10
 --- !u!1 &63528634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,7 +6446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dca6d5624a98ab4f9ed20327fcb3499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManagerUi: {fileID: 0}
+  ManagerUi: {fileID: 1571473790}
 --- !u!114 &2037455737
 MonoBehaviour:
   m_ObjectHideFlags: 0

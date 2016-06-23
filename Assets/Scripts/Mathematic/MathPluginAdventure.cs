@@ -28,14 +28,19 @@ namespace Assets.Scripts.Mathematic
 
         public override void AskQuestion()
         {
-            base.AskQuestion();
-            if(!_mathManager._isReady)
-                return;
+            //If we have first question
             if (_isFrist)
             {
                 _managerUi.ShowQuestion($"Your number is {_mathManager.RealAnswer}");
                 _managerUi.StartTimeLineAnimation();
                 _isFrist = false;
+                return;
+            }
+            //if we have lest question 
+            if (_mathManager.MathQuestions.Count >= _mathManager.QuestionCount)
+            {
+                _mathManager._isReady = true;
+                InputAnswer();
                 return;
             }
             AdventureQuestion adventureQuestion =  GetNextQuestion();
@@ -45,17 +50,42 @@ namespace Assets.Scripts.Mathematic
             _mathManager.RealAnswer = _mathManager.MathQuestions[_mathManager.MathQuestions.Count - 1].Answer;
         }
 
-        public override void EndGame()
+
+        private void InputAnswer()
         {
-            //base.EndGame();
-            _managerUi.UpdateAnswerView("");
-            _mathManager._isReady = true;
-            _managerUi.AnimationTimeLine.AniamtionDone -= _mathManager.AskQuestion;
+            _managerUi.LevelOverAnimation.AniamtionDone+=StartTimeLine;
+            _managerUi.StartInputAnimation();
         }
 
-        public override void CheckAnswer()
+        private void StartTimeLine()
         {
+            _managerUi.AnimationTimeLine.AniamtionDone -= _mathManager.AskQuestion;
+            _managerUi.AnimationTimeLine.AniamtionDone += TimoutOnAnswer;
+            _managerUi.AnimationTimeLine.ResetAnimation();
+            _managerUi.AnimationTimeLine.StartAnimation();
+        }
 
+
+        public void TimoutOnAnswer()
+        {
+            _managerUi.UpdateAnswerView("");
+            _mathManager._isReady = false;
+            _managerUi.EndGame($"You are so slow\nRight answer was: {_mathManager.RealAnswer}");
+        }
+        public override void RightAnswer()
+        {
+            _managerUi.UpdateAnswerView("");
+            _mathManager._isReady = false;
+            _managerUi.EndGame($"You are cool!");
+
+        }
+
+
+        public override void WrongAnswer()
+        {
+            _managerUi.UpdateAnswerView("");
+            _mathManager._isReady = false;
+            _managerUi.EndGame($"You are loser\nRight answer was: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
         }
     }
 }

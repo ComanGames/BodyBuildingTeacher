@@ -78,10 +78,7 @@ namespace Assets.Scripts.Animations.Scripts
 
         public void ResetAnimation()
         {
-            if (_ourTweener != null)
-            {
-                _ourTweener.Kill();
-            }
+            StopAnimation();
             _incideImage.rectTransform.SetWidth(_realWidth);
         }
         
@@ -93,9 +90,13 @@ namespace Assets.Scripts.Animations.Scripts
 
         public void StopAnimation()
         {
-            throw new NotImplementedException();
+            if (_ourTweener != null)
+            {
+                _ourTweener.Kill();
+                _ourTweener = null;
+            }
         }
 
-        
+
     }
 }

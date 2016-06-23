@@ -1,7 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
-using System.Reflection.Emit;
 using System.Threading;
 using System.Timers;
 using UnityEngine.UI;
@@ -46,6 +44,11 @@ namespace Assets.Scripts.Animations.Scripts
             float seconds = _timerTime.Seconds;
             // ReSharper disable once PossibleLossOfFraction
             float fraction = _timerTime.Milliseconds;
+            if(MyTimer==null)
+            {
+                Stop();
+                return;
+            }
             MyTimer.text = $"{minutes:00} : {seconds:00} : {fraction:000}";
         }
 
@@ -53,10 +56,6 @@ namespace Assets.Scripts.Animations.Scripts
         {
             Stop();
         }
-
-
-
-
         public void Stop()
         {
             if (_timer != null)

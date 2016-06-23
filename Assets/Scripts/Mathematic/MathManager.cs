@@ -7,7 +7,6 @@ namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour
     {
-
         public MathPlugin PluginMath;
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -23,7 +22,8 @@ namespace Assets.Scripts.Mathematic
         public bool IsWrongLimit;
         public int WrongLimit = 5;
 
-        private string _answerText;
+        [HideInInspector]
+        public string AnswerText;
         private Random _random;
         //my var random answer
         private Random _randomanswer;
@@ -40,9 +40,6 @@ namespace Assets.Scripts.Mathematic
         public List<MathQuestion> MathQuestions;
 
         //List of Math Questions for Adventure
-
-
-
         // Use this for initialization
         public void Start()
         {
@@ -54,8 +51,8 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.Clear();
             ManagerUi.ClickButtonNumber += NumberInput;
 
-            //            ManagerUi.ClickNextButton += NextButtoClicked;
-            //            ManagerUi.ClickResetButton += ResetCount;
+            //  ManagerUi.ClickNextButton += NextButtoClicked;
+            //  ManagerUi.ClickResetButton += ResetCount;
             //True False Buttons Clicked
             /*ManagerUi.ClickTrueButton += TrueButtonClicked;
             ManagerUi.ClickFalseButton += FalseButtonClicked;*/
@@ -71,7 +68,6 @@ namespace Assets.Scripts.Mathematic
                 ManagerUi.DisableIntroduction();
                 counterAnimation();
             }
-            //            ManagerUi.SetTimeLineEndAction(AskQuestion);
             ManagerUi.SetTimeLineEndAction(AskQuestion);
 
         }
@@ -80,8 +76,7 @@ namespace Assets.Scripts.Mathematic
 
         private void CounterAnimaitonDone()
         {
-            //ManagerUi.FadeOutCounterAnimation(() => {ManagerUi.TimerText.StartTimer();AskQuestion();});
-            ManagerUi.FadeOutCounterAnimation(() => { ManagerUi.TimerText.StartTimer(); AskQuestion(); });
+            ManagerUi.FadeOutCounterAnimation(() => { ManagerUi.TimerText?.StartTimer(); AskQuestion(); });
         }
 
         public void WaitingUserAnswer()
@@ -91,8 +86,6 @@ namespace Assets.Scripts.Mathematic
 
         public void AskQuestion()
         {
-            _answerText = "";
-            ManagerUi.UpdateAnswerView(_answerText);
             PluginMath.AskQuestion();
         }
         //Adventure code end
@@ -141,35 +134,14 @@ namespace Assets.Scripts.Mathematic
 
         private void ResetCount()
         {
-            _answerText = "";
-            ManagerUi.UpdateAnswerView(_answerText);
+            AnswerText = "";
+            ManagerUi.UpdateAnswerView(AnswerText);
         }
         */
 
 
         /*public void AskQuestion()
         {
-            _isReady = true;
-            if (_mathQuestions.Count>=QuestionCount)
-            {
-                _isReady = false;
-
-                ManagerUi.EndGame(ManagerUi.GetGameOverText( RightAnswer,WrongAnswer));
-                ManagerUi.TimerText.Stop();
-                return;
-            }
-           
-            _answerText = "";
-            ManagerUi.UpdateAnswerView(_answerText);
-            MathQuestion mathQuestion = GetRandomQuestion();
-            _mathQuestions.Add(mathQuestion);
-
-            ManagerUi.ShowQuestion(mathQuestion.ToString());
-            ManagerUi.StartTimeLineAnimation();
-            realAnswer = _mathQuestions[_mathQuestions.Count - 1].Answer;
-
-            randomanswer = MadeRandomAnswer();
-            ManagerUi.ShowQuestionWithAnswer($"{mathQuestion} = {randomanswer}");
         }
         */
         public int MadeRandomAnswer()
@@ -185,9 +157,9 @@ namespace Assets.Scripts.Mathematic
         {
             if (_isReady)
             {
-                _answerText += number;
-                ManagerUi.UpdateAnswerView(_answerText);
-                PluginMath.CheckAnswer();
+                AnswerText += number;
+                ManagerUi.UpdateAnswerView(AnswerText);
+                CheckAnswer();
             }
         }
 
@@ -201,26 +173,22 @@ namespace Assets.Scripts.Mathematic
 
         private void CheckWithWrongAnswers()
         {
-            if (RealAnswer.ToString().Length > _answerText.Length)
+            if (RealAnswer.ToString().Length > AnswerText.Length)
                 return;
-            if (RealAnswer.ToString().Length == _answerText.Length)
+            if (RealAnswer.ToString().Length == AnswerText.Length)
             {
-                if (RealAnswer == Int32.Parse(_answerText))
+                if (RealAnswer == Int32.Parse(AnswerText))
                 {
-                    RightAnswer++;
-                    ManagerUi.RightAnswer();
-                    AskQuestion();
+                    PluginMath.RightAnswer();
                 }
                 else
                 {
-                    WrongAnswer++;
-                    ManagerUi.WrongAnswar();
+                    PluginMath.WrongAnswer();
                     if (IsWrongLimit && WrongAnswer >= WrongLimit)
                     {
                         ManagerUi.WrongAnswarsLimit();
                         return;
                     }
-                    AskQuestion();
                 }
                 ManagerUi.SetWrongWrite(RightAnswer, WrongAnswer);
             }
@@ -228,17 +196,9 @@ namespace Assets.Scripts.Mathematic
 
         private void CheckWithoutWrongAnswer()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        private MathQuestion GetRandomQuestion()
-        {
-            MathOperation operation = GetRendomOperation();
-            int firstNumber = GetFirstNumber();
-            int secondNumber = GetSecondNumber();
-            MathQuestion mathQuestion = CreateMathQuestion(firstNumber, secondNumber, operation);
-            return mathQuestion;
-        }
 
         public MathQuestion CreateMathQuestion(int firstNumber, int secondNumber, MathOperation operation)
         {
@@ -259,9 +219,7 @@ namespace Assets.Scripts.Mathematic
             {
                 if (firstNumber < secondNumber)
                 {
-                    firstNumber += secondNumber;
-                    secondNumber = firstNumber - secondNumber;
-                    firstNumber -= secondNumber;
+                    secondNumber = firstNumber/2;
                 }
             }
 
@@ -273,7 +231,7 @@ namespace Assets.Scripts.Mathematic
             return GetRandomNumber(SecondNumberMin, SecondNumberMax);
         }
 
-        private int GetFirstNumber()
+        public int GetFirstNumber()
         {
             return GetRandomNumber(FirstNumberMin, FirstNumberMax);
         }

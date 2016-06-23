@@ -43,7 +43,7 @@ public class UnityScheduler : MonoBehaviour
 		Instance = this;
 		MainThreadId = Thread.CurrentThread.ManagedThreadId;
 
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 
 		UpdateScheduler = new UnityTaskScheduler("Update");
 		LateUpdateScheduler = new UnityTaskScheduler("LateUpdate");

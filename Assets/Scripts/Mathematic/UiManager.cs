@@ -147,7 +147,7 @@ namespace Assets.Scripts.Mathematic
             {
                 AnswersInfoText.alignment = TextAnchor.MiddleCenter;
                 AnswersInfoText.text = "Completed\n";
-                TimerText.gameObject.SetActive(false);
+                TimerText?.gameObject.SetActive(false);
             }
         }
 
@@ -159,8 +159,12 @@ namespace Assets.Scripts.Mathematic
             LineAnimationInterface.ResetAnimation();
             //GameOverPanel.SetActive(true);
             GameOverText.text = gameOverText;
-            LevelOverAnimationInterface.StartAnimation();
-            //GameOverAnimationInterface.StartAnimation();
+            GameOverAnimationInterface.StartAnimation();
+        }
+
+        public void StartInputAnimation()
+        {
+           LevelOverAnimationInterface.StartAnimation(); 
         }
 
         public string GetGameOverText(int right, int wrong)
@@ -207,7 +211,7 @@ namespace Assets.Scripts.Mathematic
 
         public void WrongAnswarsLimit()
         {
-            TimerText.gameObject.SetActive(false);
+            TimerText?.gameObject.SetActive(false);
             EndGame("To much of wrong Answers");
         }
     }

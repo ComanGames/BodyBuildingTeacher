@@ -47,7 +47,7 @@
         public override string ToString()
         {
             string operation = OperationToString(Operation);
-            return string.Format("{0} {1} {2}", FirstNumberAdv, operation, SecondNumberAdv);
+            return string.Format($"{operation} {SecondNumberAdv}");
 
         }
 
@@ -57,16 +57,16 @@
             switch (operation)
             {
                 case MathOperation.Add:
-                    result = "add";
+                    result = "add ";
                     break;
                 case MathOperation.Minus:
-                    result = "minus";
+                    result = "minus ";
                     break;
                 case MathOperation.Devide:
-                    result = "/";
+                    result = "divide by ";
                     break;
                 case MathOperation.Multiply:
-                    result = "x";
+                    result = "multiply by ";
                     break;
             }
             return result;

@@ -8,6 +8,8 @@ namespace Assets.Scripts.Mathematic
         Add,
         Minus,
         Multiply,
-        Devide
+        Devide,
+        More,
+        Less
     }
 }

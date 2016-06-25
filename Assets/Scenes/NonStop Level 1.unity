@@ -221,6 +221,7 @@ GameObject:
   - 124: {fileID: 62701788}
   - 81: {fileID: 62701787}
   - 114: {fileID: 62701792}
+  - 114: {fileID: 62701793}
   m_Layer: 0
   m_Name: Manager
   m_TagString: MainCamera
@@ -306,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f97f440ad6f64f9689076afd81e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PluginMath: {fileID: 0}
   ManagerUi: {fileID: 1571473787}
   QuestionCount: 5
   AvaliableOperations: 0000000001000000
@@ -316,6 +318,23 @@ MonoBehaviour:
   SecondNumberMax: 20
   IsWrongLimit: 1
   WrongLimit: 2
+  AnswerText: 
+  randomanswer: 0
+  RealAnswer: 0
+  _isReady: 0
+  WrongAnswer: 0
+  RightAnswer: 0
+--- !u!114 &62701793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62701786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba88c5dc51887b4687cbab0f0dd9474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &65435429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,6 +4838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c045f28d00371b48ad1aa38301891bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlaginUi: {fileID: 0}
   GameOverText: {fileID: 1838382103}
   QuestionText: {fileID: 1149872478}
   AnswerText: {fileID: 533521688}
@@ -4827,7 +4847,6 @@ MonoBehaviour:
   FadeOutTime: 1
   EndTimeOut: 0.5
   IsIntroduction: 0
-  FakeObject: {fileID: 0}
   AnimationCounter: {fileID: 731269778}
   CounterCanvas: {fileID: 1656622591}
   CounterRemoveAnimation: {fileID: 268519310}
@@ -4836,6 +4855,7 @@ MonoBehaviour:
   IntruductionAnimation: {fileID: 134493482}
   IntroductionToggle: {fileID: 1780585073}
   TimerText: {fileID: 866469653}
+  LevelOverAnimation: {fileID: 0}
 --- !u!114 &1571473788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5463,7 +5483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1753268834
 RectTransform:
   m_ObjectHideFlags: 0

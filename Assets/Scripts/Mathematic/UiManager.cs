@@ -42,9 +42,6 @@ namespace Assets.Scripts.Mathematic
         public event Action ClickResetButton;
         public event Action<int> ClickButtonNumber;
 
-        public event Action ClickTrueButton;
-        public event Action ClickFalseButton;
-
 
         public void Awake()
         {
@@ -72,14 +69,7 @@ namespace Assets.Scripts.Mathematic
         }
 
 
-        public void ClickButtonTrue()
-        {
-            ClickTrueButton?.Invoke();
-        }
-        public void ClickButtonFalse()
-        {
-            ClickFalseButton?.Invoke();
-        }
+
 
 
         public void Clear()
@@ -141,8 +131,8 @@ namespace Assets.Scripts.Mathematic
 
         public void SetWrongWrite(int right, int wrong)
         {
-            AnswersInfoText.text = $"True = {right}\n" +
-                                   $"False = {wrong}\n";
+            AnswersInfoText.text = $"Right = {right}\n" +
+                                   $"Wrong = {wrong}\n";
             if (_isOver)
             {
                 AnswersInfoText.alignment = TextAnchor.MiddleCenter;

@@ -12,6 +12,12 @@
             get { return GetAnswear(); }
         }
 
+        public bool IsLogic()
+        {
+            if (Operation == MathOperation.More || Operation == MathOperation.Less)
+                return true;
+            return false;
+        }
         private int GetAnswear()
         {
             int answer = 0;
@@ -30,6 +36,13 @@
                 case MathOperation.Multiply:
                     answer = FirstNumber*SecondNumber;
                     break;
+                 case MathOperation.More:
+                    answer = FirstNumber>SecondNumber?1:0;
+                    break;
+                case MathOperation.Less:
+                    answer = FirstNumber < SecondNumber ? 1 : 0;
+                    break;
+
             }
             return answer;
 
@@ -69,6 +82,12 @@
                     break;
                     case MathOperation.Multiply:
                     result = "x";
+                    break;
+                    case MathOperation.More:
+                    result = ">";
+                    break;
+                    case MathOperation.Less:
+                    result = "<";
                     break;
             }
             return result;

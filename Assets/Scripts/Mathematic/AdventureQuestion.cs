@@ -24,16 +24,16 @@
             switch (operation)
             {
                 case MathOperation.Add:
-                    result = "add";
+                    result = "add ";
                     break;
                 case MathOperation.Minus:
-                    result = "minus";
+                    result = "minus ";
                     break;
                 case MathOperation.Devide:
-                    result = "/";
+                    result = "divide by ";
                     break;
                 case MathOperation.Multiply:
-                    result = "x";
+                    result = "multiply by ";
                     break;
             }
             return result;

@@ -32,8 +32,6 @@ namespace Assets.Scripts.Mathematic
             _managerUi.StartTimeLineAnimation();
             _mathManager.RealAnswer = mathQuestion.Answer;
 
-//            randomanswer = MadeRandomAnswer();
-//            _managerUi.ShowQuestionWithAnswer($"{mathQuestion} = {randomanswer}");
         }
 
         private MathQuestion GetRandomQuestion()
@@ -50,6 +48,10 @@ namespace Assets.Scripts.Mathematic
             _managerUi.RightAnswer();
             AskQuestion();
         }
+        protected MathQuestion GetLastQuestion
+        {
+            get { return _mathManager.MathQuestions[_mathManager.MathQuestions.Count - 1]; }
+        }
         public virtual void WrongAnswer()
         {
             _mathManager.WrongAnswer++;
@@ -62,7 +64,8 @@ namespace Assets.Scripts.Mathematic
             _mathManager._isReady = false;
             _managerUi.UpdateAnswerView("Level Complete");
             _managerUi.EndGame(_managerUi.GetGameOverText(_mathManager.RightAnswer,_mathManager.WrongAnswer));
-            _managerUi.TimerText.Stop();
+
+            _managerUi?.TimerText.Stop();
         }
 
     }

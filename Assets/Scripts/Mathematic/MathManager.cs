@@ -51,13 +51,9 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.Clear();
             ManagerUi.ClickButtonNumber += NumberInput;
 
-            //  ManagerUi.ClickNextButton += NextButtoClicked;
-            //  ManagerUi.ClickResetButton += ResetCount;
-            //True False Buttons Clicked
-            /*ManagerUi.ClickTrueButton += TrueButtonClicked;
-            ManagerUi.ClickFalseButton += FalseButtonClicked;*/
-
-
+            ManagerUi.ClickNextButton += NextButtoClicked;
+            ManagerUi.ClickResetButton += ResetCount;
+            
             Action counterAnimation = () => ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
             if (ManagerUi.IntrodcutionEnableAndNotNull)
             {
@@ -71,8 +67,6 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.SetTimeLineEndAction(AskQuestion);
 
         }
-
-        //Adventure code
 
         private void CounterAnimaitonDone()
         {
@@ -88,37 +82,13 @@ namespace Assets.Scripts.Mathematic
         {
             PluginMath.AskQuestion();
         }
-        //Adventure code end
-
-        //True False Buttons Clicked
-        /*private void TrueButtonClicked()
+       
+        public int MadeRandomAnswer()
         {
-            if (realAnswer == randomanswer)
-            {
-                RightAnswer++;
-                ManagerUi.RightAnswer();
-            }
-            else
-            {
-                WrongAnswer++;
-            }
-            AskQuestion();
-            ManagerUi.SetWrongWrite(RightAnswer, WrongAnswer);
-        }
-
-        private void FalseButtonClicked()
-        {
-            if (realAnswer != randomanswer)
-            {
-                RightAnswer++;
-                ManagerUi.WrongAnswar();
-            }
-            else
-            {
-                WrongAnswer++;
-            }
-            AskQuestion();
-            ManagerUi.SetWrongWrite(RightAnswer, WrongAnswer);
+            if (_randomanswer == null)
+                _randomanswer = new Random();
+            int result = _randomanswer.Next(RealAnswer - 2, RealAnswer + 2);
+            return result;
         }
 
         private void NextButtoClicked()
@@ -137,21 +107,6 @@ namespace Assets.Scripts.Mathematic
             AnswerText = "";
             ManagerUi.UpdateAnswerView(AnswerText);
         }
-        */
-
-
-        /*public void AskQuestion()
-        {
-        }
-        */
-        public int MadeRandomAnswer()
-        {
-            if (_randomanswer == null)
-                _randomanswer = new Random();
-            int result = _randomanswer.Next(RealAnswer - 2, RealAnswer + 2);
-            return result;
-        }
-
 
         public void NumberInput(int number)
         {

@@ -409,10 +409,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons:
-  - {fileID: 1223621514}
-  - {fileID: 17832256}
-  - {fileID: 1084971088}
-  - {fileID: 951408062}
+  - {fileID: 2092367292}
+  - {fileID: 1006206335}
+  - {fileID: 513487060}
+  - {fileID: 715160158}
   RandomFloat: 5
 --- !u!1 &63528634
 GameObject:
@@ -1677,7 +1677,7 @@ GameObject:
   - 114: {fileID: 513487061}
   - 114: {fileID: 513487060}
   m_Layer: 5
-  m_Name: ButtonTrue
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2084,7 +2084,7 @@ GameObject:
   - 114: {fileID: 715160159}
   - 114: {fileID: 715160158}
   m_Layer: 5
-  m_Name: ButtonFalse
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,7 +3505,7 @@ GameObject:
   - 114: {fileID: 1006206336}
   - 114: {fileID: 1006206335}
   m_Layer: 5
-  m_Name: ButtonFalse
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7003,7 +7003,7 @@ GameObject:
   - 114: {fileID: 2092367293}
   - 114: {fileID: 2092367292}
   m_Layer: 5
-  m_Name: ButtonTrue
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

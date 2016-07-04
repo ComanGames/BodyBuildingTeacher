@@ -31,7 +31,6 @@ namespace Assets.Scripts.Mathematic
             _managerUi.ShowQuestion(mathQuestion.ToString());
             _managerUi.StartTimeLineAnimation();
             _mathManager.RealAnswer = mathQuestion.Answer;
-
         }
 
         private MathQuestion GetRandomQuestion()
@@ -68,5 +67,15 @@ namespace Assets.Scripts.Mathematic
             _managerUi?.TimerText.Stop();
         }
 
+        public virtual void Go()
+        {
+            _managerUi.TimerText?.StartTimer();
+            _mathManager.AskQuestion();
+        }
+
+        public virtual void Ready()
+        {
+            
+        }
     }
 }

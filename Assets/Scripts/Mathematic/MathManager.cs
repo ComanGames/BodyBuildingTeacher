@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = System.Random;
 
@@ -70,7 +71,8 @@ namespace Assets.Scripts.Mathematic
 
         private void CounterAnimaitonDone()
         {
-            ManagerUi.FadeOutCounterAnimation(() => { ManagerUi.TimerText?.StartTimer(); AskQuestion(); });
+            PluginMath.Ready();
+            ManagerUi.FadeOutCounterAnimation(PluginMath.Go);
         }
 
         public void WaitingUserAnswer()

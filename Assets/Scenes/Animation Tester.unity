@@ -397,8 +397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0}
   AnimationTime: 0
-  ScaleFisrtParam: 3
-  ScaleSecondParam: 1
 --- !u!114 &892436365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,8 +505,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1168951498}
-        m_MethodName: Stop
+      - m_Target: {fileID: 11500000, guid: 9ebd8d6f783ec0f448ede81e5ee42e5c, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -781,8 +779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0}
   AnimationTime: 0
-  ScaleFisrtParam: 0.5
-  ScaleSecondParam: 2
 --- !u!114 &1385393785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,8 +818,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1385393784}
-        m_MethodName: StartScaleAnimation
+      - m_Target: {fileID: 11500000, guid: 9ebd8d6f783ec0f448ede81e5ee42e5c, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

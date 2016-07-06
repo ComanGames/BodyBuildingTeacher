@@ -22,14 +22,21 @@ namespace Assets.Scripts.Mathematic
         {
             _mathManager._isReady = true;
             if (_mathManager.MathQuestions.Count >= _mathManager.QuestionCount)
+            {
                 EndGame();
+                return;
+            }
              _mathManager.AnswerText = "";
             _managerUi.UpdateAnswerView(_mathManager.AnswerText);
             MathQuestion mathQuestion = GetRandomQuestion();
             _mathManager.MathQuestions.Add(mathQuestion);
 
             _managerUi.ShowQuestion(mathQuestion.ToString());
-            _managerUi.StartTimeLineAnimation();
+            if (_mathManager.MathQuestions.Count > 1)
+            {
+                _managerUi.AnimationTimeLine.ResetAnimation();
+                _managerUi.AnimationTimeLine.StartAnimation();
+            }
             _mathManager.RealAnswer = mathQuestion.Answer;
         }
 
@@ -62,15 +69,18 @@ namespace Assets.Scripts.Mathematic
 
             _mathManager._isReady = false;
             _managerUi.UpdateAnswerView("Level Complete");
+            _managerUi.ShowQuestion("");//my code
             _managerUi.EndGame(_managerUi.GetGameOverText(_mathManager.RightAnswer,_mathManager.WrongAnswer));
-
             _managerUi?.TimerText.Stop();
+            // my code
+            _managerUi.AnimationTimeLine.StopAnimation();
         }
 
         public virtual void Go()
         {
             _managerUi.TimerText?.StartTimer();
             _mathManager.AskQuestion();
+            _managerUi.AnimationTimeLine.StartAnimation();
         }
 
         public virtual void Ready()

@@ -109,7 +109,7 @@ namespace Assets.Scripts.Mathematic
 
         public void ShowQuestion(string questoin)
         {
-            LineAnimationInterface.ResetAnimation();
+           // LineAnimationInterface.ResetAnimation();
             QuestionText.text = questoin;
         }
 
@@ -147,6 +147,7 @@ namespace Assets.Scripts.Mathematic
             _isOver = true;
             //Debug.Log("We done game");
             LineAnimationInterface.ResetAnimation();
+            
             //GameOverPanel.SetActive(true);
             GameOverText.text = gameOverText;
             GameOverAnimationInterface.StartAnimation();
@@ -191,6 +192,13 @@ namespace Assets.Scripts.Mathematic
         {
             LineAnimationInterface.ResetAnimation();
             LineAnimationInterface.StartAnimation();
+        }
+
+
+        //my code
+        public void StopTimeLineAnimation()
+        {
+            LineAnimationInterface.StopAnimation();
         }
 
         public void DisableIntroduction()

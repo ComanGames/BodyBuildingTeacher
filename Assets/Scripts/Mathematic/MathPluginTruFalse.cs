@@ -1,14 +1,14 @@
-﻿using System;
+﻿using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
 {
     public class MathPluginTruFalse: MathPlugin
     {
-
-
         private int _randomAnswer ;
         public int AnswerFloating = 10;
-        public bool LogiWithAnswer = false;
+        public bool LogicWithAnswer = false;
+        public GameObject[] Buttons;
         //True False Buttons Clicked
         public void TrueButtonClicked()
          {
@@ -21,7 +21,6 @@ namespace Assets.Scripts.Mathematic
                  WrongAnswer();
              }
             _managerUi.SetWrongWrite(_mathManager.RightAnswer, _mathManager.WrongAnswer);
-
         }
 
         public void FalseButtonClicked()
@@ -39,13 +38,14 @@ namespace Assets.Scripts.Mathematic
         
         public override void AskQuestion()
         {
+
             base.AskQuestion();
             _randomAnswer = MadeRandomAnswer();
             MathQuestion lastQuestion = GetLastQuestion;
             if (lastQuestion.IsLogic())
             {
                 string answer = _randomAnswer == 1 ? "true" : "false";
-                if(LogiWithAnswer)
+                if (LogicWithAnswer)
                     _managerUi.ShowQuestion($"{lastQuestion} is {answer}");
                 else
                     _managerUi.ShowQuestion($"{lastQuestion}");
@@ -54,13 +54,23 @@ namespace Assets.Scripts.Mathematic
             {
                 _managerUi.ShowQuestion($"{lastQuestion} = {_randomAnswer}");
             }
-        }
 
+        }
+        public override void Go()
+        {
+            _managerUi.TimerText?.StartTimer();
+            _managerUi.AnimationTimeLine.StartAnimation();
+        }
+        public override void Ready()
+        {
+            base.Ready();
+            _mathManager.AskQuestion();
+            _managerUi.AnimationTimeLine.ResetAnimation();
+        }
 
         public int MadeRandomAnswer()
         {
-
-            if (!LogiWithAnswer && GetLastQuestion.IsLogic())
+            if (!LogicWithAnswer && GetLastQuestion.IsLogic())
                 return 1;
              int result;
             Random randomAnswer = new Random();
@@ -73,10 +83,20 @@ namespace Assets.Scripts.Mathematic
             }
             else
             {
-
                 result   = randomAnswer.Next(_mathManager.RealAnswer - AnswerFloating, _mathManager.RealAnswer+AnswerFloating);
             }
              return result;
          }
+        public override void EndGame()
+        {
+            _managerUi.QuestionText.gameObject.SetActive(false);
+            base.EndGame();
+  
+            for (int i = 0; i < Buttons.Length; i++)
+            {
+                Buttons[i].gameObject.SetActive(false);
+            }
+            
+        }
     }
 }

@@ -34,6 +34,15 @@ namespace Assets.Scripts.Mathematic
             }
         }
 
+        public override void EndGame()
+        {
+            base.EndGame();
+            for (int i = 0; i < Buttons.Length; i++)
+            {
+                Buttons[i].gameObject.SetActive(false);
+            }
+        }
+
         public void ButtonClicked(int index)
         {
             //Debug.Log($"button with index {index} was clicked");

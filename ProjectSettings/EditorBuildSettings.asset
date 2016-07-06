@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/NonStop Level 2.unity
   - enabled: 1
     path: Assets/Scenes/Adventure.unity
+  - enabled: 1
+    path: Assets/Scenes/4buttons.unity
+  - enabled: 1
+    path: Assets/Scenes/True False.unity

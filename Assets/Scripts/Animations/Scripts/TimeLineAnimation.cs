@@ -31,6 +31,7 @@ namespace Assets.Scripts.Animations.Scripts
         public void StartAnimation()
         {
             _currentIndex = 0;
+            Debug.Log("Animation should start");
             GoNextAnim();
         }
 

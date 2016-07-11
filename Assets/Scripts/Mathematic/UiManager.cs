@@ -68,10 +68,6 @@ namespace Assets.Scripts.Mathematic
             IntroductionToggle.isOn = IsIntroduction;
         }
 
-
-
-
-
         public void Clear()
         {
             QuestionText.text = "";
@@ -170,6 +166,7 @@ namespace Assets.Scripts.Mathematic
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
             CounterAnimationInterface.StartAnimation();
             CounterAnimationInterface.AniamtionDone += callbackAction;
+            SaveSetting();
         }
 
         public void WaitForIntroduction(Action startTime)

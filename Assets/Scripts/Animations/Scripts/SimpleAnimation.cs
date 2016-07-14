@@ -10,6 +10,7 @@ namespace Assets.Scripts.Animations.Scripts
         public Vector2 Direction;
         public float AnimationTime;
 
+        private float _realHeigth;
         public void Start()
         {
             DOTween.Init();
@@ -19,7 +20,15 @@ namespace Assets.Scripts.Animations.Scripts
             Vector2 ourSize = GetComponent<RectTransform>().rect.size;
             Vector3 moveTo = new Vector3(ourSize.x * Direction.x, ourSize.y * Direction.y, 0);
             transform.DOMove(moveTo, 2).OnComplete(()=>AniamtionDone?.Invoke());
-            //mine
         }
-     }
+
+        //mine
+        public void StartPosition()
+        {
+            //_realHeigth = GetComponent<RectTransform>().rect.height;
+            Vector2 ourSize = GetComponent<RectTransform>().rect.size;
+            Vector3 moveTo = new Vector3(ourSize.x * Direction.x, 200f, 0);
+            transform.DOMove(moveTo, 2).OnComplete(() => AniamtionDone?.Invoke());
+        }
+    }
 }

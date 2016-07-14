@@ -45,6 +45,8 @@ namespace Assets.Scripts.Mathematic
 
         public void Awake()
         {
+            GameOverAnimation.StartPosition();
+
             IntruductionAnimation?.transform.parent.gameObject.SetActive(true);
             LoadSettings();
             CurrentLevelText.text = Utilities.GetSceneName();
@@ -166,6 +168,7 @@ namespace Assets.Scripts.Mathematic
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
             CounterAnimationInterface.StartAnimation();
             CounterAnimationInterface.AniamtionDone += callbackAction;
+
             SaveSetting();
         }
 

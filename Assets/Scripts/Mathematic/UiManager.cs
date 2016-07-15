@@ -45,7 +45,6 @@ namespace Assets.Scripts.Mathematic
 
         public void Awake()
         {
-            GameOverAnimation.StartPosition();
 
             IntruductionAnimation?.transform.parent.gameObject.SetActive(true);
             LoadSettings();
@@ -54,6 +53,11 @@ namespace Assets.Scripts.Mathematic
                                    "False = 0\n";
         }
 
+        public void Start()
+        {
+            
+            GameOverAnimation.StartPosition();
+        }
        
 
         private void SaveSetting()

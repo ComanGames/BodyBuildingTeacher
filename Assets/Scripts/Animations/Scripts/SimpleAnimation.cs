@@ -9,7 +9,6 @@ namespace Assets.Scripts.Animations.Scripts
         public event Action AniamtionDone;
         public Vector2 Direction;
         public float AnimationTime;
-
         private float _realHeigth;
         public void Start()
         {
@@ -25,10 +24,9 @@ namespace Assets.Scripts.Animations.Scripts
         //mine
         public void StartPosition()
         {
-            //_realHeigth = GetComponent<RectTransform>().rect.height;
             Vector2 ourSize = GetComponent<RectTransform>().rect.size;
-            Vector3 moveTo = new Vector3(ourSize.x * Direction.x, 200f, 0);
-            transform.DOMove(moveTo, 2).OnComplete(() => AniamtionDone?.Invoke());
+            Vector3 moveTo = new Vector3(ourSize.x*0.5f,ourSize.y*1.5f);
+            transform.DOMove(moveTo, 0);
         }
     }
 }

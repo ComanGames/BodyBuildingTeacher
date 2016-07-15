@@ -77,7 +77,6 @@ namespace Assets.Scripts.Mathematic
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
             _managerUi.EndGame($"You are cool!");
-
         }
 
 

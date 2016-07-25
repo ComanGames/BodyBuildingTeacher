@@ -65,7 +65,7 @@ namespace Assets.Scripts.Mathematic
                 ManagerUi.DisableIntroduction();
                 counterAnimation();
             }
-            ManagerUi.SetTimeLineEndAction(AskQuestion);
+            ManagerUi.SetTimeLineEndAction(NextButtoClicked);
 
         }
 

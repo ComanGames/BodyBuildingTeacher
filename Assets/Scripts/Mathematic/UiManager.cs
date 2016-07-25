@@ -2,7 +2,7 @@
 using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
-//Hello yura
+
 namespace Assets.Scripts.Mathematic
 {
     public class UiManager : MonoBehaviour

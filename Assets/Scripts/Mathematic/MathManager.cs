@@ -54,7 +54,7 @@ namespace Assets.Scripts.Mathematic
 
             ManagerUi.ClickNextButton += NextButtoClicked;
             ManagerUi.ClickResetButton += ResetCount;
-            
+
             Action counterAnimation = () => ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
             if (ManagerUi.IntrodcutionEnableAndNotNull)
             {
@@ -68,6 +68,7 @@ namespace Assets.Scripts.Mathematic
             ManagerUi.SetTimeLineEndAction(NextButtoClicked);
 
         }
+
 
         private void CounterAnimaitonDone()
         {
@@ -84,7 +85,7 @@ namespace Assets.Scripts.Mathematic
         {
             PluginMath.AskQuestion();
         }
-       
+
         public int MadeRandomAnswer()
         {
             if (_randomanswer == null)
@@ -176,7 +177,7 @@ namespace Assets.Scripts.Mathematic
             {
                 if (firstNumber < secondNumber)
                 {
-                    secondNumber = firstNumber/2;
+                    secondNumber = firstNumber / 2;
                 }
             }
 

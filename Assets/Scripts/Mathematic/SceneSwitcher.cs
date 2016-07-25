@@ -28,6 +28,15 @@ namespace Assets.Scripts.Mathematic
             _ourImage.enabled = false;
         }
 
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (SceneManager.GetActiveScene().buildIndex == 0)
+                    Application.Quit();
+                SceneSwitcher.LoadNewScene(0);
+            }
+        }
         public static void LoadNewScene(int number)
         {
             if (Instance != null)

@@ -25,17 +25,17 @@ namespace Assets.Scripts.Animations.Scripts
 
         private void UpdateTimeText(object sender, ElapsedEventArgs e)
         {
-                _timerTime = _timerTime.Add(TimeSpan.FromMilliseconds(1));
+            _timerTime = _timerTime.Add(TimeSpan.FromMilliseconds(1));
 
-            if (_timerTime.Milliseconds%64 != 0)
+            if (_timerTime.Milliseconds % 64 != 0)
             {
                 return;
             }
-                //update the label value
-                sc.Post((s) =>
-                {
-                    UpdateTimerText();
-                },null);
+            //update the label value
+            sc.Post((s) =>
+            {
+                UpdateTimerText();
+            }, null);
         }
 
         private void UpdateTimerText()
@@ -44,7 +44,7 @@ namespace Assets.Scripts.Animations.Scripts
             float seconds = _timerTime.Seconds;
             // ReSharper disable once PossibleLossOfFraction
             float fraction = _timerTime.Milliseconds;
-            if(MyTimer==null)
+            if (MyTimer == null)
             {
                 Stop();
                 return;
@@ -56,10 +56,15 @@ namespace Assets.Scripts.Animations.Scripts
         {
             Stop();
         }
+
+        public void OnLevelWasLoaded(int level)
+        {
+            Stop();
+        }
         public void Stop()
         {
             if (_timer != null)
-            { 
+            {
                 _timer.Stop();
                 _timer.Close();
                 _timer = null;

@@ -276,10 +276,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 812545910}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.263, y: 0.3035564}
-  m_AnchorMax: {x: 0.749348, y: 0.7311166}
-  m_AnchoredPosition: {x: 0.29999924, y: -1.7000008}
-  m_SizeDelta: {x: -1.4000015, y: 4.605376}
+  m_AnchorMin: {x: 0.22081193, y: 0.2075146}
+  m_AnchorMax: {x: 0.7698158, y: 0.823569}
+  m_AnchoredPosition: {x: 0.79999924, y: 0.29999924}
+  m_SizeDelta: {x: -0.40000153, y: 0.60537577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276421519
 MonoBehaviour:
@@ -444,7 +444,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 64a2e581a1fefde40bc7a86ce9eb15a2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -684,10 +684,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1953065600}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.1456614, y: 0.30633458}
-  m_AnchorMax: {x: 0.82733864, y: 0.6936654}
-  m_AnchoredPosition: {x: 0.36424255, y: -0.0000076293945}
-  m_SizeDelta: {x: -0.7284851, y: -2.1835709}
+  m_AnchorMin: {x: 0.13922058, y: 0.21200001}
+  m_AnchorMax: {x: 0.8483235, y: 0.81500006}
+  m_AnchoredPosition: {x: -0.1499989, y: -1.0000126}
+  m_SizeDelta: {x: 0.29999924, y: 2.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742167909
 MonoBehaviour:
@@ -962,10 +962,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 659994870}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.24376032, y: 0.2825564}
-  m_AnchorMax: {x: 0.75200003, y: 0.6906654}
-  m_AnchoredPosition: {x: 0.5000019, y: 0.40000153}
-  m_SizeDelta: {x: 0.3000002, y: -0.20000076}
+  m_AnchorMin: {x: 0.25043926, y: 0.18800001}
+  m_AnchorMax: {x: 0.7453211, y: 0.79848546}
+  m_AnchoredPosition: {x: -0.0000011622906, y: -0.000010967255}
+  m_SizeDelta: {x: 0, y: -0.0000038147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982402440
 MonoBehaviour:
@@ -1152,7 +1152,7 @@ GameObject:
   - 114: {fileID: 1092328099}
   - 114: {fileID: 1092328098}
   m_Layer: 5
-  m_Name: Settings (1)
+  m_Name: TopScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.97647065, g: 0.97647065, b: 0.97647065, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1387,7 +1387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Settings
+  m_Text: TopScore
 --- !u!222 &1148016591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1479,7 +1479,7 @@ GameObject:
   - 222: {fileID: 1201826554}
   - 114: {fileID: 1201826553}
   m_Layer: 5
-  m_Name: Group1
+  m_Name: Traonong&Non-stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1542,7 @@ GameObject:
   - 222: {fileID: 1255327555}
   - 114: {fileID: 1255327554}
   m_Layer: 5
-  m_Name: Group1 (2)
+  m_Name: TopScore&Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,10 +1698,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796973972}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.17978144, y: 0.27466545}
-  m_AnchorMax: {x: 0.845, y: 0.7253346}
-  m_AnchoredPosition: {x: 0.5999985, y: 0.0000038146973}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchorMin: {x: 0.19000001, y: 0.1667821}
+  m_AnchorMax: {x: 0.83034533, y: 0.8197326}
+  m_AnchoredPosition: {x: -0.000009536743, y: 0.09999025}
+  m_SizeDelta: {x: 0.000015258789, y: 0.20000005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1378928535
 MonoBehaviour:
@@ -1769,7 +1769,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.9508544}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.09393489, y: 0.060913086}
-  m_SizeDelta: {x: 0, y: -0.121899605}
+  m_SizeDelta: {x: 0, y: -0.1219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475729329
 MonoBehaviour:
@@ -1803,7 +1803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BrainStorm Math
+  m_Text: '#BabyTeacherMath'
 --- !u!222 &1475729330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: -0.00034526698, w: 0.99999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.0396}
   m_Children:
   - {fileID: 1201826552}
   - {fileID: 1767867176}
@@ -1865,7 +1865,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 80
+  m_Spacing: 100
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
 --- !u!222 &1537849330
@@ -2065,7 +2065,7 @@ GameObject:
   - 222: {fileID: 1767867178}
   - 114: {fileID: 1767867177}
   m_Layer: 5
-  m_Name: Group 2
+  m_Name: Campaign&Adventure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,7 +2573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8308824, g: 0.8308824, b: 0.8308824, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

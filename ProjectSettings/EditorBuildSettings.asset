@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuWorkVersion.unity
   - enabled: 1
-    path: Assets/Scenes/AdventureMenu.unity
-  - enabled: 1
     path: Assets/Scenes/Training.unity
   - enabled: 1
     path: Assets/Scenes/NonStop Level 1.unity
   - enabled: 1
     path: Assets/Scenes/NonStop Level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/AdventureMenu.unity
   - enabled: 1
     path: Assets/Scenes/Adventure.unity
   - enabled: 1

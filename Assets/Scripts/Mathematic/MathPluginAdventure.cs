@@ -7,6 +7,7 @@ namespace Assets.Scripts.Mathematic
     {
         public int FirstQuestionMin = 0;
         public int FirstQuestionMax = 0;
+        public int DoNotMutiplyAfter = 50;
         private bool _isFrist;
         public override void Init(MathManager mathManager)
         {
@@ -21,9 +22,10 @@ namespace Assets.Scripts.Mathematic
             MathOperation operation = _mathManager.GetRendomOperation();
             int firstNumber =_mathManager.RealAnswer;
             int secondNumber = _mathManager.GetSecondNumber();
+            if (firstNumber >= DoNotMutiplyAfter)
+                operation = MathOperation.Minus;
             MathQuestion question = _mathManager.CreateMathQuestion(firstNumber, secondNumber, operation);
             AdventureQuestion adventureQuestion = new AdventureQuestion(question.FirstNumber,question.SecondNumber,question.Operation);
-            Debug.Log($"{adventureQuestion.FirstNumber} {adventureQuestion.Operation} {adventureQuestion.SecondNumber}"); 
             return adventureQuestion;
         }
 
@@ -77,7 +79,7 @@ namespace Assets.Scripts.Mathematic
         {
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"Congratulation!\nRight answer was: {_mathManager.RealAnswer} ");
+            _managerUi.EndGame($"Congratulation!\nRight answer is: {_mathManager.RealAnswer} ");
         }
 
 

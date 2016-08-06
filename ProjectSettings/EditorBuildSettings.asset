@@ -10,13 +10,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Training.unity
   - enabled: 1
-    path: Assets/Scenes/NonStop Level 1.unity
+    path: Assets/Scenes/NonStop_levels/NonStop Level 1.unity
   - enabled: 1
-    path: Assets/Scenes/NonStop Level 2.unity
+    path: Assets/Scenes/NonStop_levels/NonStop Level 2.unity
   - enabled: 1
     path: Assets/Scenes/AdventureMenu.unity
   - enabled: 1
     path: Assets/Scenes/Adventure_levels/Child Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/School Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Student Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Magister Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Indigo Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/CalculatorMan.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Terminator.unity
   - enabled: 1
     path: Assets/Scenes/4buttons.unity
   - enabled: 1

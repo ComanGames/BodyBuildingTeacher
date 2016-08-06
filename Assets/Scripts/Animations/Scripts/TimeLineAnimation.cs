@@ -53,6 +53,9 @@ namespace Assets.Scripts.Animations.Scripts
             if (f <=GetNextElement().Procent)
             {
                 _currentIndex++;
+                if (_currentIndex >= TimeColors.Length)
+                    return;
+                
                 _currentLerpDelta = 1/(TimeColors[_currentIndex].Procent-GetNextElement().Procent );
                 return;
             }

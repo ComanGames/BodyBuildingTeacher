@@ -313,7 +313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Child
+  m_Text: Indogo
 --- !u!222 &194207482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - 114: {fileID: 206570884}
   - 114: {fileID: 206570883}
   m_Layer: 5
-  m_Name: Easy Training (5)
+  m_Name: CalculatorMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Child
+  m_Text: CalculatorMan
 --- !u!222 &904979200
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -883,7 +883,7 @@ GameObject:
   - 114: {fileID: 960934517}
   - 114: {fileID: 960934516}
   m_Layer: 5
-  m_Name: Easy Training (4)
+  m_Name: Ingigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Scool level
+  m_Text: School level
 --- !u!222 &991217740
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ GameObject:
   - 114: {fileID: 1187600232}
   - 114: {fileID: 1187600231}
   m_Layer: 5
-  m_Name: Easy Training (3)
+  m_Name: Magister level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,7 +1559,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Child
+  m_Text: Student level
 --- !u!222 &1233339663
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Child
+  m_Text: Magister level
 --- !u!222 &1463603094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1931,7 +1931,7 @@ GameObject:
   - 114: {fileID: 1680972087}
   - 114: {fileID: 1680972086}
   m_Layer: 5
-  m_Name: Easy Training (6)
+  m_Name: Terminator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2135,7 @@ GameObject:
   - 114: {fileID: 1760317701}
   - 114: {fileID: 1760317700}
   m_Layer: 5
-  m_Name: Scool level
+  m_Name: School level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,7 +2339,7 @@ GameObject:
   - 114: {fileID: 2029149179}
   - 114: {fileID: 2029149178}
   m_Layer: 5
-  m_Name: Scool level
+  m_Name: Student level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,7 +2728,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Child
+  m_Text: Terminator
 --- !u!222 &2094577709
 CanvasRenderer:
   m_ObjectHideFlags: 0

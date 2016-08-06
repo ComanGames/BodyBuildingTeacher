@@ -12,6 +12,7 @@ namespace Assets.Scripts.Mathematic
         {
             base.Init(mathManager);
             _mathManager.RealAnswer = new Random().Next(FirstQuestionMin,FirstQuestionMax);
+            _managerUi.SetTimeLineEndAction(AskQuestion);
             _isFrist = true;
         }
 
@@ -31,7 +32,7 @@ namespace Assets.Scripts.Mathematic
             //If we have first question
             if (_isFrist)
             {
-                _managerUi.ShowQuestion($"Your number is {_mathManager.RealAnswer}");
+                _managerUi.ShowQuestion($"Start with {_mathManager.RealAnswer}");
                 _managerUi.StartTimeLineAnimation();
                 _isFrist = false;
                 return;
@@ -70,13 +71,13 @@ namespace Assets.Scripts.Mathematic
         {
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are so slow\nRight answer was: {_mathManager.RealAnswer}");
+            _managerUi.EndGame($"You are to slow\nRight answer was: {_mathManager.RealAnswer}");
         }
         public override void RightAnswer()
         {
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are cool!");
+            _managerUi.EndGame($"Congratulation!\nRight answer was: {_mathManager.RealAnswer} ");
         }
 
 
@@ -84,7 +85,7 @@ namespace Assets.Scripts.Mathematic
         {
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are loser\nRight answer was: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
+            _managerUi.EndGame($"Ooops\nRight answer was: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
         }
     }
 }

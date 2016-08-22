@@ -6,10 +6,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animations.Scripts
 {
-    public class GameSettings { 
-    
+    public class GameSettings
+    {
         private const string FileExtension = ".data";
+
+        private const string ScoreFileName = "HighScore.score";
         private static GameSettings _instance;
+
+        private static int? _realScore;
+        private Dictionary<string, LevelSettings> _levelSettingses;
+
         private static GameSettings Instance
         {
             get
@@ -20,7 +26,16 @@ namespace Assets.Scripts.Animations.Scripts
             }
         }
 
-        private Dictionary<string, LevelSettings> _levelSettingses;
+        public static int PlayerScore
+        {
+            get
+            {
+                CheckIsFile();
+                if (_realScore == null)
+                    throw new Exception("You didn't load file with score");
+                return (int) _realScore;
+            }
+        }
 
         private static Dictionary<string, LevelSettings> LevelSettingses
         {
@@ -29,13 +44,13 @@ namespace Assets.Scripts.Animations.Scripts
                 if (Instance._levelSettingses == null)
                 {
                     Instance._levelSettingses = new Dictionary<string, LevelSettings>();
-                    FileInfo[] fileInfos = new DirectoryInfo(Application.persistentDataPath).GetFiles();
-                    for (int i = 0; i < fileInfos.Length; i++)
+                    var fileInfos = new DirectoryInfo(Application.persistentDataPath).GetFiles();
+                    for (var i = 0; i < fileInfos.Length; i++)
                     {
                         if (fileInfos[i].Extension == FileExtension)
                         {
-                            LevelSettings levelSettings = LoadLevelSettings(fileInfos[i].FullName);
-                            Instance._levelSettingses.Add(fileInfos[i].Name.Replace(FileExtension,""),levelSettings);
+                            var levelSettings = LoadLevelSettings(fileInfos[i].FullName);
+                            Instance._levelSettingses.Add(fileInfos[i].Name.Replace(FileExtension, ""), levelSettings);
                         }
                     }
                 }
@@ -43,20 +58,65 @@ namespace Assets.Scripts.Animations.Scripts
             }
         }
 
+        public static void ScoreAdd(int value)
+        {
+            CheckIsFile();
+            _realScore += value;
+            string fileAddress = Application.persistentDataPath + @"\" + ScoreFileName;
+            using (var fs = File.OpenWrite(fileAddress))
+            {
+                var bf = new BinaryFormatter();
+                bf.Serialize(fs,new ScoreInfo(PlayerScore));
+            }
+        }
+
+        private static void CheckIsFile()
+        {
+            string fileAddress = Application.persistentDataPath + @"\"+ ScoreFileName;
+            if (File.Exists(fileAddress))
+            {
+                if (_realScore == null)
+                {
+                    int highScore;
+                    using (var fs = File.OpenRead(fileAddress))
+                    {
+                        var bf = new BinaryFormatter();
+                        if (new FileInfo(fileAddress).Length>0)
+                        {
+                            object desiriledData = bf.Deserialize(fs);
+                            highScore = ((ScoreInfo)desiriledData).Score;
+                        }
+                        else
+                        {
+                            highScore = 0;
+                        }
+                    }
+                    _realScore = highScore;
+                }
+            }
+            else
+            {
+                var file = File.Create(fileAddress);
+                file.Close();
+                ScoreAdd(10);
+                _realScore = 0;
+            }
+        }
+
         public static LevelSettings GetlLevelSetting(string levleName)
         {
             LevelSettings levelSettings;
-            if (!LevelSettingses.TryGetValue(levleName,out levelSettings))
+            if (!LevelSettingses.TryGetValue(levleName, out levelSettings))
             {
                 levelSettings = new LevelSettings();
-                LevelSettingses.Add(levleName,levelSettings);
+                LevelSettingses.Add(levleName, levelSettings);
             }
             return levelSettings;
         }
 
-        public bool IsDataFile(string name)
+        public static bool IsDataFile(string name)
         {
-            string filePath = FilePathFromName(name);
+            var filePath = FilePathFromName(name);
             return File.Exists(filePath);
         }
 
@@ -67,29 +127,39 @@ namespace Assets.Scripts.Animations.Scripts
 
         public static void SaveLevelSetings(string name, LevelSettings levelSettings)
         {
-            using (FileStream fs = File.OpenWrite(FilePathFromName(name)))
+            using (var fs = File.OpenWrite(FilePathFromName(name)))
             {
-               BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(fs,levelSettings);
+                var bf = new BinaryFormatter();
+                bf.Serialize(fs, levelSettings);
             }
-    }
+        }
 
         public static LevelSettings LoadLevelSettings(string fileAddress)
         {
             LevelSettings levelSettings;
-            using (FileStream fs = File.OpenRead(fileAddress))
+            using (var fs = File.OpenRead(fileAddress))
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                levelSettings = (LevelSettings)bf.Deserialize(fs);
+                var bf = new BinaryFormatter();
+                levelSettings = (LevelSettings) bf.Deserialize(fs);
             }
             return levelSettings;
         }
     }
 
     [Serializable]
+    public class ScoreInfo 
+    {
+        public ScoreInfo() { }
+        public ScoreInfo(int score)
+        {
+            Score = score;
+        }
+
+        public int Score { get; set; }
+    }
+    [Serializable]
     public class LevelSettings
     {
         public bool IsIntroduction { get; set; } = true;
     }
 }
-

@@ -146,6 +146,7 @@ namespace Assets.Scripts.Mathematic
         public void EndGame(string gameOverText)
         {
             SaveSetting();
+            GameSettings.ScoreAdd(100);
             _isOver = true;
             //Debug.Log("We done game");
             LineAnimationInterface.ResetAnimation();

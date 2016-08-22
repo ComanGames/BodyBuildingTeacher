@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Animations.Scripts;
 using DG.Tweening;
 using UnityEngine;
 using Random = System.Random;

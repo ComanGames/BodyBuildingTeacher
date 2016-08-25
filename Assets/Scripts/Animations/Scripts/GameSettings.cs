@@ -6,8 +6,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animations.Scripts
 {
+
     public class GameSettings
     {
+        [SerializeField]
+        public static bool IsIntroduction;
+        [SerializeField]
+        public static int Volume { get; set; }
+
         private const string FileExtension = ".data";
 
         private const string ScoreFileName = "HighScore.score";
@@ -160,6 +166,13 @@ namespace Assets.Scripts.Animations.Scripts
     [Serializable]
     public class LevelSettings
     {
-        public bool IsIntroduction { get; set; } = true;
+        public bool IsIntroduction
+        {
+            get { return _isIntroduction && GameSettings.IsIntroduction; }
+            set { _isIntroduction = value; }
+        }
+
+        private bool _isIntroduction = true;
+
     }
 }

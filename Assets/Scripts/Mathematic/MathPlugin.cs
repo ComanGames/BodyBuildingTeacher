@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Animations.Scripts;
 using UnityEngine;
 
 namespace Assets.Scripts.Mathematic
@@ -7,6 +8,7 @@ namespace Assets.Scripts.Mathematic
     {
         protected MathManager _mathManager;
         protected UiManager _managerUi;
+        public int ScoreForLevel = 100;
 
         public virtual void Init(MathManager mathManager)
         {
@@ -67,6 +69,7 @@ namespace Assets.Scripts.Mathematic
         public virtual void EndGame()
         {
 
+            ScoreUpdate();
             _mathManager._isReady = false;
             _managerUi.UpdateAnswerView("Level Complete");
             _managerUi.ShowQuestion("");//my code
@@ -74,6 +77,11 @@ namespace Assets.Scripts.Mathematic
             _managerUi?.TimerText.Stop();
             // my code
             _managerUi.AnimationTimeLine.StopAnimation();
+        }
+
+        protected virtual void ScoreUpdate()
+        {
+               GameSettings.ScoreAdd(ScoreForLevel); 
         }
 
         public virtual void Go()

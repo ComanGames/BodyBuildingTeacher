@@ -15,7 +15,7 @@ namespace Assets.Scripts.Mathematic
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
-        public bool IsIntroduction;
+        public bool IsIntroduction = true;
         public bool IntrodcutionEnableAndNotNull => IsIntroduction && IntruductionAnimation != null;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
@@ -60,17 +60,9 @@ namespace Assets.Scripts.Mathematic
         }
        
 
-        private void SaveSetting()
-        {
-            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
-            levelSettings.IsIntroduction = IntroductionToggle.isOn;
-            GameSettings.SaveLevelSetings(Utilities.GetSceneName(), levelSettings);
-        }
-
         private void LoadSettings()
         {
-            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
-            IsIntroduction = levelSettings.IsIntroduction;
+            IsIntroduction = GameSettings.Settings.IsIntroduction;
             IntroductionToggle.isOn = IsIntroduction;
         }
 
@@ -145,7 +137,6 @@ namespace Assets.Scripts.Mathematic
 
         public void EndGame(string gameOverText)
         {
-            SaveSetting();
             _isOver = true;
             //Debug.Log("We done game");
             LineAnimationInterface.ResetAnimation();
@@ -173,8 +164,6 @@ namespace Assets.Scripts.Mathematic
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
             CounterAnimationInterface.StartAnimation();
             CounterAnimationInterface.AniamtionDone += callbackAction;
-
-            SaveSetting();
         }
 
         public void WaitForIntroduction(Action startTime)

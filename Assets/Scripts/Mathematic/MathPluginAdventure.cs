@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Animations.Scripts;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
@@ -77,6 +78,7 @@ namespace Assets.Scripts.Mathematic
         }
         public override void RightAnswer()
         {
+            GameSettings.ScoreAdd(ScoreForLevel);
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
             _managerUi.EndGame($"Congratulation!\nRight answer is: {_mathManager.RealAnswer} ");
@@ -85,9 +87,15 @@ namespace Assets.Scripts.Mathematic
 
         public override void WrongAnswer()
         {
+
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
             _managerUi.EndGame($"Ooops\nRight answer was: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
+        }
+
+        protected override void ScoreUpdate()
+        {
+          
         }
     }
 }

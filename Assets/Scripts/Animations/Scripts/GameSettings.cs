@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -9,28 +8,39 @@ namespace Assets.Scripts.Animations.Scripts
 
     public class GameSettings
     {
-        [SerializeField]
-        public static bool IsIntroduction;
-        [SerializeField]
-        public static int Volume { get; set; }
 
-        private const string FileExtension = ".data";
-
-        private const string ScoreFileName = "HighScore.score";
-        private static GameSettings _instance;
-
-        private static int? _realScore;
-        private Dictionary<string, LevelSettings> _levelSettingses;
-
-        private static GameSettings Instance
+        public static GlobalSettings Settings
         {
             get
             {
-                if (_instance == null)
-                    _instance = new GameSettings();
-                return _instance;
+                if (_setting == null)
+                {
+                    if (IsDataFile(GlobalSettingFile))
+                    {
+                        _setting = LoadLevelSettings(GlobalSettingFile);
+                    }
+                    else
+                    {
+                        _setting = new GlobalSettings();
+                        SaveLevelSetings(GlobalSettingFile, _setting);
+                    }
+                }
+                return _setting;
+            }
+            set
+            {
+                SaveLevelSetings(GlobalSettingFile,value);
+                _setting = value;
             }
         }
+
+        private static GlobalSettings _setting;
+
+        private const string GlobalSettingFile = "GlobalSettings.data";
+
+        private const string ScoreFileName = "HighScore.score";
+
+        private static int? _realScore;
 
         public static int PlayerScore
         {
@@ -43,26 +53,6 @@ namespace Assets.Scripts.Animations.Scripts
             }
         }
 
-        private static Dictionary<string, LevelSettings> LevelSettingses
-        {
-            get
-            {
-                if (Instance._levelSettingses == null)
-                {
-                    Instance._levelSettingses = new Dictionary<string, LevelSettings>();
-                    var fileInfos = new DirectoryInfo(Application.persistentDataPath).GetFiles();
-                    for (var i = 0; i < fileInfos.Length; i++)
-                    {
-                        if (fileInfos[i].Extension == FileExtension)
-                        {
-                            var levelSettings = LoadLevelSettings(fileInfos[i].FullName);
-                            Instance._levelSettingses.Add(fileInfos[i].Name.Replace(FileExtension, ""), levelSettings);
-                        }
-                    }
-                }
-                return Instance._levelSettingses;
-            }
-        }
 
         public static void ScoreAdd(int value)
         {
@@ -104,20 +94,8 @@ namespace Assets.Scripts.Animations.Scripts
             {
                 var file = File.Create(fileAddress);
                 file.Close();
-                ScoreAdd(10);
                 _realScore = 0;
             }
-        }
-
-        public static LevelSettings GetlLevelSetting(string levleName)
-        {
-            LevelSettings levelSettings;
-            if (!LevelSettingses.TryGetValue(levleName, out levelSettings))
-            {
-                levelSettings = new LevelSettings();
-                LevelSettingses.Add(levleName, levelSettings);
-            }
-            return levelSettings;
         }
 
         public static bool IsDataFile(string name)
@@ -128,27 +106,28 @@ namespace Assets.Scripts.Animations.Scripts
 
         private static string FilePathFromName(string name)
         {
-            return Application.persistentDataPath + @"\" + name + FileExtension;
+            return Application.persistentDataPath + @"\" + name;
         }
 
-        public static void SaveLevelSetings(string name, LevelSettings levelSettings)
+        public static void SaveLevelSetings(string name, GlobalSettings globalSettings)
         {
             using (var fs = File.OpenWrite(FilePathFromName(name)))
             {
                 var bf = new BinaryFormatter();
-                bf.Serialize(fs, levelSettings);
+                bf.Serialize(fs, globalSettings);
             }
         }
 
-        public static LevelSettings LoadLevelSettings(string fileAddress)
+        public static GlobalSettings LoadLevelSettings(string fileName)
         {
-            LevelSettings levelSettings;
+            string fileAddress = FilePathFromName(fileName);
+            GlobalSettings globalSettings;
             using (var fs = File.OpenRead(fileAddress))
             {
                 var bf = new BinaryFormatter();
-                levelSettings = (LevelSettings) bf.Deserialize(fs);
+                globalSettings = (GlobalSettings) bf.Deserialize(fs);
             }
-            return levelSettings;
+            return globalSettings;
         }
     }
 
@@ -164,15 +143,11 @@ namespace Assets.Scripts.Animations.Scripts
         public int Score { get; set; }
     }
     [Serializable]
-    public class LevelSettings
+    public class GlobalSettings
     {
-        public bool IsIntroduction
-        {
-            get { return _isIntroduction && GameSettings.IsIntroduction; }
-            set { _isIntroduction = value; }
-        }
+        public bool IsIntroduction { get; set; } = true;
 
-        private bool _isIntroduction = true;
+        public bool IsSound { get; set; } = true;
 
     }
 }

@@ -23,7 +23,7 @@ namespace Assets.Scripts.Mathematic
         public TimeLineAnimation AnimationTimeLine;
         public SimpleAnimation GameOverAnimation;
         public SimpleAnimation IntruductionAnimation;
-        public Toggle IntroductionToggle;
+//        public Toggle IntroductionToggle;
         public Timer TimerText;
 
         public SimpleAnimation LevelOverAnimation;
@@ -55,15 +55,14 @@ namespace Assets.Scripts.Mathematic
 
         public void Start()
         {
-            
-            GameOverAnimation.StartPosition();
+           GameOverAnimation.StartPosition();
         }
        
 
         private void LoadSettings()
         {
             IsIntroduction = GameSettings.Settings.IsIntroduction;
-            IntroductionToggle.isOn = IsIntroduction;
+//            IntroductionToggle.isOn = IsIntroduction;
         }
 
         public void Clear()

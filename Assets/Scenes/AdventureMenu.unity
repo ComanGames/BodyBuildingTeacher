@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23b6219401973d4cb1aab9ea95bc047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 1
+  Time: 0.5
 --- !u!114 &1004874736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,7 +1775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BrainStorm Math
+  m_Text: '#BabyTeacher Math'
 --- !u!222 &1475729330
 CanvasRenderer:
   m_ObjectHideFlags: 0

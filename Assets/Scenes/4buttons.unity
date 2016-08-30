@@ -2975,7 +2975,7 @@ MonoBehaviour:
   AnswerText: {fileID: 919641600}
   CurrentLevelText: {fileID: 752899080}
   AnswersInfoText: {fileID: 1218039221}
-  FadeOutTime: 1
+  FadeOutTime: 0.5
   EndTimeOut: 0.5
   IsIntroduction: 1
   AnimationCounter: {fileID: 13293012}
@@ -2984,7 +2984,6 @@ MonoBehaviour:
   AnimationTimeLine: {fileID: 353075391}
   GameOverAnimation: {fileID: 746850716}
   IntruductionAnimation: {fileID: 511639607}
-  IntroductionToggle: {fileID: 1585895856}
   TimerText: {fileID: 1489931180}
   LevelOverAnimation: {fileID: 0}
 --- !u!1 &1585895854

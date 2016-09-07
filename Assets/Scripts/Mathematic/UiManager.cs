@@ -154,9 +154,9 @@ namespace Assets.Scripts.Mathematic
         {
             return "Congratulations!\n " +
                                 "Your result:\n" +
-                                $"Correct answers = {right}\n" +
-                                $"Incorrect answers = {wrong}\n"+
-                                $"Total time is {TimerText.MyTimer.text}";
+                                $"Correct = {right}\n" +
+                                $"Incorrect = {wrong}\n"+
+                                $"Total time is \n{TimerText.MyTimer.text}\n";
         }
         public void StartCounterAnimation(Action callbackAction)
         {

@@ -28,9 +28,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Adventure_levels/Terminator.unity
   - enabled: 1
-    path: Assets/Scenes/4_buttons_levels/Child level.unity
+    path: Assets/Scenes/MenuTrueFalse.unity
   - enabled: 1
-    path: Assets/Scenes/True False.unity
+    path: Assets/Scenes/True_False/True False Level 1.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 3.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 4.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 5.unity
+  - enabled: 1
+    path: Assets/Scenes/Menu4Buttons.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 1.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 3.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 4.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 5.unity
   - enabled: 1
     path: Assets/Scenes/Settings.unity
   - enabled: 1

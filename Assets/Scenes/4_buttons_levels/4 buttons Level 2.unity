@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PluginMath: {fileID: 0}
   ManagerUi: {fileID: 1571473790}
-  QuestionCount: 2
+  QuestionCount: 20
   AvaliableOperations: 0000000001000000
   IsWrongAnswers: 1
   FirstNumberMin: 1
@@ -480,7 +480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 78.62835
+      value: 79.26634
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -488,7 +488,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 157.2567
+      value: 158.53268
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
@@ -504,7 +504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 265.88504
+      value: 267.799
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -512,7 +512,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 157.2567
+      value: 158.53268
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
@@ -521,6 +521,14 @@ Prefab:
     - target: {fileID: 11461608, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: SceneNumber
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 169002, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465834, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
+      propertyPath: SceneNumber
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}

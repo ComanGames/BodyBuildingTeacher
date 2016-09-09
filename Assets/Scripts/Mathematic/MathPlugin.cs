@@ -72,7 +72,7 @@ namespace Assets.Scripts.Mathematic
 
             ScoreUpdate();
             _mathManager._isReady = false;
-            _managerUi.UpdateAnswerView("Level Complete");
+            _managerUi.UpdateAnswerView("Level finished");
             _managerUi.ShowQuestion("");//my code
             _managerUi.EndGame(_managerUi.GetGameOverText(_mathManager.RightAnswer,_mathManager.WrongAnswer));
             _managerUi?.TimerText.Stop();

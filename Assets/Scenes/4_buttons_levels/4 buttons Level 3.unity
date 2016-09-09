@@ -481,19 +481,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 79.26634
+      value: 44.177013
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -62.869713
+      value: -31.872585
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 158.53268
+      value: 88.35403
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 125.739426
+      value: 63.74517
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchorMin.y
@@ -505,19 +505,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 267.799
+      value: 162.53104
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -62.869713
+      value: -31.872585
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 158.53268
+      value: 88.35403
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 125.739426
+      value: 63.74517
       objectReference: {fileID: 0}
     - target: {fileID: 11461608, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: SceneNumber
@@ -526,6 +526,10 @@ Prefab:
     - target: {fileID: 11465834, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: SceneNumber
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 169002, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}

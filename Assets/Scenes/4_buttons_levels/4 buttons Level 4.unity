@@ -525,7 +525,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465834, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: SceneNumber
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 169002, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_IsActive

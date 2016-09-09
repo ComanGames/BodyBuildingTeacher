@@ -9,6 +9,7 @@ namespace Assets.Scripts.Mathematic
         protected MathManager _mathManager;
         protected UiManager _managerUi;
         public int ScoreForLevel = 100;
+        public int ScoreCoefficient = 1;
 
         public virtual void Init(MathManager mathManager)
         {
@@ -81,7 +82,7 @@ namespace Assets.Scripts.Mathematic
 
         protected virtual void ScoreUpdate()
         {
-               GameSettings.ScoreAdd(ScoreForLevel); 
+               GameSettings.ScoreAdd(ScoreForLevel*ScoreCoefficient*_mathManager.RightAnswer); 
         }
 
         public virtual void Go()

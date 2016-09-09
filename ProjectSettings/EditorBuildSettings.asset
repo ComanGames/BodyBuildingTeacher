@@ -52,6 +52,38 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4_buttons_levels/4 buttons Level 5.unity
   - enabled: 1
+    path: Assets/Scenes/MenuCampaign.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 1.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 2.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 3.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 4.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 5.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 6.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 7.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 8.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 9.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 10.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 11.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 12.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 13.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 14.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 15.unity
+  - enabled: 1
     path: Assets/Scenes/Settings.unity
   - enabled: 1
     path: Assets/Scenes/TopScore.unity

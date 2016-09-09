@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87784cdd346ab6b4993acb7571b44863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreForLevel: 100
-  ScoreCoefficient: 5
+  ScoreForLevel: 200
+  ScoreCoefficient: 2
   FirstQuestionMin: 0
   FirstQuestionMax: 10
   DoNotMutiplyAfter: 50
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 4
+  SceneNumber: 27
 --- !u!114 &749491690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,19 +1713,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.73620033
+      value: 0.99999
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1733,15 +1733,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.18552937
+      value: 0.1052612
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.97693187
+      value: 0.97427356
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.2940833
+      value: 0.2081306
       objectReference: {fileID: 0}
     - target: {fileID: 22461626, guid: 6ceef6b09f7e4cd4f874113bb2d30dd6, type: 2}
       propertyPath: m_Pivot.x
@@ -2118,7 +2118,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: -0.002264066, w: 0.99999744}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.2595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1931618625}
   - {fileID: 749491688}
@@ -2529,7 +2529,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22484960, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 113.25
+      value: 114.25
       objectReference: {fileID: 0}
     - target: {fileID: 22484960, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -2537,7 +2537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22484960, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 226.5
+      value: 228.5
       objectReference: {fileID: 0}
     - target: {fileID: 22484960, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_SizeDelta.y
@@ -2553,7 +2553,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400288, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 354.75
+      value: 357.75
       objectReference: {fileID: 0}
     - target: {fileID: 22400288, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -2561,7 +2561,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400288, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 226.5
+      value: 228.5
       objectReference: {fileID: 0}
     - target: {fileID: 22400288, guid: 3efc689c41ec4dc4fb3be3896e2cab6a, type: 2}
       propertyPath: m_SizeDelta.y
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c229013380f96842a0fed6c90443d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 5
+  SceneNumber: 28
 --- !u!114 &1931618627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,23 +3320,19 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Adventure
+  m_Text: 'Campaign
 
-    Child level
+    Step 4
 
 
-    Start number: from 0 to 10.
-
-    Quantity of questions: 5.
-
-    Avalible opperations: +, -.
+    5 questions
 
 '
 --- !u!222 &2048994895

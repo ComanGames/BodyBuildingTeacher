@@ -365,7 +365,7 @@ MonoBehaviour:
   FirstNumberMax: 20
   SecondNumberMin: 1
   SecondNumberMax: 20
-  IsWrongLimit: 0
+  IsWrongLimit: 1
   WrongLimit: 5
   AnswerText: 
   randomanswer: 0
@@ -384,7 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d4da6dbd58cd44c879d4a03652363c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreForLevel: 100
+  ScoreForLevel: 200
+  ScoreCoefficient: 2
   Buttons:
   - {fileID: 2092367292}
   - {fileID: 1006206335}

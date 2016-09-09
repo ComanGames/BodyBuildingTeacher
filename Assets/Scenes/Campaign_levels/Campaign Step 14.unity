@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PluginMath: {fileID: 0}
   ManagerUi: {fileID: 1571473790}
-  QuestionCount: 15
+  QuestionCount: 20
   AvaliableOperations: 0400000005000000
   IsWrongAnswers: 1
   FirstNumberMin: 1
@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d078f13bdd868e5448325ac9108a58dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreForLevel: 100
+  ScoreForLevel: 700
+  ScoreCoefficient: 3
   AnswerFloating: 1
   LogicWithAnswer: 1
   Buttons:
@@ -565,7 +566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 200.7535
+      value: 199.05222
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -573,7 +574,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 113.835655
+      value: 112.70147
       objectReference: {fileID: 0}
     - target: {fileID: 22407420, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
@@ -589,7 +590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 344.58914
+      value: 341.7537
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -597,7 +598,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 113.835655
+      value: 112.70147
       objectReference: {fileID: 0}
     - target: {fileID: 22491602, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
@@ -629,7 +630,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468422, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 56.917828
+      value: 56.350735
       objectReference: {fileID: 0}
     - target: {fileID: 22468422, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -637,7 +638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468422, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 113.835655
+      value: 112.70147
       objectReference: {fileID: 0}
     - target: {fileID: 22468422, guid: eaa0dcb308b29af45aa360c1d27f8156, type: 2}
       propertyPath: m_SizeDelta.y
@@ -1346,6 +1347,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 187302, guid: aefd9cdef9237554187c0cdd2e3434a3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefd9cdef9237554187c0cdd2e3434a3, type: 2}
   m_IsPrefabParent: 0
@@ -1970,7 +1975,7 @@ MonoBehaviour:
     Step 14
 
 
-    15 questions
+    20 questions
 
 '
 --- !u!222 &2048994895

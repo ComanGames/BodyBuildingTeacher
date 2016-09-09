@@ -41,8 +41,6 @@ namespace Assets.Scripts.Mathematic
 
         public List<MathQuestion> MathQuestions;
 
-        //List of Math Questions for Adventure
-        // Use this for initialization
         public void Start()
         {
             PluginMath = GetComponent<MathPlugin>();
@@ -181,7 +179,6 @@ namespace Assets.Scripts.Mathematic
                     secondNumber = firstNumber / 2;
                 }
             }
-
             return new MathQuestion(firstNumber, secondNumber, operation);
         }
 

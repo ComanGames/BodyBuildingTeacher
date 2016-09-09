@@ -104,5 +104,6 @@ namespace Assets.Scripts.Mathematic
         {
             GameSettings.ScoreAdd(ScoreForLevel*2);
         }
+        
     }
 }

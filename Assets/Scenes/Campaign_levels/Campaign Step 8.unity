@@ -194,7 +194,7 @@ MonoBehaviour:
   FirstNumberMax: 99
   SecondNumberMin: 1
   SecondNumberMax: 99
-  IsWrongLimit: 0
+  IsWrongLimit: 1
   WrongLimit: 5
   AnswerText: 
   randomanswer: 0
@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d078f13bdd868e5448325ac9108a58dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreForLevel: 100
+  ScoreForLevel: 300
+  ScoreCoefficient: 3
   AnswerFloating: 1
   LogicWithAnswer: 0
   Buttons:

@@ -194,7 +194,7 @@ MonoBehaviour:
   FirstNumberMax: 20
   SecondNumberMin: 1
   SecondNumberMax: 20
-  IsWrongLimit: 0
+  IsWrongLimit: 1
   WrongLimit: 5
   AnswerText: 
   randomanswer: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreForLevel: 100
+  ScoreCoefficient: 1
   AnswerFloating: 1
   LogicWithAnswer: 0
   Buttons:

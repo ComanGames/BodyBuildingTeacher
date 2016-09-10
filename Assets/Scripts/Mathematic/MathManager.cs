@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Assets.Scripts.Animations.Scripts;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour
     {
+        public static int LevelStarts;
         public MathPlugin PluginMath;
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -43,6 +45,9 @@ namespace Assets.Scripts.Mathematic
 
         public void Start()
         {
+            LevelStarts++;
+            if (LevelStarts%3 == 0)
+                Ads.Instance.StartAds();
             PluginMath = GetComponent<MathPlugin>();
             //plugin initialization;
             PluginMath?.Init(this);

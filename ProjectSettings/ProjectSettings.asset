@@ -103,7 +103,7 @@ PlayerSettings:
   aotOptions: 
   apiCompatibilityLevel: 2
   stripEngineCode: 1
-  iPhoneStrippingLevel: 0
+  iPhoneStrippingLevel: 3
   iPhoneScriptCallOptimization: 0
   iPhoneBuildNumber: 0
   ForceInternetPermission: 0
@@ -461,7 +461,7 @@ PlayerSettings:
   - tvOS::Architecture
   - tvOS::EnableIncrementalBuildSupportForIl2cpp
   - tvOS::ScriptingBackend
-  Android::ScriptingBackend: 0
+  Android::ScriptingBackend: 1
   Metro::ScriptingBackend: 2
   Standalone::ScriptingBackend: 0
   WebGL::ScriptingBackend: 1

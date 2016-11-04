@@ -21,7 +21,7 @@ namespace Assets.Scripts.Animations.Scripts
     [RequireComponent (typeof (Text))]
    public class CounterAnimation:MonoBehaviour,IUiAnimation
     {
-
+        public AudioSource BeepSound;
         public TypesOfTime TimeTypes;
         public event Action AniamtionDone;
         public float TotalTime;
@@ -60,6 +60,8 @@ namespace Assets.Scripts.Animations.Scripts
                 AniamtionDone?.Invoke();
                 return;
             }
+            BeepSound.Stop();
+            BeepSound.Play();
             CountAnimationData currentData = AnimationTextAndTime[_currentIndex++];
             _uiText.text = currentData.Text;
             Vector3 tragetScale = transform.localScale;

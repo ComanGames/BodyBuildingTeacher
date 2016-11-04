@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Animations.Scripts;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
@@ -7,11 +8,13 @@ namespace Assets.Scripts.Mathematic
     {
         public int FirstQuestionMin = 0;
         public int FirstQuestionMax = 0;
+        public int DoNotMutiplyAfter = 50;
         private bool _isFrist;
         public override void Init(MathManager mathManager)
         {
             base.Init(mathManager);
             _mathManager.RealAnswer = new Random().Next(FirstQuestionMin,FirstQuestionMax);
+            _managerUi.SetTimeLineEndAction(AskQuestion);
             _isFrist = true;
         }
 
@@ -20,9 +23,10 @@ namespace Assets.Scripts.Mathematic
             MathOperation operation = _mathManager.GetRendomOperation();
             int firstNumber =_mathManager.RealAnswer;
             int secondNumber = _mathManager.GetSecondNumber();
+            if (firstNumber >= DoNotMutiplyAfter)
+                operation = MathOperation.Minus;
             MathQuestion question = _mathManager.CreateMathQuestion(firstNumber, secondNumber, operation);
             AdventureQuestion adventureQuestion = new AdventureQuestion(question.FirstNumber,question.SecondNumber,question.Operation);
-            Debug.Log($"{adventureQuestion.FirstNumber} {adventureQuestion.Operation} {adventureQuestion.SecondNumber}"); 
             return adventureQuestion;
         }
 
@@ -31,7 +35,7 @@ namespace Assets.Scripts.Mathematic
             //If we have first question
             if (_isFrist)
             {
-                _managerUi.ShowQuestion($"Your number is {_mathManager.RealAnswer}");
+                _managerUi.ShowQuestion($"Start with {_mathManager.RealAnswer}");
                 _managerUi.StartTimeLineAnimation();
                 _isFrist = false;
                 return;
@@ -70,21 +74,28 @@ namespace Assets.Scripts.Mathematic
         {
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are so slow\nRight answer was: {_mathManager.RealAnswer}");
+            _managerUi.EndGame($"You are to slow\nCorrect answer is: {_mathManager.RealAnswer}");
         }
         public override void RightAnswer()
         {
+            GameSettings.ScoreAdd(ScoreForLevel);
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are cool!");
+            _managerUi.EndGame($"Congratulations!\nCorrect answer is: {_mathManager.RealAnswer} ");
         }
 
 
         public override void WrongAnswer()
         {
+
             _managerUi.UpdateAnswerView("");
             _mathManager._isReady = false;
-            _managerUi.EndGame($"You are loser\nRight answer was: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
+            _managerUi.EndGame($"Ooops\nCorrect answer is: {_mathManager.RealAnswer}\n Your answer was:{_mathManager.AnswerText}");
+        }
+
+        protected override void ScoreUpdate()
+        {
+          
         }
     }
 }

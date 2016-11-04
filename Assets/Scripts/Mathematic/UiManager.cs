@@ -15,7 +15,7 @@ namespace Assets.Scripts.Mathematic
         public Text AnswersInfoText;
         public float FadeOutTime = 1.0f;
         public float EndTimeOut = 0.5f;
-        public bool IsIntroduction;
+        public bool IsIntroduction = true;
         public bool IntrodcutionEnableAndNotNull => IsIntroduction && IntruductionAnimation != null;
         public CounterAnimation AnimationCounter;
         public GameObject CounterCanvas;
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Mathematic
         public TimeLineAnimation AnimationTimeLine;
         public SimpleAnimation GameOverAnimation;
         public SimpleAnimation IntruductionAnimation;
-        public Toggle IntroductionToggle;
+//        public Toggle IntroductionToggle;
         public Timer TimerText;
 
         public SimpleAnimation LevelOverAnimation;
@@ -55,23 +55,14 @@ namespace Assets.Scripts.Mathematic
 
         public void Start()
         {
-            
-            GameOverAnimation.StartPosition();
+           GameOverAnimation.StartPosition();
         }
        
 
-        private void SaveSetting()
-        {
-            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
-            levelSettings.IsIntroduction = IntroductionToggle.isOn;
-            GameSettings.SaveLevelSetings(Utilities.GetSceneName(), levelSettings);
-        }
-
         private void LoadSettings()
         {
-            LevelSettings levelSettings = GameSettings.GetlLevelSetting(Utilities.GetSceneName());
-            IsIntroduction = levelSettings.IsIntroduction;
-            IntroductionToggle.isOn = IsIntroduction;
+            IsIntroduction = GameSettings.Settings.IsIntroduction;
+//            IntroductionToggle.isOn = IsIntroduction;
         }
 
         public void Clear()
@@ -145,7 +136,6 @@ namespace Assets.Scripts.Mathematic
 
         public void EndGame(string gameOverText)
         {
-            SaveSetting();
             _isOver = true;
             //Debug.Log("We done game");
             LineAnimationInterface.ResetAnimation();
@@ -164,16 +154,15 @@ namespace Assets.Scripts.Mathematic
         {
             return "Congratulations!\n " +
                                 "Your result:\n" +
-                                $"Correct answers = {right}\n" +
-                                $"Incorrect answers = {wrong}\n";
+                                $"Correct = {right}\n" +
+                                $"Incorrect = {wrong}\n"+
+                                $"Total time is \n{TimerText.MyTimer.text}\n";
         }
         public void StartCounterAnimation(Action callbackAction)
         {
             CounterRemoveAnimation.transform.parent.gameObject.SetActive(true);
             CounterAnimationInterface.StartAnimation();
             CounterAnimationInterface.AniamtionDone += callbackAction;
-
-            SaveSetting();
         }
 
         public void WaitForIntroduction(Action startTime)

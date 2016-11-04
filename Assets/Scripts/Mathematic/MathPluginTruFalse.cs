@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Animations.Scripts;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
@@ -98,5 +99,11 @@ namespace Assets.Scripts.Mathematic
             }
             
         }
+
+        protected override void ScoreUpdate()
+        {
+            GameSettings.ScoreAdd(ScoreForLevel*2);
+        }
+        
     }
 }

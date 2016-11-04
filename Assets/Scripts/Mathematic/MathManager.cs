@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Animations.Scripts;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using Random = System.Random;
 
 namespace Assets.Scripts.Mathematic
 {
     public class MathManager : MonoBehaviour
     {
+        public static int LevelStarts;
         public MathPlugin PluginMath;
         public UiManager ManagerUi;
         public int QuestionCount = 3;
@@ -40,10 +43,11 @@ namespace Assets.Scripts.Mathematic
 
         public List<MathQuestion> MathQuestions;
 
-        //List of Math Questions for Adventure
-        // Use this for initialization
         public void Start()
         {
+            LevelStarts++;
+            if (LevelStarts%3 == 0)
+                Ads.Instance.StartAds();
             PluginMath = GetComponent<MathPlugin>();
             //plugin initialization;
             PluginMath?.Init(this);
@@ -54,7 +58,7 @@ namespace Assets.Scripts.Mathematic
 
             ManagerUi.ClickNextButton += NextButtoClicked;
             ManagerUi.ClickResetButton += ResetCount;
-            
+
             Action counterAnimation = () => ManagerUi.StartCounterAnimation(CounterAnimaitonDone);
             if (ManagerUi.IntrodcutionEnableAndNotNull)
             {
@@ -65,9 +69,10 @@ namespace Assets.Scripts.Mathematic
                 ManagerUi.DisableIntroduction();
                 counterAnimation();
             }
-            ManagerUi.SetTimeLineEndAction(AskQuestion);
+            ManagerUi.SetTimeLineEndAction(NextButtoClicked);
 
         }
+
 
         private void CounterAnimaitonDone()
         {
@@ -84,7 +89,7 @@ namespace Assets.Scripts.Mathematic
         {
             PluginMath.AskQuestion();
         }
-       
+
         public int MadeRandomAnswer()
         {
             if (_randomanswer == null)
@@ -176,10 +181,9 @@ namespace Assets.Scripts.Mathematic
             {
                 if (firstNumber < secondNumber)
                 {
-                    secondNumber = firstNumber/2;
+                    secondNumber = firstNumber / 2;
                 }
             }
-
             return new MathQuestion(firstNumber, secondNumber, operation);
         }
 

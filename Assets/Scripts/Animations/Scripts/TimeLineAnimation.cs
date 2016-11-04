@@ -31,7 +31,6 @@ namespace Assets.Scripts.Animations.Scripts
         public void StartAnimation()
         {
             _currentIndex = 0;
-            Debug.Log("Animation should start");
             GoNextAnim();
         }
 
@@ -54,6 +53,9 @@ namespace Assets.Scripts.Animations.Scripts
             if (f <=GetNextElement().Procent)
             {
                 _currentIndex++;
+                if (_currentIndex >= TimeColors.Length)
+                    return;
+                
                 _currentLerpDelta = 1/(TimeColors[_currentIndex].Procent-GetNextElement().Procent );
                 return;
             }

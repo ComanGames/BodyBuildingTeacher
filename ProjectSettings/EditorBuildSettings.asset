@@ -6,16 +6,84 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuWorkVersion.unity
+    path: Assets/Scenes/MenuMainList.unity
   - enabled: 1
     path: Assets/Scenes/Training.unity
   - enabled: 1
-    path: Assets/Scenes/NonStop Level 1.unity
+    path: Assets/Scenes/MenuAdventure.unity
   - enabled: 1
-    path: Assets/Scenes/NonStop Level 2.unity
+    path: Assets/Scenes/Fake.unity
   - enabled: 1
-    path: Assets/Scenes/Adventure.unity
+    path: Assets/Scenes/Adventure_levels/Child Level.unity
   - enabled: 1
-    path: Assets/Scenes/4buttons.unity
+    path: Assets/Scenes/Adventure_levels/School Level.unity
   - enabled: 1
-    path: Assets/Scenes/True False.unity
+    path: Assets/Scenes/Adventure_levels/Student Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Magister Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Indigo Level.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/CalculatorMan.unity
+  - enabled: 1
+    path: Assets/Scenes/Adventure_levels/Terminator.unity
+  - enabled: 1
+    path: Assets/Scenes/MenuTrueFalse.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 1.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 3.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 4.unity
+  - enabled: 1
+    path: Assets/Scenes/True_False/True False Level 5.unity
+  - enabled: 1
+    path: Assets/Scenes/Menu4Buttons.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 1.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 3.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 4.unity
+  - enabled: 1
+    path: Assets/Scenes/4_buttons_levels/4 buttons Level 5.unity
+  - enabled: 1
+    path: Assets/Scenes/MenuCampaign.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 1.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 2.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 3.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 4.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 5.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 6.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 7.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 8.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 9.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 10.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 11.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 12.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 13.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 14.unity
+  - enabled: 1
+    path: Assets/Scenes/Campaign_levels/Campaign Step 15.unity
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+  - enabled: 1
+    path: Assets/Scenes/TopScore.unity

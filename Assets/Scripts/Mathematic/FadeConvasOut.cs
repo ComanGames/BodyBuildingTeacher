@@ -11,7 +11,7 @@ namespace Assets.Scripts.Mathematic
         //public variables
         public Text IncideText;
         public Image BgImage;
-        public float FadeOutTime;
+        public float FadeOutTime = 0.5f;
         public GameObject CounterCanvas;
 
         public event Action AniamtionDone;
